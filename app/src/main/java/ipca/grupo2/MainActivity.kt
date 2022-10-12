@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
+        analytics = Firebase.analytics
+
         val storageRef = FirebaseStorage.getInstance().reference.child("image/images.jpg")
         val localfile = File.createTempFile("tempImage", "jpg")
 
@@ -40,9 +42,6 @@ class MainActivity : AppCompatActivity() {
         }.addOnFailureListener {
 
         }
-
-        analytics = Firebase.analytics
-
 
     }
 }
