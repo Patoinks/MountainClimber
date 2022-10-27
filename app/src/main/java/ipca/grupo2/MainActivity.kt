@@ -29,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        analytics = Firebase.analytics
+
         val listViewContacts = findViewById<ListView>(R.id.listViewContacts)
         val contactsAdapter = DadosAdapter()
         listViewContacts.adapter = contactsAdapter
@@ -47,9 +50,7 @@ class MainActivity : AppCompatActivity() {
                 contactsAdapter.notifyDataSetChanged()
             }
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
-        analytics = Firebase.analytics
 
         val storageRef = FirebaseStorage.getInstance().reference.child("image/images.jpg")
         val localfile = File.createTempFile("tempImage", "jpg")
