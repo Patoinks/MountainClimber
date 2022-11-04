@@ -1,4 +1,4 @@
-package ipca.grupo2
+package ipca.grupo2.room
 
 import androidx.annotation.NonNull
 import androidx.lifecycle.LiveData

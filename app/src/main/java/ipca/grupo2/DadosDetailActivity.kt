@@ -1,12 +1,11 @@
 package ipca.grupo2
 
-import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import ipca.grupo2.room.AppDatabase
+import ipca.grupo2.room.Dados
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

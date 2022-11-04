@@ -1,4 +1,4 @@
-package ipca.grupo2
+package ipca.grupo2.room
 
 import android.content.Context
 import androidx.room.Database

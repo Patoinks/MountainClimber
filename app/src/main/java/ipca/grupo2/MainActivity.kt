@@ -13,9 +13,14 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import ipca.grupo2.auth.LoginActivity
 import ipca.grupo2.databinding.ActivityMainBinding
+import ipca.grupo2.room.AppDatabase
+import ipca.grupo2.room.Dados
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     var dados : List<Dados> = arrayListOf()
     lateinit var binding: ActivityMainBinding
     private lateinit var analytics: FirebaseAnalytics
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         analytics = Firebase.analytics
+        auth = Firebase.auth
 
         val listViewContacts = findViewById<ListView>(R.id.listViewContacts)
         val contactsAdapter = DadosAdapter()
@@ -42,33 +49,11 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-        AppDatabase
-            .getDatabase(this@MainActivity)
-            ?.dadosDao()
-            ?.getAllLive()?.observe(this){
-                this@MainActivity.dados = it
-                contactsAdapter.notifyDataSetChanged()
-            }
-
-
-
-        val storageRef = FirebaseStorage.getInstance().reference.child("image/images.jpg")
-        val localfile = File.createTempFile("tempImage", "jpg")
-
-        storageRef.getFile(localfile).addOnSuccessListener {
-
-            /*if (progressDialog.isShowing)
-                progressDialog.dismiss()*/
-
-            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
-            //val bitmap = Bitmap.createScaledBitmap(image, 1200, 628, false)
-
-            //binding.imageViewURL.setImageBitmap(bitmap)
-            /*val image = bitmap
-            Picasso.get().load(image).resize(10, 10).into(bind.imageViewURL)*/
-
-        }.addOnFailureListener {
-
+        binding.signOut.setOnClickListener {
+            auth.signOut()
+            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }
