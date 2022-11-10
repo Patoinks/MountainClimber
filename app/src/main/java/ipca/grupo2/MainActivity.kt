@@ -62,10 +62,8 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 }
-
-
             }
-    }
+        }
 
         inner class DadosAdapter : BaseAdapter() {
             override fun getCount(): Int {
