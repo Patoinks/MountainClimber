@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -43,49 +43,59 @@ class MainActivity : AppCompatActivity() {
         val contactsAdapter = DadosAdapter()
         listViewContacts.adapter = contactsAdapter
 
-        findViewById<FloatingActionButton>(R.id.floatingActionButton)
-            .setOnClickListener {
-                val intent = Intent(this@MainActivity, DadosDetailActivity::class.java)
-                startActivity(intent)
+        AppDatabase
+            .getDatabase(this@MainActivity)
+            ?.dadosDao()
+            ?.getAllLive()?.observe(this) {
+                this@MainActivity.dados = it
+                contactsAdapter.notifyDataSetChanged()
+
+                findViewById<FloatingActionButton>(R.id.floatingActionButton)
+                    .setOnClickListener {
+                        val intent = Intent(this@MainActivity, DadosDetailActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                binding.signOut.setOnClickListener {
+                    auth.signOut()
+                    val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
+
             }
-
-        binding.signOut.setOnClickListener {
-            auth.signOut()
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
     }
 
-    inner class DadosAdapter : BaseAdapter(){
-        override fun getCount(): Int {
-            return dados.size
-        }
-
-        override fun getItem(position: Int): Any {
-            return dados[position]
-        }
-
-        override fun getItemId(position: Int): Long {
-            return 0
-        }
-
-        override fun getView(position: Int, view: View?, viewGroup: ViewGroup?): View {
-            val rootView = layoutInflater.inflate(R.layout.row_contact,viewGroup,false)
-
-            val textViewName = rootView.findViewById<TextView>(R.id.textViewName)
-            val textViewContact = rootView.findViewById<TextView>(R.id.textViewContact)
-            textViewName.text = dados[position].name
-            textViewContact.text = dados[position].phone
-
-            rootView.setOnClickListener {
-                val intent = Intent(this@MainActivity, DadosDetailActivity::class.java)
-                intent.putExtra(DadosDetailActivity.DADOS_ID, dados[position].uid)
-                startActivity(intent)
+        inner class DadosAdapter : BaseAdapter() {
+            override fun getCount(): Int {
+                return dados.size
             }
 
-            return rootView
+            override fun getItem(position: Int): Any {
+                return dados[position]
+            }
+
+            override fun getItemId(position: Int): Long {
+                return 0
+            }
+
+            override fun getView(position: Int, view: View?, viewGroup: ViewGroup?): View {
+                val rootView = layoutInflater.inflate(R.layout.row_contact, viewGroup, false)
+
+                val textViewName = rootView.findViewById<TextView>(R.id.textViewName)
+                val textViewContact = rootView.findViewById<TextView>(R.id.textViewContact)
+                textViewName.text = dados[position].name
+                textViewContact.text = dados[position].phone
+
+                rootView.setOnClickListener {
+                    val intent = Intent(this@MainActivity, DadosDetailActivity::class.java)
+                    intent.putExtra(DadosDetailActivity.DADOS_ID, dados[position].uid)
+                    startActivity(intent)
+                }
+
+                return rootView
+            }
         }
     }
-}
+
