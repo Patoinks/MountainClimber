@@ -25,23 +25,24 @@ import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
-    var dados : List<Dados> = arrayListOf()
-    lateinit var binding: ActivityMainBinding
+    var dados : List<Dados> = arrayListOf() //Array do Room
+    lateinit var binding: ActivityMainBinding //Bind ao xml activity_main
+
     private lateinit var analytics: FirebaseAnalytics
     private lateinit var auth: FirebaseAuth
 
+    //Ao criar pagina
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         analytics = Firebase.analytics
         auth = Firebase.auth
 
-        val listViewContacts = findViewById<ListView>(R.id.listViewContacts)
+      //  val listViewContacts = findViewById<ListView>(R.id.listViewContacts)
         val contactsAdapter = DadosAdapter()
-        listViewContacts.adapter = contactsAdapter
+      //  listViewContacts.adapter = contactsAdapter
 
         AppDatabase
             .getDatabase(this@MainActivity)
