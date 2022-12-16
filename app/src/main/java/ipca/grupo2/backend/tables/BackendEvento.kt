@@ -17,8 +17,7 @@ object BackendEvento {
         var curUser = Backend.getCurrentUser();
 
         Backend.getFS().collection(ref).get().addOnSuccessListener { result ->
-            for (doc in result)
-            {
+            for (doc in result) {
                 // this can throw an exception if document handled
                 // incorrectly
                 try {
@@ -32,5 +31,9 @@ object BackendEvento {
         }
 
         return mutableList;
+    }
+
+    public fun getRef() : String{
+        return this.ref;
     }
 }

@@ -6,24 +6,29 @@ class Utilizador {
 
     // Attributes
     private var id: String? = null;
-    // todo atributes
+    private var email: String? = null;
+    private var password: String? = null;
     private var isGuia: Boolean? = null;
 
     // Constructors
     constructor()
-    constructor(id: String?, isGuia: Boolean?) {
-        this.id = id;
-        this.isGuia = isGuia;
+    constructor(id: String?, email: String?, password: String?, isGuia: Boolean?) {
+        this.id = id
+        this.email = email
+        this.password = password
+        this.isGuia = isGuia
+    }
+
+    public fun getId() : String?{
+        return this.id;
+    }
+
+    public fun getIsGuia() : Boolean?{
+        return this.isGuia;
     }
 
     // Functions
     companion object {
-        fun queryDocToObj(query: QueryDocumentSnapshot): Utilizador {
-            return Utilizador(
-                query.data.getValue("id") as String?,
-                query.data.getValue("isGuia") as Boolean?
-            );
-        }
     }
 
 }
