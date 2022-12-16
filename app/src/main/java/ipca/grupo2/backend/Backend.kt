@@ -10,9 +10,9 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 
 object Backend {
-    private var sr = Firebase.storage
-    private var fs = Firebase.firestore
-    private var au = Firebase.auth
+    private var sr = Firebase.storage;
+    private var fs = Firebase.firestore;
+    private var au = Firebase.auth;
 
     fun getFS() : FirebaseFirestore {
         return fs;

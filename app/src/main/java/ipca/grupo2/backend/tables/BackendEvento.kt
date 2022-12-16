@@ -23,7 +23,7 @@ object BackendEvento {
                 // incorrectly
                 try {
                     var tempEvento = doc.toObject<Evento>();
-                    if (tempEvento.idGuia == curUser?.uid)
+                    if (tempEvento.getIdGuia() == curUser?.uid)
                         mutableList.add(tempEvento);
                 } catch (e: Exception){
                     // pls frontend

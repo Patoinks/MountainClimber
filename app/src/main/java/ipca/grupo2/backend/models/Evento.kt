@@ -7,21 +7,25 @@ import java.util.*
 class Evento {
 
     // Attributes
-    var id: String? = null
-    var idGuia: String? = null
-    var location: String? = null
-    var dateStart: Date? = null
-    var dateFinish: Date? = null
+    private var id: String? = null;
+    private var idGuia: String? = null;
+    private var location: String? = null;
+    private var dateStart: Date? = null;
+    private var dateFinish: Date? = null;
 
     // Constructors
     constructor()
 
     constructor(id: String?, idGuia: String?, location: String?, dateStart: Date?, dateFinish: Date?) {
-        this.id = id
-        this.idGuia = idGuia
-        this.location = location
-        this.dateStart = dateStart
-        this.dateFinish = dateFinish
+        this.id = id;
+        this.idGuia = idGuia;
+        this.location = location;
+        this.dateStart = dateStart;
+        this.dateFinish = dateFinish;
+    }
+
+    public fun getIdGuia() : String?{
+        return this.idGuia;
     }
 
     // Functions
@@ -33,7 +37,7 @@ class Evento {
                 query.data.getValue("location") as String?,
                 query.data.getValue("dateStart") as Date?,
                 query.data.getValue("dateFinish") as Date?,
-            )
+            );
         }
     }
 }
