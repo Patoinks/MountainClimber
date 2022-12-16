@@ -7,14 +7,16 @@ import java.util.*
 class Evento {
 
     // Attributes
-    var id: UUID? = null
-    var idGuia: UUID? = null
+    var id: String? = null
+    var idGuia: String? = null
     var location: String? = null
     var dateStart: Date? = null
     var dateFinish: Date? = null
 
     // Constructors
-    constructor(id: UUID?, idGuia: UUID?, location: String?, dateStart: Date?, dateFinish: Date?) {
+    constructor()
+
+    constructor(id: String?, idGuia: String?, location: String?, dateStart: Date?, dateFinish: Date?) {
         this.id = id
         this.idGuia = idGuia
         this.location = location
@@ -26,10 +28,10 @@ class Evento {
     companion object {
         fun queryDocToObj(query: QueryDocumentSnapshot): Evento {
             return Evento(
-                UUID.fromString(query.id),
-                query.data.getValue("idGuia") as UUID?,
+                query.data.getValue("id") as String?,
+                query.data.getValue("idGuia") as String?,
                 query.data.getValue("location") as String?,
-                query.data.getValue("dateBeggining") as Date?,
+                query.data.getValue("dateStart") as Date?,
                 query.data.getValue("dateFinish") as Date?,
             )
         }

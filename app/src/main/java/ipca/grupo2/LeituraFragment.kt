@@ -33,7 +33,7 @@ class LeituraFragment : Fragment() {
 
                 //Variaveis
                 val view: View = inflater.inflate(R.layout.fragment_leitura, container, false)
-                var backendERef = BackendEvento()
+                /*var backendERef = BackendEvento()
                 var itens : MutableList<Evento>? = backendERef.getAllEventosByUserID()
                 var pratos = backend.
 
@@ -46,8 +46,11 @@ class LeituraFragment : Fragment() {
                 for (prato in pratos) {
                     itens.add(prato)
                 }
+*/
 
-
-        return view
+                return null;
+            }
+        }
+        return null;
     }
 }

@@ -33,7 +33,7 @@ class EmentaRecyclerAdapter(val evento: MutableList<Evento>, val context: Contex
         val currentitem = evento[position]
 
         //Popular RecyclerView
-        holder.
+        //holder.
 
 
         //Clicar numa row da RecyclerView
@@ -54,7 +54,7 @@ class EmentaRecyclerAdapter(val evento: MutableList<Evento>, val context: Contex
 
         //Declarar Variaveis de Views
 
-        val local : TextView = itemView.findViewById(R.id.)
+        //val local : TextView = itemView.findViewById(R.id.)
 
     }
 }

@@ -9,8 +9,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import ipca.grupo2.backend.Backend
+import ipca.grupo2.backend.tables.BackendEvento
 import ipca.grupo2.menu.MainActivity
 import ipca.grupo2.databinding.ActivityLoginBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
@@ -35,6 +39,9 @@ class LoginActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
+                        GlobalScope.launch {
+                            val data = BackendEvento.getAllEventosByUserID()
+                        }
                         Log.d(TAG, "signInWithEmail:success")
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)

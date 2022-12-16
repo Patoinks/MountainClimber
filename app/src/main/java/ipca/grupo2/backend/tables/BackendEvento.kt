@@ -1,28 +1,36 @@
 package ipca.grupo2.backend.tables
 
+import com.google.firebase.firestore.ktx.toObject
 import ipca.grupo2.backend.models.Evento
 import java.util.*
 import ipca.grupo2.backend.Backend
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
-class BackendEvento {
-    private var backendRef : Backend = Backend()
-    private var ref = "eventos"
+object BackendEvento {
+    private var ref = "eventos";
 
-    fun getAllEventosByUserID() : MutableList<Evento>?{
-        var mutableList : MutableList<Evento> = arrayListOf()
-        var curUser = backendRef.getCurrentUser()
+    suspend public fun getAllEventosByUserID() : MutableList<Evento>?{
+        var mutableList : MutableList<Evento> = arrayListOf();
+        var curUser = Backend.getCurrentUser();
 
-        backendRef.getFS().collection(ref)
-            .get()
-            .addOnSuccessListener { result ->
-                for (doc in result)
-                {
-                    var tempEvento = Evento.queryDocToObj(doc)
-                    if (tempEvento.idGuia == UUID.fromString(curUser?.uid))
-                        mutableList.add(Evento.queryDocToObj(doc))
+        Backend.getFS().collection(ref).get().addOnSuccessListener { result ->
+            for (doc in result)
+            {
+                // this can throw an exception if document handled
+                // incorrectly
+                try {
+                    var tempEvento = doc.toObject<Evento>();
+                    if (tempEvento.idGuia == curUser?.uid)
+                        mutableList.add(tempEvento);
+                } catch (e: Exception){
+                    // pls frontend
                 }
             }
+        }
 
-        return mutableList
+        return mutableList;
     }
 }
