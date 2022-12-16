@@ -11,9 +11,9 @@ class EventoUtilizador {
     constructor()
 
     constructor(id: String?, idEvento: String?, idUtilizador: String?) {
-        this.id = id
-        this.idEvento = idEvento
-        this.idUtilizador = idUtilizador
+        this.id = id;
+        this.idEvento = idEvento;
+        this.idUtilizador = idUtilizador;
     }
 
     public fun getIdEvento() : String?{

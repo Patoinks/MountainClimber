@@ -14,7 +14,7 @@ object BackendUtilizador {
 
         Backend.getAU().signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
-                isSuccessful = it.isSuccessful
+                isSuccessful = it.isSuccessful;
             }
 
         return isSuccessful;
@@ -28,7 +28,7 @@ object BackendUtilizador {
                 try{
                     var tempUtilizador = doc.toObject<Utilizador>()
                     if (tempUtilizador.getId() == uid){
-                        utilizador = tempUtilizador
+                        utilizador = tempUtilizador;
                         break;
                     }
                 } catch (e: Exception){
@@ -50,8 +50,8 @@ object BackendUtilizador {
             if (allEvents != null) {
                 for (event in allEvents){
                     if (event.getIdEvento() == idEvento){
-                        var tempUtilizador = getUtilizadorById(event.getIdUtilizador()!!)
-                        mutableList.add(tempUtilizador!!)
+                        var tempUtilizador = getUtilizadorById(event.getIdUtilizador()!!);
+                        mutableList.add(tempUtilizador!!);
                     }
                 }
             }

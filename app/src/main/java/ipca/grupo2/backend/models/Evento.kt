@@ -27,17 +27,4 @@ class Evento {
     public fun getIdGuia() : String?{
         return this.idGuia;
     }
-
-    // Functions
-    companion object {
-        fun queryDocToObj(query: QueryDocumentSnapshot): Evento {
-            return Evento(
-                query.data.getValue("id") as String?,
-                query.data.getValue("idGuia") as String?,
-                query.data.getValue("location") as String?,
-                query.data.getValue("dateStart") as Date?,
-                query.data.getValue("dateFinish") as Date?,
-            );
-        }
-    }
 }

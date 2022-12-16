@@ -13,10 +13,10 @@ class Utilizador {
     // Constructors
     constructor()
     constructor(id: String?, email: String?, password: String?, isGuia: Boolean?) {
-        this.id = id
-        this.email = email
-        this.password = password
-        this.isGuia = isGuia
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.isGuia = isGuia;
     }
 
     public fun getId() : String?{
@@ -26,9 +26,4 @@ class Utilizador {
     public fun getIsGuia() : Boolean?{
         return this.isGuia;
     }
-
-    // Functions
-    companion object {
-    }
-
 }
