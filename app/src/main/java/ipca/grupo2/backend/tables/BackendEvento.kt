@@ -2,12 +2,7 @@ package ipca.grupo2.backend.tables
 
 import com.google.firebase.firestore.ktx.toObject
 import ipca.grupo2.backend.models.Evento
-import java.util.*
 import ipca.grupo2.backend.Backend
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 
 object BackendEvento {
     private var ref = "eventos";
@@ -19,7 +14,7 @@ object BackendEvento {
         Backend.getFS().collection(ref).get().addOnSuccessListener { result ->
             for (doc in result) {
                 // this can throw an exception if document handled
-                // incorrectly
+                // incorrectly (missing keys/wrong data types)
                 try {
                     var tempEvento = doc.toObject<Evento>();
                     if (tempEvento.getIdGuia() == curUser?.uid)

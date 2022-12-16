@@ -1,7 +1,5 @@
 package ipca.grupo2.backend.models
 
-import com.google.firebase.firestore.QueryDocumentSnapshot
-
 class Utilizador {
 
     // Attributes

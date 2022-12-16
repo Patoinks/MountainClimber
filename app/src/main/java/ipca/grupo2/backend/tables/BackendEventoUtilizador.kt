@@ -3,7 +3,6 @@ package ipca.grupo2.backend.tables
 import com.google.firebase.firestore.ktx.toObject
 import ipca.grupo2.backend.Backend
 import ipca.grupo2.backend.models.EventoUtilizador
-import ipca.grupo2.backend.models.Utilizador
 
 object BackendEventoUtilizador {
     private var ref = "eventosUtilizadores";

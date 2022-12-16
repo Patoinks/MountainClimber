@@ -46,6 +46,7 @@ object BackendUtilizador {
         // get all events and filter out the ones
         // we don't want
         GlobalScope.launch {
+            // might need try catch block
             var allEvents = BackendEventoUtilizador.getAllEventosUtilizadores();
             if (allEvents != null) {
                 for (event in allEvents){

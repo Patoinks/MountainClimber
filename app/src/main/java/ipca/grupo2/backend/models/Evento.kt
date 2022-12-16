@@ -1,7 +1,5 @@
 package ipca.grupo2.backend.models
 
-import com.google.firebase.firestore.QueryDocumentSnapshot
-import org.json.JSONObject
 import java.util.*
 
 class Evento {
