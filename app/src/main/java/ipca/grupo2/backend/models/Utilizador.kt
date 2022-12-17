@@ -31,6 +31,6 @@ class Utilizador {
     }
 
     public fun getIsGuia() : Boolean?{
-        return (this.isGuia == 1)
+        return (this.isGuia == 1);
     }
 }

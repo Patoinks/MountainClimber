@@ -40,9 +40,10 @@ object BackendUtilizador {
         }
     }
 
-    suspend public fun getUtilizadorById (uid: String) : Utilizador? {
+    public suspend fun getUtilizadorById (uid: String) : Utilizador? {
         val collection = Backend.getFS().collection(ref);
         val document = collection.document(uid);
+
         return try {
             val snapshot = document.get().await();
             snapshot.toObject<Utilizador>();
@@ -52,7 +53,7 @@ object BackendUtilizador {
         }
     }
 
-    suspend public fun getAllUtilizadoresByEvento(idEvento: String) : MutableList<Utilizador>{
+    public suspend fun getAllUtilizadoresByEvento(idEvento: String) : MutableList<Utilizador>{
         var mutableList : MutableList<Utilizador> = arrayListOf();
 
         return try{
@@ -67,18 +68,16 @@ object BackendUtilizador {
                     }
                 }
             }
-            mutableList
+            mutableList;
         } catch (e: FirebaseFirestoreException){
             Log.e(TAG, "In getAllUtilizadoresByEvento() -> ", e);
-            mutableList
+            mutableList;
         }
     }
 
-
-    suspend public fun signOut(){
+    public suspend fun signOut(){
         Backend.getAU().signOut();
     }
-
 
     public fun getRef() : String{
         return this.ref;
