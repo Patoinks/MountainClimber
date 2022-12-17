@@ -6,11 +6,11 @@ class Utilizador {
     private var id: String? = null;
     private var email: String? = null;
     private var password: String? = null;
-    private var isGuia: Boolean? = null;
+    private var isGuia: Int? = null;
 
     // Constructors
     constructor()
-    constructor(id: String?, email: String?, password: String?, isGuia: Boolean?) {
+    constructor(id: String?, email: String?, password: String?, isGuia: Int?) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -21,7 +21,16 @@ class Utilizador {
         return this.id;
     }
 
+    public fun getEmail() : String?{
+        return this.email;
+    }
+
+    // CAREFUL CALLING THIS
+    public fun getPassword() : String?{
+        return this.password;
+    }
+
     public fun getIsGuia() : Boolean?{
-        return this.isGuia;
+        return (this.isGuia == 1)
     }
 }
