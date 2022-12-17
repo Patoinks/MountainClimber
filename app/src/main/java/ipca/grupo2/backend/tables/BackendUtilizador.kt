@@ -15,6 +15,15 @@ object BackendUtilizador {
         Backend.getAU().signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 isSuccessful = it.isSuccessful;
+
+                // Only allow "guia"'s to login
+                if (isSuccessful){
+                    GlobalScope.launch {
+                        var user = getUtilizadorById(Backend.getAU().currentUser!!.uid);
+                        if (user!!.getIsGuia() == false)
+                            signOut();
+                    }
+                }
             }
 
         return isSuccessful;
@@ -38,6 +47,10 @@ object BackendUtilizador {
         }
 
         return utilizador;
+    }
+
+    suspend public fun signOut(){
+        Backend.getAU().signOut()
     }
 
     suspend public fun getAllUtilizadoresByEvento(idEvento: String) : MutableList<Utilizador>{
