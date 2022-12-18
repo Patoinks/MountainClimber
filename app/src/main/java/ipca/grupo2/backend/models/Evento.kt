@@ -25,4 +25,8 @@ class Evento {
     public fun getIdGuia() : String?{
         return this.idGuia;
     }
+    public fun getLocation() : String?{
+        return this.location;
+    }
+
 }

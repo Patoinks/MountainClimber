@@ -7,95 +7,27 @@
     android:background="@color/black"
     tools:context=".menu.MainActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/signOut"
-        android:layout_width="108dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/white"
-        android:drawable="@drawable/redondinho"
-        android:text="Sign Out"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
-        app:layout_constraintHorizontal_bias="0.678"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/botaoGestao"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/redondinho"
-        android:backgroundTint="@color/white"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/montanha2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.226"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/montanha3"
-        android:layout_width="360dp"
-        android:layout_height="409dp"
-        android:src="@drawable/trianguloescuro"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="379dp"
+        android:layout_height="54dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        android:elevation="22dp"
+        app:menu="@menu/bottom_navigation_menu"
+        android:background="@drawable/round_corner"/>
 
-    <ImageView
-        android:id="@+id/montanha2"
-        android:layout_width="604dp"
-        android:layout_height="514dp"
-        android:layout_marginTop="284dp"
-        android:src="@drawable/montanhagg"
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/montanha1"
-        android:layout_width="317dp"
-        android:layout_height="361dp"
-        android:layout_marginEnd="144dp"
-        android:src="@drawable/triangulo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/botaoLeitura"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="200dp"
-        android:background="@drawable/redondinho"
-        android:backgroundTint="@color/white"
-        android:drawableTint="@color/white"
-        app:backgroundTint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.744"
-        app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

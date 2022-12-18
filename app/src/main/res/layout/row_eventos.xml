@@ -6,15 +6,16 @@
     android:layout_height="wrap_content"
     android:background="#0E1B33">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/botaoEvento"
-        android:layout_width="246dp"
-        android:layout_height="83dp"
-        android:background="@drawable/redondinho"
-        android:backgroundTint="@color/white"
-        app:backgroundTint="@color/white"
+    <TextView
+        android:id="@+id/local"
+        android:layout_width="418dp"
+        android:layout_height="51dp"
+        android:text="Eventos"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

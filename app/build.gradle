@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android-extensions'
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
 }
@@ -31,8 +32,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
-        viewBinding true
+    viewBinding {
+        enabled = true
     }
     namespace 'ipca.grupo2'
 }

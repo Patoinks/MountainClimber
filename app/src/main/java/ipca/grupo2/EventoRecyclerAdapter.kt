@@ -4,24 +4,21 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import ipca.grupo2.R
 import ipca.grupo2.backend.models.Evento
 
 
-class EmentaRecyclerAdapter(val evento: MutableList<Evento>, val context: Context) :
-    RecyclerView.Adapter<EmentaRecyclerAdapter.MyViewHolder>() {
+class EventoRecyclerAdapter(val eventos: MutableList<Evento>, val context: Context) :
+    RecyclerView.Adapter<EventoRecyclerAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         //Declarar ItemView como RecyclerView
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.fragment_leitura,
+            R.layout.row_eventos,
             parent,false)
         return MyViewHolder(itemView)
 
@@ -30,8 +27,9 @@ class EmentaRecyclerAdapter(val evento: MutableList<Evento>, val context: Contex
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         //Variaveis
-        val currentitem = evento[position]
+        val currentitem = eventos[position]
 
+        holder.local.text = currentitem.getLocation()
         //Popular RecyclerView
         //holder.
 
@@ -47,14 +45,14 @@ class EmentaRecyclerAdapter(val evento: MutableList<Evento>, val context: Contex
     override fun getItemCount(): Int {
 
         //Tamanho
-        return evento.size
+        return eventos.size
     }
 
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
         //Declarar Variaveis de Views
 
-        //val local : TextView = itemView.findViewById(R.id.)
+        val local : TextView = itemView.findViewById(R.id.local)
 
     }
 }
