@@ -1,6 +1,5 @@
 package ipca.grupo2.backend.tables
 
-import android.provider.Settings.Global
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ktx.toObject
@@ -8,8 +7,6 @@ import ipca.grupo2.auth.LoginActivity.Companion.TAG
 import ipca.grupo2.backend.Backend
 import ipca.grupo2.backend.models.Utilizador
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
@@ -32,7 +29,7 @@ object BackendUtilizador {
                         }
                     }
                 }
-            }
+            }.await()
             isSuccessful;
         } catch (e: FirebaseFirestoreException){
             Log.e(TAG, "In login() -> ", e);

@@ -3,11 +3,12 @@ package ipca.grupo2.backend.tables
 import com.google.firebase.firestore.ktx.toObject
 import ipca.grupo2.backend.Backend
 import ipca.grupo2.backend.models.EventoUtilizador
+import kotlinx.coroutines.tasks.await
 
 object BackendEventoUtilizador {
     private var ref = "eventosUtilizadores";
 
-    suspend public fun getAllEventosUtilizadores() : MutableList<EventoUtilizador>?{
+    public suspend fun getAllEventosUtilizadores() : MutableList<EventoUtilizador>?{
         var mutableList : MutableList<EventoUtilizador> = arrayListOf();
 
         Backend.getFS().collection(ref).get().addOnSuccessListener { result ->
@@ -19,7 +20,7 @@ object BackendEventoUtilizador {
                     // pls frontend
                 }
             }
-        }
+        }.await()
 
         return mutableList;
     }
