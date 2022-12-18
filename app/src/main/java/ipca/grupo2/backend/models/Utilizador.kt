@@ -10,6 +10,7 @@ class Utilizador {
 
     // Constructors
     constructor()
+
     constructor(id: String?, email: String?, password: String?, isGuia: Int?) {
         this.id = id;
         this.email = email;
@@ -27,7 +28,8 @@ class Utilizador {
 
     // CAREFUL CALLING THIS
     public fun getPassword() : String?{
-        return this.password;
+        return null; // not getting password unless 100% necessary
+        //return this.password;
     }
 
     public fun getIsGuia() : Boolean?{

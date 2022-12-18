@@ -22,7 +22,23 @@ class Evento {
         this.dateFinish = dateFinish;
     }
 
+    public fun getId() : String?{
+        return this.id;
+    }
+
     public fun getIdGuia() : String?{
         return this.idGuia;
+    }
+
+    public fun getLocation() : String?{
+        return this.location;
+    }
+
+    public fun getDateStart() : Date?{
+        return this.dateStart;
+    }
+
+    public fun getDateFinish(): Date?{
+        return this.dateFinish;
     }
 }
