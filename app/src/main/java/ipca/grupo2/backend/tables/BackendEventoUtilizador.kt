@@ -1,6 +1,7 @@
 package ipca.grupo2.backend.tables
 
 import android.util.Log
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ktx.toObject
 import ipca.grupo2.auth.LoginActivity
@@ -9,11 +10,11 @@ import ipca.grupo2.backend.models.EventoUtilizador
 import kotlinx.coroutines.tasks.await
 
 object BackendEventoUtilizador {
-    private var ref = "eventosUtilizadores";
+    private const val ref = "eventosUtilizadores";
+    private val collection = Backend.getFS().collection(ref);
 
     public suspend fun getAllEventosUtilizadores() : MutableList<EventoUtilizador>?{
         var mutableList : MutableList<EventoUtilizador> = arrayListOf();
-        val collection = Backend.getFS().collection(ref);
 
         return try{
             collection.get().addOnSuccessListener { result ->
@@ -31,6 +32,10 @@ object BackendEventoUtilizador {
             Log.e(LoginActivity.TAG, "In getAllEventosUtilizadores() -> ", e);
             mutableList;
         }
+    }
+
+    public fun getCollection() : CollectionReference {
+        return this.collection;
     }
 
     public fun getRef() : String{

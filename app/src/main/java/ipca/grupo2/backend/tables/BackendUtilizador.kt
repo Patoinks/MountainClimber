@@ -1,6 +1,7 @@
 package ipca.grupo2.backend.tables
 
 import android.util.Log
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ktx.toObject
 import ipca.grupo2.auth.LoginActivity.Companion.TAG
@@ -11,7 +12,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
 object BackendUtilizador {
-    private var ref = "utilizadores";
+    private const val ref = "utilizadores";
+    private val collection = Backend.getFS().collection(ref);
 
     suspend fun login(email: String, password: String) : Boolean{
         var isSuccessful = false;
@@ -38,7 +40,6 @@ object BackendUtilizador {
     }
 
     public suspend fun getUtilizadorById (uid: String) : Utilizador? {
-        val collection = Backend.getFS().collection(ref);
         val document = collection.document(uid);
 
         return try {
@@ -57,7 +58,7 @@ object BackendUtilizador {
             // get all events and filter out the ones
             // we don't want
             var allEvents = BackendEventoUtilizador.getAllEventosUtilizadores();
-            if (allEvents != null){
+                if (allEvents != null){
                 for (event in allEvents){
                     if (event.getIdEvento() == idEvento){
                         var tempUtilizador = getUtilizadorById(event.getIdUtilizador()!!);
@@ -74,6 +75,10 @@ object BackendUtilizador {
 
     public suspend fun signOut(){
         Backend.getAU().signOut();
+    }
+
+    public fun getCollection() : CollectionReference {
+        return this.collection;
     }
 
     public fun getRef() : String{
