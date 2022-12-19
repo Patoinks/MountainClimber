@@ -36,6 +36,33 @@ object BackendEvento {
         }
     }
 
+    public suspend fun getAllValidEventosByUserID() : MutableList<Evento>?{
+        var mutableList : MutableList<Evento> = arrayListOf();
+        val collection = Backend.getFS().collection(ref);
+
+        return try{
+            collection.get().addOnSuccessListener { result ->
+                for (doc in result) {
+                    try {
+                        var tempEvento = doc.toObject<Evento>();
+                        if (tempEvento.getIdGuia() == Backend.getCurrentUser()!!.uid)
+                            // Check valid
+                            if (tempEvento.isValid())
+                                mutableList.add(tempEvento);
+                    } catch (e: Exception){
+                        // pls frontend
+                    }
+                }
+            }.await()
+            mutableList;
+        } catch (e: FirebaseFirestoreException){
+            Log.e(LoginActivity.TAG, "In getAllEventosByUserID() -> ", e);
+            mutableList;
+        }
+    }
+
+
+
     public fun getRef() : String{
         return this.ref;
     }

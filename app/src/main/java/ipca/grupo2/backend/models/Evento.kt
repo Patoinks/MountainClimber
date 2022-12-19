@@ -1,5 +1,6 @@
 package ipca.grupo2.backend.models
 
+import java.time.LocalDate
 import java.util.*
 
 class Evento {
@@ -38,7 +39,14 @@ class Evento {
         return this.dateStart;
     }
 
-    public fun getDateFinish(): Date?{
+    public fun getDateFinish() : Date?{
         return this.dateFinish;
+    }
+
+    public fun isValid() : Boolean{
+        if (this.dateFinish == null || this.dateStart == null)
+            return false;
+
+        return !(this.dateFinish!!.after(Date()));
     }
 }
