@@ -16,12 +16,11 @@
         android:layout_height="match_parent">
 </TextView>
 
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RviewEvento"
-        android:layout_marginTop="120dp"
-        tools:listitem="@layout/row_eventos"
+        android:id="@+id/eventosRecicla"
         android:layout_width="match_parent"
-        android:layout_height="582dp" />
+        tools:listitem="@layout/row_eventos"
+        android:layout_height="618dp"
+        android:layout_marginTop="120dp" />
 
 </FrameLayout>
