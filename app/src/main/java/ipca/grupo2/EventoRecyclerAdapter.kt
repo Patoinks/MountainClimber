@@ -1,6 +1,7 @@
 package ipca.grupo2
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,50 +11,33 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import ipca.grupo2.backend.models.Evento
 
-
 class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context) :
-    RecyclerView.Adapter<EventoRecyclerAdapter.MyViewHolder>() {
+    RecyclerView.Adapter<EventoRecyclerAdapter.ViewHolder>() {
 
+    // Define the ViewHolder class
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val textViewLocal : TextView = itemView.findViewById(R.id.local);
+    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
-        //Declarar ItemView como RecyclerView
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.row_eventos,
-            parent,false)
-        return MyViewHolder(itemView)
-
+            parent,false);
+        return ViewHolder(itemView);
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        // Retrieve the data for the current position
+        val data = eventos[position];
 
-        //Variaveis
-        val evento : Evento = eventos[position]
-        holder.local.text = evento.getLocation().toString()
+        // Debug purposes again
+        Log.d("eventoAdapter", holder.textViewLocal.text.toString() + " text");
 
-
-
-
-        holder.itemView.setOnClickListener {
-            val fragmentManager = (context as FragmentActivity).supportFragmentManager
-            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.frame_layout, EventosFragment())
-            fragmentTransaction.addToBackStack(null).commit()
-        }
-
-
-        }
+        // Set the data to the views
+        holder.textViewLocal.text = data.getLocation();
+    }
 
     override fun getItemCount(): Int {
-
-        //Tamanho
-        return eventos.size
-    }
-
-    class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-
-        //Declarar Variaveis de Views
-        val local : TextView = itemView.findViewById(R.id.local)
-
+        return eventos.size;
     }
 }

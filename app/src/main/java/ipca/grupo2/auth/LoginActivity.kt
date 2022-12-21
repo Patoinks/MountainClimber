@@ -11,6 +11,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import ipca.grupo2.backend.Backend
 import ipca.grupo2.backend.tables.BackendEvento
+import ipca.grupo2.backend.tables.BackendUtilizador
 import ipca.grupo2.menu.MainActivity
 import ipca.grupo2.databinding.ActivityLoginBinding
 import kotlinx.coroutines.GlobalScope
@@ -36,24 +37,33 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.email.text.toString()
             val password = binding.password.text.toString()
 
-            auth.signInWithEmailAndPassword(email, password)
+            GlobalScope.launch {
+                var success = BackendUtilizador.login(email, password);
+                if (success){
+                    val intent = Intent(baseContext, MainActivity::class.java);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(
+                        baseContext, "Utilizador ou password errado!",
+                        Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
+
+            /*auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         GlobalScope.launch {
                             val data = BackendEvento.getAllEventosByUserID()
                         }
                         Log.d(TAG, "signInWithEmail:success")
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
+
 
                     } else {
                         Log.w(TAG, "signInWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            baseContext, "Utilizador ou password errado!",
-                            Toast.LENGTH_SHORT
-                        ).show()
+
                     }
-            }
+            }*/
         }
     }
 companion object {

@@ -13,7 +13,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import ipca.grupo2.R
 import ipca.grupo2.auth.LoginActivity
-import kotlinx.android.synthetic.main.fragment_inicio.view.*
 
 class InicioFragment : Fragment() {
 
