@@ -1,6 +1,5 @@
 package ipca.grupo2.backend.models
 
-import java.time.LocalDate
 import java.util.*
 
 class Evento {
