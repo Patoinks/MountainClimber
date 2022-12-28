@@ -64,13 +64,12 @@ object BackendUtilizador {
             // get all events and filter out the ones
             // we don't want
             var allEvents = BackendEventoUtilizador.getAllEventosUtilizadores();
-                if (allEvents != null){
-                for (event in allEvents){
-                    if (event.getIdEvento() == idEvento){
-                        var tempUtilizador = getUtilizadorById(event.getIdUtilizador()!!);
-                        mutableList.add(tempUtilizador!!);
-                    }
+            if (allEvents != null){ for (event in allEvents){
+                if (event.getIdEvento() == idEvento){
+                    var tempUtilizador = getUtilizadorById(event.getIdUtilizador()!!);
+                    mutableList.add(tempUtilizador!!);
                 }
+            }
             }
             mutableList;
         } catch (e: FirebaseFirestoreException){

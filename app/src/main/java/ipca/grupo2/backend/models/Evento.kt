@@ -22,6 +22,10 @@ class Evento {
         this.dateFinish = dateFinish;
     }
 
+    public fun setId(value: String){
+        this.id = value;
+    }
+
     public fun getId() : String?{
         return this.id;
     }

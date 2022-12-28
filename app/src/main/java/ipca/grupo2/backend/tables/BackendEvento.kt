@@ -23,6 +23,7 @@ object BackendEvento {
                     // incorrectly (missing keys/wrong data types)
                     try {
                         var tempEvento = doc.toObject<Evento>();
+                        tempEvento.setId(doc.id);
                         if (tempEvento.getIdGuia() == Backend.getCurrentUser()!!.uid)
                             mutableList.add(tempEvento);
                     } catch (e: Exception){
@@ -45,6 +46,7 @@ object BackendEvento {
                 for (doc in result) {
                     try {
                         var tempEvento = doc.toObject<Evento>();
+                        tempEvento.setId(doc.id);
                         if (tempEvento.getIdGuia() == Backend.getCurrentUser()!!.uid)
                             // Check valid
                             if (tempEvento.isValid())
