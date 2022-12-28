@@ -6,6 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ktx.toObject
 import ipca.grupo2.auth.LoginActivity.Companion.TAG
 import ipca.grupo2.backend.Backend
+import ipca.grupo2.backend.Utils
 import ipca.grupo2.backend.models.Utilizador
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -17,6 +18,11 @@ object BackendUtilizador {
 
     suspend fun login(email: String, password: String) : Boolean{
         var isSuccessful = false;
+
+        // Null-Check and email-mask check in order to prevent firebase from
+        // exploding
+        if (email.isEmpty() || password.isEmpty() || !Utils.isValidEmail(email))
+            return isSuccessful; // false
 
         return try {
             Backend.getAU().signInWithEmailAndPassword(email, password).addOnCompleteListener {
