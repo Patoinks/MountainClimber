@@ -3,6 +3,7 @@ package ipca.grupo2.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
@@ -42,10 +43,12 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent(baseContext, MainActivity::class.java);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(
-                        baseContext, "Utilizador ou password errado!",
-                        Toast.LENGTH_SHORT
-                    ).show();
+                    runOnUiThread{
+                        Toast.makeText(
+                            baseContext, "Utilizador ou password errado!",
+                            Toast.LENGTH_SHORT
+                        ).show();
+                    }
                 }
             }
 
