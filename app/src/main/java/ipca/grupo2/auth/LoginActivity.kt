@@ -25,7 +25,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -50,23 +49,9 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
 
-            /*auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        GlobalScope.launch {
-                            val data = BackendEvento.getAllEventosByUserID()
-                        }
-                        Log.d(TAG, "signInWithEmail:success")
-
-
-                    } else {
-                        Log.w(TAG, "signInWithEmail:failure", task.exception)
-
-                    }
-            }*/
         }
     }
-companion object {
-    const val TAG = "LoginActivity"
-}
+    companion object {
+        const val TAG = "LoginActivity"
+    }
 }

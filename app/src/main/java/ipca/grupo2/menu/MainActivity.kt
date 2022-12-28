@@ -3,23 +3,24 @@ package ipca.grupo2.menu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import ipca.grupo2.EventosFragment
-
-import ipca.grupo2.menu.InicioFragment
 import ipca.grupo2.R
-import ipca.grupo2.auth.LoginActivity
+
 import ipca.grupo2.databinding.ActivityMainBinding
 import ipca.grupo2.room.Dados
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.view.*
+import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.fragment_menu.view.*
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var navController: NavController
     var dados: List<Dados> = arrayListOf() //Array do Room
     private lateinit var analytics: FirebaseAnalytics
     private lateinit var auth: FirebaseAuth
@@ -34,54 +35,20 @@ class MainActivity : AppCompatActivity() {
         analytics = Firebase.analytics
         auth = Firebase.auth
 
-        val inicioFragment = InicioFragment()
-        val eventoFragment = EventosFragment()
-        replaceFragment(inicioFragment)
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        //  val listViewContacts = findViewById<ListView>(R.id.listViewContacts)
-        //  listViewContacts.adapter = contactsAdapter
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.fragmentContainerView) as NavHostFragment
 
-        /* AppDatabase
-            .getDatabase(this@MainActivity)
-            ?.dadosDao()
-            ?.getAllLive()?.observe(this) {
-                this@MainActivity.dados = it
-
-                findViewById<FloatingActionButton>(R.id.floatingActionButton)
-                    .setOnClickListener {
-                        val intent = Intent(this@MainActivity, DadosDetailActivity::class.java)
-                        startActivity(intent)
-                    } */
+        navController = navHostFragment.navController
 
 
-        bottomNavigationView.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.page_1 -> signOut()
-                R.id.page_2 -> replaceFragment(eventoFragment)
-                R.id.page_3 -> replaceFragment(eventoFragment)
-            }
-            true
+
+
+
+
         }
 
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        if (fragment != null) {
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
-    }
-
-    private fun  signOut(){
-        auth.signOut()
-        val intent = Intent (this@MainActivity, LoginActivity::class.java)
-        startActivity(intent)
-    }
 
 }
-
 
 
 

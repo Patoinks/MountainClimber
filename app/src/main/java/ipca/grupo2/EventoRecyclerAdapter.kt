@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
@@ -16,7 +17,7 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
 
     // Define the ViewHolder class
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewLocal : TextView = itemView.findViewById(R.id.local);
+        val textViewLocal : Button = itemView.findViewById(R.id.local);
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

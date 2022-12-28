@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/voltarMenu1"
+        android:id="@+id/voltarMenu2"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignParentStart="true"
@@ -36,7 +36,9 @@
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052"></ImageView>
+        app:layout_constraintVertical_bias="0.052" />
+
+
 
     <TextView
         android:id="@+id/textView3"
@@ -61,12 +63,12 @@
         android:elevation="40dp"
         android:fontFamily="@font/poppins_normal"
         android:paddingLeft="40dp"
-        android:text="Eventos"
+        android:text="Selecionar Utilizador"
         android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/eventosRecicla"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.624"
+        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".menu.MainActivity">
+
+    <!--text view for heading-->
+
+    <!--edit text for user name-->
+
+    <!--edit text for user password-->
+
+    <!--button to register our new user-->
+
+    <ImageView
+        android:id="@+id/voltarLogin"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/voltar" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="485dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="-35dp"
+        android:layout_marginTop="516dp"
+        android:layout_marginEnd="-39dp"
+        android:layout_marginBottom="-148dp"
+        android:src="@drawable/circulo" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btEventos"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginBottom="0dp"
+        android:fontFamily="@font/poppins_normal"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="Necessita acesso WI-FI"
+        android:textAlignment="center"
+        android:textColor="#36205072"
+        android:textSize="13sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btMedicoes"
+        android:layout_width="244dp"
+        android:layout_height="63dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="459dp"
+        android:backgroundTint="@color/verde"
+        android:fontFamily="@font/poppins_normal"
+        android:shadowColor="@color/black"
+        android:text="Realizar Medições"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:cornerRadius="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="77dp"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:fontFamily="@font/poppins_normal"
+        android:text="Bem vindo"
+        android:textColor="@color/azul_marinho"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="109dp"
+        android:fontFamily="@font/poppins_normal"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="Escolha o que pretende fazer"
+        android:textAlignment="center"
+        android:textColor="@color/verde"
+        android:textSize="13sp" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btEventos"
+        android:layout_width="244dp"
+        android:layout_height="63dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="341dp"
+        android:backgroundTint="@color/verde"
+        android:fontFamily="@font/poppins_normal"
+        android:shadowColor="@color/black"
+        android:text="Gerir Eventos"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:cornerRadius="20dp" />
+
+    <ImageView
+        android:layout_width="485dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="-35dp"
+        android:layout_marginTop="516dp"
+        android:layout_marginEnd="-39dp"
+        android:layout_marginBottom="-148dp"
+        android:src="@drawable/circulo" />
+
+
+
+
+
+</RelativeLayout>

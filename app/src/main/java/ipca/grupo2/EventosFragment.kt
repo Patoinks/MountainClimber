@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ipca.grupo2.backend.tables.BackendEvento
@@ -36,7 +38,6 @@ class EventosFragment : Fragment() {
             };
 
             // Create an instance of the Adapter and set it to the RecyclerView
-            // ps: idk why u wanted mutable list bruv
             myAdapter = EventoRecyclerAdapter(ArrayList(dataList), requireActivity());
             myAdapter.notifyDataSetChanged();
             recyclerView?.adapter = myAdapter;
@@ -49,7 +50,14 @@ class EventosFragment : Fragment() {
     ): View? {
         var view: View = inflater.inflate(R.layout.fragment_eventos, container, false);
 
-        // ez
+
+        val voltar = view.findViewById<ImageView>(R.id.voltarMenu1)
+
+        voltar.setOnClickListener {
+            findNavController().navigate(R.id.action_eventosFragment_to_menuFragment2)
+        }
+
+
         populateRecyleView(view);
 
         return view;

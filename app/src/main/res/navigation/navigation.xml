@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/menuFragment2">
+    <fragment
+        android:id="@+id/menuFragment2"
+        android:name="ipca.grupo2.MenuFragment"
+        tools:layout="@layout/fragment_menu"
+        android:label="MenuFragment" >
+        <action
+            android:id="@+id/action_menuFragment2_to_eventosFragment"
+            app:destination="@id/eventosFragment" />
+        <action
+            android:id="@+id/action_menuFragment2_to_readingFragment2"
+            app:destination="@id/readingFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventosFragment"
+        android:name="ipca.grupo2.EventosFragment"
+        tools:layout="@layout/fragment_eventos"
+        android:label="EventosFragment" >
+        <action
+            android:id="@+id/action_eventosFragment_to_menuFragment2"
+            app:destination="@id/menuFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/readingFragment2"
+        tools:layout="@layout/fragment_reading"
+        android:name="ipca.grupo2.ReadingFragment"
+        android:label="ReadingFragment" >
+
+        <action
+            android:id="@+id/action_readingFragment2_to_menuFragment2"
+            app:destination="@id/menuFragment2" />
+    </fragment>
+</navigation>
