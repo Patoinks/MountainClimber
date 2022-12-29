@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.annotation.UiThread
 import androidx.navigation.fragment.findNavController
 import androidx.room.Room
 import ipca.grupo2.backend.models.Utilizador
@@ -15,6 +17,8 @@ import ipca.grupo2.backend.tables.BackendUtilizador
 import ipca.grupo2.room.AppDatabase
 import ipca.grupo2.room.entities.UtilizadorEntity
 import kotlinx.coroutines.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class EventoDetalheFragment() : Fragment() {
     private lateinit var eventoID: String;
@@ -42,7 +46,7 @@ class EventoDetalheFragment() : Fragment() {
 
             // Event Handling
             view.findViewById<Button>(R.id.downUser).setOnClickListener {
-                downloadData();
+                getData();
             }
         }
 
@@ -54,7 +58,7 @@ class EventoDetalheFragment() : Fragment() {
         return view
     }
 
-    private fun downloadData() {
+    private fun getData() {
         val db = Room.databaseBuilder(
             requireContext(),
             AppDatabase::class.java,
@@ -64,23 +68,12 @@ class EventoDetalheFragment() : Fragment() {
         // get data from backend
         GlobalScope.launch {
             var arrUser = BackendUtilizador.getAllUtilizadoresByEvento(eventoID);
-
-            for (user in arrUser){
-                // Force casting to entity
-                var userEntity = UtilizadorEntity(
-                    user.getId()!!,
-                    user.getContact(),
-                    user.getHeight(),
-                    user.getWeight(),
-                    user.getName(),
-                    user.getBirthDate(),
-                    user.getEmail(),
-                    user.getPassword(), // backend always returns null
-                    user.getIsGuia()!!
-                );
-                // this will crash if attempting to add duplicate objects
-                db.utilizadorDao().insert(userEntity);
-            }
+            db.utilizadorDao().downloadData(arrUser);
         }
+
+        Toast.makeText(
+            context, "Evento downloaded!",
+            Toast.LENGTH_SHORT
+        ).show();
     }
 }
