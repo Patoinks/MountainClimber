@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import ipca.grupo2.room.dao.UtilizadorDAO
 import ipca.grupo2.room.entities.UtilizadorEntity
 
-@Database(entities = [UtilizadorEntity::class, Dados::class], version = 2)
+@Database(entities = [UtilizadorEntity::class], version = 2)
 abstract class  AppDatabase : RoomDatabase()  {
     // Signatures for frontend access to room
     abstract fun utilizadorDao() : UtilizadorDAO;

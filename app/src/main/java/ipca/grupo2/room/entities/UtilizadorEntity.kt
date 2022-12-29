@@ -21,8 +21,8 @@ data class UtilizadorEntity(
     val weight: String?,
     val name: String?,
     val birthDate: String?, // error: Cannot figure out how to save this field into database (Date())
-    val email: String?,
-    val password: String?,
+    val email: String?, // no access
+    val password: String?, // no access
     val isGuia: Int?
 );
 

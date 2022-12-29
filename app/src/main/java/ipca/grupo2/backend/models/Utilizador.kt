@@ -1,9 +1,6 @@
 package ipca.grupo2.backend.models
 
 import com.google.firebase.firestore.PropertyName
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.util.*
 
 class Utilizador {
     // Attributes
@@ -18,8 +15,8 @@ class Utilizador {
     private var name: String? = null;
     @PropertyName("BirthDate")
     private var birthDate: String? = null;
-    private var email: String? = null;
-    private var password: String? = null;
+    private var email: String? = null; // no acess
+    private var password: String? = null; // no acess
     @PropertyName("isGuia")
     private var isGuia: Int? = null;
 

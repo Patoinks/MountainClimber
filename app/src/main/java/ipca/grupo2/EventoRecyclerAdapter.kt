@@ -53,8 +53,8 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
 
     // Define the ViewHolder class
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewLocal : Button = itemView.findViewById(R.id.local);
-        var id : String? =  null;
         lateinit var data: Evento;
+        var id : String? =  null;
+        val textViewLocal : Button = itemView.findViewById(R.id.local);
     }
 }

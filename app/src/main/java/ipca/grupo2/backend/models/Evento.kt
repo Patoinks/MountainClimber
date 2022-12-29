@@ -3,7 +3,6 @@ package ipca.grupo2.backend.models
 import java.util.*
 
 class Evento {
-
     // Attributes
     private var id: String? = null;
     private var idGuia: String? = null;

@@ -20,6 +20,14 @@ class EventoUtilizador {
         this.id = value;
     }
 
+    public fun setIdEvento(value: String){
+        this.idEvento = value;
+    }
+
+    public fun setIdUtilizador(value: String){
+        this.idUtilizador = value;
+    }
+
     public fun getId() : String?{
         return this.id;
     }
