@@ -1,5 +1,6 @@
 package ipca.grupo2
 
+import android.media.metrics.Event
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -38,7 +39,7 @@ class EventosFragment : Fragment() {
             };
 
             // Create an instance of the Adapter and set it to the RecyclerView
-            myAdapter = EventoRecyclerAdapter(ArrayList(dataList), requireActivity());
+            myAdapter = EventoRecyclerAdapter(ArrayList(dataList), requireActivity(), EventosFragment());
             myAdapter.notifyDataSetChanged();
             recyclerView?.adapter = myAdapter;
         }

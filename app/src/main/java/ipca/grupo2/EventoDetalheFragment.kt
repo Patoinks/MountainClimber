@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class EventoDetalheFragment(val uid : String) : Fragment() {
+class EventoDetalheFragment() : Fragment() {
 
 
     override fun onCreateView(
@@ -28,11 +28,14 @@ class EventoDetalheFragment(val uid : String) : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_evento_detalhe, container, false)
 
+        val userID = arguments?.getString("uid")
         GlobalScope.launch {
 
         val users= withContext(Dispatchers.IO) {
-            BackendUtilizador.getAllUtilizadoresByEvento(uid);
-        };
+
+            BackendUtilizador.getAllUtilizadoresByEvento(userID!!);
+
+        }
 
         val numusers = users.size
             val userCount = view.findViewById<TextView>(R.id.textView5)
@@ -43,7 +46,7 @@ class EventoDetalheFragment(val uid : String) : Fragment() {
         val downButton = view.findViewById<Button>(R.id.downUser)
 
         downButton.setOnClickListener {
-            findNavController().navigate(R.id.action_eventosFragment_to_menuFragment2)
+            findNavController().navigate(R.id.action_eventoDetalheFragment_to_menuFragment2)
         }
         return view
     }

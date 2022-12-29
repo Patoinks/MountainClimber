@@ -38,7 +38,6 @@ interface DadosDao {
     @Update
     fun update(dados: Dados)
 
-
     @Delete
     fun delete(dados: Dados)
 }
