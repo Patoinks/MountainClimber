@@ -4,15 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import ipca.grupo2.room.dao.UtilizadorDAO
+import ipca.grupo2.room.entities.UtilizadorEntity
 
-
-@Database(entities = [Dados::class], version = 2)
+@Database(entities = [UtilizadorEntity::class, Dados::class], version = 2)
 abstract class  AppDatabase : RoomDatabase()  {
+    // Signatures for frontend access to room
+    abstract fun utilizadorDao() : UtilizadorDAO;
 
-    abstract fun dadosDao(): DadosDao
-
-    companion object {
-
+    // wtf queisto
+    /*companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
@@ -23,12 +24,12 @@ abstract class  AppDatabase : RoomDatabase()  {
                         INSTANCE = Room.databaseBuilder(
                             context.applicationContext,
                             AppDatabase::class.java,
-                            "db_dados"
+                            "db_grupo2"
                         ).fallbackToDestructiveMigration().build()
                     }
                 }
             }
             return INSTANCE
         }
-    }
+    }*/
 }

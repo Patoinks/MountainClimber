@@ -1,5 +1,6 @@
 package ipca.grupo2.room.entities
 
+import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
@@ -13,12 +14,13 @@ import java.util.*
 @Entity
 data class UtilizadorEntity(
     @PrimaryKey
-    val id: String?,
+    @NonNull
+    val id: String,
     val contact: String?,
-    val height: Float?,
-    val weight: Float?,
+    val height: String?,
+    val weight: String?,
     val name: String?,
-    val birthDate: Date?,
+    val birthDate: String?, // error: Cannot figure out how to save this field into database (Date())
     val email: String?,
     val password: String?,
     val isGuia: Int?

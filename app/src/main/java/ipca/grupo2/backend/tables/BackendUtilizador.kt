@@ -8,8 +8,7 @@ import ipca.grupo2.auth.LoginActivity.Companion.TAG
 import ipca.grupo2.backend.Backend
 import ipca.grupo2.backend.Utils
 import ipca.grupo2.backend.models.Utilizador
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 
 object BackendUtilizador {
@@ -31,7 +30,7 @@ object BackendUtilizador {
                     GlobalScope.launch {
                         // Prevent non-guias from logging in
                         val user = getUtilizadorById(Backend.getCurrentUser()!!.uid);
-                        if (user!!.getIsGuia() == false){
+                        if (!user!!.isGuia()){
                             signOut();
                             isSuccessful = false;
                         }
@@ -50,7 +49,9 @@ object BackendUtilizador {
 
         return try {
             val snapshot = document.get().await();
-            snapshot.toObject<Utilizador>();
+            val utilizador = snapshot.toObject<Utilizador>();
+            utilizador!!.setId(uid)
+            utilizador
         } catch (e: FirebaseFirestoreException) {
             Log.e(TAG, "In getUtilizadorById() -> ", e);
             null;
@@ -62,14 +63,16 @@ object BackendUtilizador {
 
         return try{
             // get all events and filter out the ones
-            // we don't want
-            var allEvents = BackendEventoUtilizador.getAllEventosUtilizadores();
-            if (allEvents != null){ for (event in allEvents){
-                if (event.getIdEvento() == idEvento){
-                    var tempUtilizador = getUtilizadorById(event.getIdUtilizador()!!);
-                    mutableList.add(tempUtilizador!!);
+            val eventosUtilizadores = BackendEventoUtilizador.getAllEventosUtilizadores();
+
+            if (eventosUtilizadores != null) {
+                for (event in eventosUtilizadores) {
+                    if (event.getIdEvento() == idEvento) {
+                        var tempUtilizador = getUtilizadorById(event.getIdUtilizador()!!);
+                        mutableList.add(tempUtilizador!!);
+                    }
                 }
-            }
+                mutableList;
             }
             mutableList;
         } catch (e: FirebaseFirestoreException){

@@ -8,30 +8,27 @@ import ipca.grupo2.auth.LoginActivity
 import ipca.grupo2.backend.Backend
 import ipca.grupo2.backend.models.EventoUtilizador
 import kotlinx.coroutines.tasks.await
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 object BackendEventoUtilizador {
     private const val ref = "eventosUtilizadores";
     private val collection = Backend.getFS().collection(ref);
 
-    public suspend fun getAllEventosUtilizadores() : MutableList<EventoUtilizador>?{
-        var mutableList : MutableList<EventoUtilizador> = arrayListOf();
-
-        return try{
+    public suspend fun getAllEventosUtilizadores() : MutableList<EventoUtilizador>? = suspendCoroutine {
+        continuation ->
             collection.get().addOnSuccessListener { result ->
-                for (doc in result) {
-                    try{
-                        var eventoUtilizador = doc.toObject<EventoUtilizador>();
-                        mutableList.add(eventoUtilizador);
-                    } catch (e: Exception){
-                        // pls frontend
-                    }
+                val eventosUtilizadores = mutableListOf<EventoUtilizador>()
+                for (document in result) {
+                    var eventoUtilizador = document.toObject<EventoUtilizador>();
+                    eventoUtilizador.setId(document.id);
+                    eventosUtilizadores.add(eventoUtilizador);
                 }
-            }.await()
-            mutableList;
-        } catch (e: FirebaseFirestoreException){
-            Log.e(LoginActivity.TAG, "In getAllEventosUtilizadores() -> ", e);
-            mutableList;
-        }
+                continuation.resume(eventosUtilizadores);
+            }.addOnFailureListener { exception ->
+                continuation.resumeWithException(exception);
+            }
     }
 
     public fun getCollection() : CollectionReference {

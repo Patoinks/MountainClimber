@@ -7,19 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
-import ipca.grupo2.backend.tables.BackendEvento
+import androidx.room.Room
+import ipca.grupo2.backend.models.Utilizador
+import ipca.grupo2.backend.tables.BackendEventoUtilizador
 import ipca.grupo2.backend.tables.BackendUtilizador
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-
+import ipca.grupo2.room.AppDatabase
+import ipca.grupo2.room.entities.UtilizadorEntity
+import kotlinx.coroutines.*
 
 class EventoDetalheFragment() : Fragment() {
-
+    private lateinit var eventoID: String;
+    private lateinit var eventoUsers: MutableList<Utilizador>;
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,28 +26,61 @@ class EventoDetalheFragment() : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_evento_detalhe, container, false)
+        eventoID = arguments?.getString("uid")!!;
 
-        val userID = arguments?.getString("uid")
-        GlobalScope.launch {
+        // Setup Fragment using backend data
+        val mainScope = CoroutineScope(Dispatchers.Main);
+        mainScope.launch {
+            // User List
+            eventoUsers = withContext(Dispatchers.IO) {
+                BackendUtilizador.getAllUtilizadoresByEvento(eventoID!!);
+            }
+            // fazes a lista aqui))
 
-        val users= withContext(Dispatchers.IO) {
+            // User Count
+            view.findViewById<TextView>(R.id.textView5).text = eventoUsers.size.toString()
 
-            BackendUtilizador.getAllUtilizadoresByEvento(userID!!);
-
+            // Event Handling
+            view.findViewById<Button>(R.id.downUser).setOnClickListener {
+                downloadData();
+            }
         }
 
-        val numusers = users.size
-            val userCount = view.findViewById<TextView>(R.id.textView5)
-
-            userCount.text = numusers.toString()
-    }
-
         val downButton = view.findViewById<Button>(R.id.downUser)
-
         downButton.setOnClickListener {
             findNavController().navigate(R.id.action_eventoDetalheFragment_to_menuFragment2)
         }
+
         return view
     }
 
+    private fun downloadData() {
+        val db = Room.databaseBuilder(
+            requireContext(),
+            AppDatabase::class.java,
+            "db_grupo2"
+        ).build();
+
+        // get data from backend
+        GlobalScope.launch {
+            var arrUser = BackendUtilizador.getAllUtilizadoresByEvento(eventoID);
+
+            for (user in arrUser){
+                // Force casting to entity
+                var userEntity = UtilizadorEntity(
+                    user.getId()!!,
+                    user.getContact(),
+                    user.getHeight(),
+                    user.getWeight(),
+                    user.getName(),
+                    user.getBirthDate(),
+                    user.getEmail(),
+                    user.getPassword(), // backend always returns null
+                    user.getIsGuia()!!
+                );
+                // this will crash if attempting to add duplicate objects
+                db.utilizadorDao().insert(userEntity);
+            }
+        }
+    }
 }

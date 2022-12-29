@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,7 @@ import kotlinx.coroutines.*
 
 class EventosFragment : Fragment() {
     private lateinit var myAdapter: EventoRecyclerAdapter;
+    private lateinit var navController: NavController
 
     // Function to handle async functions in backend
     private fun populateRecyleView(view: View){
@@ -30,9 +32,6 @@ class EventosFragment : Fragment() {
 
         // Handle async code
         mainScope.launch {
-            // (Isto é para debug, podem tirar se quiserem)
-            Log.d("eventoFragmento", "populateData() called");
-
             // Get data from backend
             val dataList = withContext(Dispatchers.IO) {
                 BackendEvento.getAllEventosByUserID();
@@ -50,15 +49,13 @@ class EventosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var view: View = inflater.inflate(R.layout.fragment_eventos, container, false);
-
+        navController = findNavController()
 
         val voltar = view.findViewById<ImageView>(R.id.voltarMenu1)
 
         voltar.setOnClickListener {
             findNavController().navigate(R.id.action_eventosFragment_to_menuFragment2)
         }
-
-
         populateRecyleView(view);
 
         return view;

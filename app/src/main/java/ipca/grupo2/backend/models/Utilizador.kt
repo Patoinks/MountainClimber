@@ -1,40 +1,38 @@
 package ipca.grupo2.backend.models
 
+import com.google.firebase.firestore.PropertyName
+import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 class Utilizador {
-
     // Attributes
     private var id: String? = null;
+    @PropertyName("Contact")
     private var contact: String? = null;
-    private var height: Float? = null;
-    private var weight: Float? = null;
+    @PropertyName("Height")
+    private var height: String? = null;
+    @PropertyName("Weight")
+    private var weight: String? = null;
+    @PropertyName("Name")
     private var name: String? = null;
-    private var birthDate: Date? = null;
+    @PropertyName("BirthDate")
+    private var birthDate: String? = null;
     private var email: String? = null;
     private var password: String? = null;
+    @PropertyName("isGuia")
     private var isGuia: Int? = null;
 
     // Constructors
     constructor()
 
-    constructor(id: String?, email: String?, password: String?, isGuia: Int?) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.isGuia = isGuia;
-
-        // get rest of non-collection values
-
-    }
-
     constructor(
         id: String?,
         contact: String?,
-        height: Float?,
-        weight: Float?,
+        height: String?,
+        weight: String?,
         name: String?,
-        birthDate: Date?,
+        birthDate: String?,
         email: String?,
         password: String?,
         isGuia: Int?
@@ -50,15 +48,55 @@ class Utilizador {
         this.isGuia = isGuia
     }
 
+    public fun setId(value: String){
+        this.id = value;
+    }
+
+    public fun setContact(value: String){
+        this.contact = value;
+    }
+
+    public fun setHeight(value: String){
+        this.height = value;
+    }
+
+    public fun setWeight(value: String){
+        this.weight = value;
+    }
+
+    public fun setName(value: String){
+        this.name = value;
+    }
+
+    public fun setBirthDate(value: String){
+        this.birthDate = value;
+    }
+
+    public fun setEmail(value: String){
+        this.email = value;
+    }
+
+    public fun setPassword(value: String){
+        this.email = value;
+    }
+
+    public fun setIsGuia(value: Int){
+        this.isGuia = value;
+    }
+
     public fun getId() : String?{
         return this.id;
     }
 
-    public fun getHeight() : Float?{
+    public fun getContact() : String?{
+        return this.contact;
+    }
+
+    public fun getHeight() : String?{
         return this.height;
     }
 
-    public fun getWeight() : Float?{
+    public fun getWeight() : String?{
         return this.weight;
     }
 
@@ -66,7 +104,7 @@ class Utilizador {
         return this.name;
     }
 
-    public fun getBirthDate() : Date?{
+    public fun getBirthDate() : String?{
         return this.birthDate;
     }
 
@@ -80,7 +118,12 @@ class Utilizador {
         //return this.password;
     }
 
-    public fun getIsGuia() : Boolean?{
+    public fun getIsGuia() : Int?{
+        return this.isGuia;
+    }
+
+    public fun isGuia() : Boolean{
         return (this.isGuia == 1);
     }
+
 }

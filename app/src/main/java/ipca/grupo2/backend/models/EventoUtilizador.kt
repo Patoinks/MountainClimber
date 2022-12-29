@@ -16,6 +16,10 @@ class EventoUtilizador {
         this.idUtilizador = idUtilizador;
     }
 
+    public fun setId(value : String){
+        this.id = value;
+    }
+
     public fun getId() : String?{
         return this.id;
     }

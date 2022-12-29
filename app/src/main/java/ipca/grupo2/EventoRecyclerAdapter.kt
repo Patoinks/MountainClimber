@@ -14,11 +14,14 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
+
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import ipca.grupo2.backend.models.Evento
+import ipca.grupo2.room.AppDatabase
 
-class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context, val EventosFragment: EventosFragment) :
+class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context,  val EventosFragment: EventosFragment) :
     RecyclerView.Adapter<EventoRecyclerAdapter.ViewHolder>() {
 
 
@@ -31,23 +34,17 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Retrieve the data for the current position
-        val data = eventos[position];
-
-        holder.id = data.getId()
-
-        val bundle = bundleOf("uid" to holder.id)
-
-        holder.textViewLocal.setOnClickListener {
-            var navController: NavController? = null
-            navController = Navigation.findNavController(holder.itemView)
-            navController!!.navigate(R.id.action_eventosFragment_to_eventoDetalheFragment, bundle)
-        }
-
-        // Debug purposes again
-        Log.d("eventoAdapter", holder.textViewLocal.text.toString() + " text");
+        holder.data = eventos[position];
+        val bundle = bundleOf("uid" to holder.data.getId());
 
         // Set the data to the views
-        holder.textViewLocal.text = data.getLocation();
+        holder.textViewLocal.text = holder.data.getLocation();
+
+        // Handle events
+        holder.textViewLocal.setOnClickListener {
+            var navController = findNavController(holder.itemView);
+            navController.navigate(R.id.action_eventosFragment_to_eventoDetalheFragment, bundle);
+        }
     }
 
     override fun getItemCount(): Int {
@@ -58,5 +55,6 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewLocal : Button = itemView.findViewById(R.id.local);
         var id : String? =  null;
+        lateinit var data: Evento;
     }
 }
