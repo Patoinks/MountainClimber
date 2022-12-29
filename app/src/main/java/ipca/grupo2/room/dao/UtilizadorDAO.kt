@@ -16,4 +16,7 @@ interface UtilizadorDAO {
 
     @Delete
     fun delete(user: UtilizadorEntity)
+
+    @Query("DELETE FROM UtilizadorEntity WHERE id=id;")
+    fun deleteAll()
 }
