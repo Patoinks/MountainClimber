@@ -35,14 +35,11 @@ class UtilizadoresRecyclerAdapter(val utilizadores: List<UtilizadorEntity>, val 
         // Retrieve the data for the current position
         val data = utilizadores[position];
 
-        val bundle = bundleOf("uid" to data.id);
-
-        // Debug purposes again
-        Log.d("eventoAdapter", holder.textViewLocal.text.toString() + " text");
+        val bundle = bundleOf("userid" to data.id);
 
         holder.textViewLocal.setOnClickListener {
             var navController = Navigation.findNavController(holder.itemView);
-            navController.navigate(R.id.action_eventosFragment_to_eventoDetalheFragment, bundle);
+            navController.navigate(R.id.action_readingFragment2_to_userReadFragment, bundle);
         }
 
         // Set the data to the views

@@ -22,6 +22,24 @@
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/nomeResultado"
+        android:layout_width="182dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="116dp"
+        android:elevation="40dp"
+        android:fontFamily="@font/poppins_normal"
+        android:text="Resultados"
+        android:textAlignment="center"
+        android:textColor="@color/azul_marinho"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.256" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="317dp"
         android:layout_height="337dp"
@@ -38,7 +56,7 @@
             android:layout_height="69dp"
             android:fontFamily="@font/poppins_black"
             android:paddingTop="30dp"
-            android:text="Sem sinal"
+            android:text="Sem Aparelho Conectado"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="21sp">
@@ -50,12 +68,12 @@
             android:layout_height="186dp"
             android:layout_marginLeft="68dp"
             android:layout_marginTop="90dp"
-            android:src="@drawable/semsinal"></ImageView>
+            android:src="@drawable/disconnect"></ImageView>
 
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/voltarMenu1"
+        android:id="@+id/voltarUser"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignParentStart="true"

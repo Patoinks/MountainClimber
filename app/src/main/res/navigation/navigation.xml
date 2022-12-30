@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_readingFragment2_to_menuFragment2"
             app:destination="@id/menuFragment2" />
+        <action
+            android:id="@+id/action_readingFragment2_to_userReadFragment"
+            app:destination="@id/userReadFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventoDetalheFragment"
@@ -47,5 +50,13 @@
         <action
             android:id="@+id/action_eventoDetalheFragment_to_menuFragment2"
             app:destination="@id/menuFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/userReadFragment"
+        android:name="ipca.grupo2.UserReadFragment"
+        android:label="UserReadFragment" >
+        <action
+            android:id="@+id/action_userReadFragment_to_readingFragment2"
+            app:destination="@id/readingFragment2" />
     </fragment>
 </navigation>
