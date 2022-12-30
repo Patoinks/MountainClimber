@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="10dp"
-    android:background="@color/white">
+    android:background="#061312">
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/local"
+        android:id="@+id/nome"
         android:layout_width="358dp"
         android:layout_height="62dp"
         android:layout_alignParentStart="true"

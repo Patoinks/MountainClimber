@@ -2,6 +2,7 @@ package ipca.grupo2
 
 import android.app.PendingIntent.getActivity
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +22,7 @@ import androidx.room.Room
 import ipca.grupo2.backend.models.Evento
 import ipca.grupo2.room.AppDatabase
 
-class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context,  val EventosFragment: EventosFragment) :
+class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context) :
     RecyclerView.Adapter<EventoRecyclerAdapter.ViewHolder>() {
 
 
@@ -35,10 +36,14 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Retrieve the data for the current position
         holder.data = eventos[position];
-        val bundle = bundleOf("uid" to holder.data.getId());
+        val bundle = bundleOf("uidUser" to holder.data.getId());
 
         // Set the data to the views
         holder.textViewLocal.text = holder.data.getLocation();
+
+        if(position %2 != 0) {
+            holder.textViewLocal.setBackgroundColor(Color.parseColor("#466563"))
+        }
 
         // Handle events
         holder.textViewLocal.setOnClickListener {

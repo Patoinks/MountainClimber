@@ -22,6 +22,38 @@
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="317dp"
+        android:layout_height="337dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="20dp"
+        android:elevation="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.479">
+
+        <TextView
+            android:layout_width="316dp"
+            android:layout_height="69dp"
+            android:fontFamily="@font/poppins_black"
+            android:paddingTop="30dp"
+            android:text="Sem sinal"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="21sp">
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="176dp"
+            android:layout_height="186dp"
+            android:layout_marginLeft="68dp"
+            android:layout_marginTop="90dp"
+            android:src="@drawable/semsinal"></ImageView>
+
+    </androidx.cardview.widget.CardView>
+
     <ImageView
         android:id="@+id/voltarMenu1"
         android:layout_width="32dp"
@@ -42,16 +74,16 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:fontFamily="@font/poppins_normal"
-        android:paddingLeft="40dp"
-        android:text="Ordenado alfabeticamente"
+        android:text=""
         android:textColor="@color/verde"
+        android:textAlignment="center"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/eventosRecicla"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.012"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.187" />
 
     <TextView
         android:id="@+id/textView4"
@@ -61,7 +93,7 @@
         android:elevation="40dp"
         android:fontFamily="@font/poppins_normal"
 
-        android:text="Eventos"
+        android:text="Resultados"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -71,17 +103,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.06" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventosRecicla"
-        android:layout_width="404dp"
-        android:layout_height="572dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781"
-        tools:listitem="@layout/row_eventos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

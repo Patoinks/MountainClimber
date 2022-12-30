@@ -14,12 +14,14 @@
             app:destination="@id/eventosFragment" />
         <action
             android:id="@+id/action_menuFragment2_to_readingFragment2"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:destination="@id/readingFragment2" />
     </fragment>
     <fragment
         android:id="@+id/eventosFragment"
         android:name="ipca.grupo2.EventosFragment"
         tools:layout="@layout/fragment_eventos"
+
         android:label="EventosFragment" >
         <action
             android:id="@+id/action_eventosFragment_to_menuFragment2"

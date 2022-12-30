@@ -43,14 +43,16 @@
     </TextView>
 
     <ImageView
-        android:src="@color/verde"
         android:layout_width="341dp"
         android:layout_height="210dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="473dp" />
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginBottom="550dp"
+        android:src="@color/verde" />
 
     <TextView
         android:layout_width="338dp"
@@ -65,15 +67,15 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/downUser"
-        android:layout_width="wrap_content"
-        android:layout_height="59dp"
+        android:layout_width="230dp"
+        android:layout_height="68dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="106dp"
-        android:layout_marginEnd="107dp"
-        android:layout_marginBottom="258dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="252dp"
         android:backgroundTint="@color/verde"
         android:fontFamily="@font/poppins_normal"
         android:shadowColor="@color/black"
@@ -91,13 +93,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="-35dp"
-        android:layout_marginTop="516dp"
-        android:layout_marginEnd="-39dp"
-        android:layout_marginBottom="-148dp"
+        android:layout_marginStart="-34dp"
+        android:layout_marginTop="541dp"
+        android:layout_marginEnd="-40dp"
+        android:layout_marginBottom="-172dp"
         android:src="@drawable/circulo" />
-
-
 
 
 </RelativeLayout>

@@ -37,8 +37,10 @@ class EventosFragment : Fragment() {
                 BackendEvento.getAllEventosByUserID();
             };
 
+
+
             // Create an instance of the Adapter and set it to the RecyclerView
-            myAdapter = EventoRecyclerAdapter(ArrayList(dataList), requireActivity(), EventosFragment());
+            myAdapter = EventoRecyclerAdapter(ArrayList(dataList), requireActivity());
             myAdapter.notifyDataSetChanged();
             recyclerView?.adapter = myAdapter;
         }

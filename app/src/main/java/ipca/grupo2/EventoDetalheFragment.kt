@@ -21,6 +21,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class EventoDetalheFragment() : Fragment() {
+
+    // Class variables
     private lateinit var eventoID: String;
     private lateinit var eventoUsers: MutableList<Utilizador>;
 
@@ -36,10 +38,14 @@ class EventoDetalheFragment() : Fragment() {
         val mainScope = CoroutineScope(Dispatchers.Main);
         mainScope.launch {
             // User List
+
             eventoUsers = withContext(Dispatchers.IO) {
                 BackendUtilizador.getAllUtilizadoresByEvento(eventoID!!);
             }
+
+
             // fazes a lista aqui))
+
 
             // User Count
             view.findViewById<TextView>(R.id.textView5).text = eventoUsers.size.toString()
@@ -47,13 +53,11 @@ class EventoDetalheFragment() : Fragment() {
             // Event Handling
             view.findViewById<Button>(R.id.downUser).setOnClickListener {
                 getData();
+                findNavController().navigate(R.id.action_eventoDetalheFragment_to_menuFragment2)
             }
         }
 
-        val downButton = view.findViewById<Button>(R.id.downUser)
-        downButton.setOnClickListener {
-            findNavController().navigate(R.id.action_eventoDetalheFragment_to_menuFragment2)
-        }
+
 
         return view
     }

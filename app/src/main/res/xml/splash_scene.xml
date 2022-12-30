@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/mid"
+        motion:constraintSetStart="@id/start"
+        motion:duration="646"
+        motion:autoTransition="animateToEnd">
+       <KeyFrameSet>
+           <KeyPosition
+               motion:motionTarget="@+id/ponto1"
+               motion:framePosition="1"
+               motion:keyPositionType="deltaRelative"
+               motion:percentX="1"
+               motion:percentY="1" />
+           <KeyAttribute
+               motion:motionTarget="@+id/textViewHealthScheduler_Splash"
+               motion:framePosition="100"
+               android:alpha="1" />
+           <KeyAttribute
+               motion:motionTarget="@+id/textViewHealthScheduler_Splash"
+               motion:framePosition="20"
+               android:alpha="1" />
+           <KeyAttribute
+               motion:motionTarget="@+id/ponto3"
+               motion:framePosition="100"
+               android:alpha="0.5" />
+           <KeyPosition
+               motion:motionTarget="@+id/ponto2"
+               motion:framePosition="50"
+               motion:keyPositionType="deltaRelative"
+               motion:percentX="1"
+               motion:percentY="1" />
+       </KeyFrameSet>
+        <OnSwipe motion:maxVelocity="3.99"
+            motion:maxAcceleration="0.1" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/backgroundLayout"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintVertical_bias="0.382"
+            motion:layout_constraintHorizontal_bias="0.498"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:scaleX="0"
+            android:scaleY="0" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/mid">
+        <Constraint
+            android:id="@+id/backgroundLayout"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintVertical_bias="0.382"
+            motion:layout_constraintHorizontal_bias="0.498"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:scaleX="10"
+            android:scaleY="10" />
+        <Constraint
+            android:id="@+id/ponto3"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="342dp"
+            android:layout_height="221dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="372dp"
+            motion:layout_constraintTop_toBottomOf="@+id/imageViewLogo_Splash"
+            motion:layout_constraintHorizontal_bias="0.492"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="4dp"
+            android:alpha="0.5" />
+        <Constraint
+            android:id="@+id/ponto2"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="342dp"
+            android:layout_height="221dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="372dp"
+            motion:layout_constraintTop_toBottomOf="@+id/imageViewLogo_Splash"
+            motion:layout_constraintHorizontal_bias="0.492"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="4dp"
+            android:alpha="0.5" />
+        <Constraint
+            android:id="@+id/ponto1"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="342dp"
+            android:layout_height="221dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="372dp"
+            motion:layout_constraintTop_toBottomOf="@+id/imageViewLogo_Splash"
+            motion:layout_constraintHorizontal_bias="0.492"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="4dp"
+            android:alpha="0.5" />
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/end" >
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="150dp"
+            motion:layout_constraintVertical_bias="0.382"
+            android:scaleX="0"
+            android:id="@+id/backgroundLayout"
+            android:layout_height="150dp"
+            motion:layout_constraintHorizontal_bias="0.498"
+            android:scaleY="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/ponto3"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="342dp"
+            android:layout_height="211dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="372dp"
+            motion:layout_constraintTop_toBottomOf="@+id/imageViewLogo_Splash"
+            motion:layout_constraintHorizontal_bias="0.492"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="4dp"
+            android:alpha="1" />
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetStart="@+id/mid"
+        motion:constraintSetEnd="@+id/end"
+        motion:autoTransition="animateToEnd"
+        motion:duration="1309" >
+        <OnSwipe motion:maxVelocity="1.91" />
+    </Transition>
+</MotionScene>

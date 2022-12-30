@@ -5,22 +5,9 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#061312"
     tools:context=".menu.MainActivity">
 
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="488dp"
-        android:layout_height="796dp"
-        android:layout_marginBottom="316dp"
-        android:elevation="20dp"
-        android:paddingBottom="20dp"
-        android:src="@drawable/circulo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/voltarMenu2"
@@ -28,59 +15,59 @@
         android:layout_height="32dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/seta_branca"
-        android:elevation="20dp"
         android:backgroundTint="@color/white"
+        android:elevation="20dp"
+        android:src="@drawable/seta_branca"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
-
-
+        app:layout_constraintVertical_bias="0.042" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/poppins_normal"
         android:paddingLeft="40dp"
         android:text="Ordenado alfabeticamente"
         android:textColor="@color/verde"
         android:textSize="13sp"
-        app:layout_constraintBottom_toTopOf="@+id/eventosRecicla"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.232" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="182dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="116dp"
+        android:layout_width="316dp"
+        android:layout_height="75dp"
         android:elevation="40dp"
         android:fontFamily="@font/poppins_normal"
-        android:paddingLeft="40dp"
         android:text="Selecionar Utilizador"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toTopOf="@+id/eventosRecicla"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/userRecicla"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventosRecicla"
-        android:layout_width="413dp"
-        android:layout_height="534dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:listitem="@layout/row_eventos" />
+        app:layout_constraintVertical_bias="0.044" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/userRecicla"
+        android:layout_width="401dp"
+        android:layout_height="436dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661"
+        tools:listitem="@layout/row_utilizadores" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
