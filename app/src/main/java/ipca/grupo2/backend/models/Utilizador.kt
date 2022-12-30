@@ -15,8 +15,6 @@ class Utilizador {
     private var name: String? = null;
     @PropertyName("BirthDate")
     private var birthDate: String? = null;
-    private var email: String? = null; // no acess
-    private var password: String? = null; // no acess
     @PropertyName("isGuia")
     private var isGuia: Int? = null;
 
@@ -30,8 +28,6 @@ class Utilizador {
         weight: String?,
         name: String?,
         birthDate: String?,
-        email: String?,
-        password: String?,
         isGuia: Int?
     ) {
         this.id = id
@@ -40,8 +36,6 @@ class Utilizador {
         this.weight = weight
         this.name = name
         this.birthDate = birthDate
-        this.email = email
-        this.password = password
         this.isGuia = isGuia
     }
 
@@ -67,14 +61,6 @@ class Utilizador {
 
     public fun setBirthDate(value: String){
         this.birthDate = value;
-    }
-
-    public fun setEmail(value: String){
-        this.email = value;
-    }
-
-    public fun setPassword(value: String){
-        this.email = value;
     }
 
     public fun setIsGuia(value: Int){
@@ -103,16 +89,6 @@ class Utilizador {
 
     public fun getBirthDate() : String?{
         return this.birthDate;
-    }
-
-    public fun getEmail() : String?{
-        return this.email;
-    }
-
-    // CAREFUL CALLING THIS
-    public fun getPassword() : String?{
-        return null; // not getting password unless 100% necessary
-        //return this.password;
     }
 
     public fun getIsGuia() : Int?{

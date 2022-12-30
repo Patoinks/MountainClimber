@@ -36,8 +36,6 @@ interface UtilizadorDAO {
                 user.getWeight(),
                 user.getName(),
                 user.getBirthDate(),
-                user.getEmail(),
-                user.getPassword(), // backend always returns null
                 user.getIsGuia()!!
             );
             insert(userEntity);

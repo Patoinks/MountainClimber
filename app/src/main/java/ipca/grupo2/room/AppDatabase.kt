@@ -4,16 +4,19 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import ipca.grupo2.room.dao.EventoDAO
 import ipca.grupo2.room.dao.UtilizadorDAO
+import ipca.grupo2.room.entities.EventoEntity
 import ipca.grupo2.room.entities.UtilizadorEntity
 
-@Database(entities = [UtilizadorEntity::class], version = 2)
+@Database(entities = [UtilizadorEntity::class, EventoEntity::class], version = 3)
 abstract class  AppDatabase : RoomDatabase()  {
     // Signatures for frontend access to room
     abstract fun utilizadorDao() : UtilizadorDAO;
+    abstract fun eventoDao() : EventoDAO;
 
     // wtf queisto
-    /*companion object {
+    companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
@@ -31,5 +34,5 @@ abstract class  AppDatabase : RoomDatabase()  {
             }
             return INSTANCE
         }
-    }*/
+    }
 }

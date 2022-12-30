@@ -12,16 +12,12 @@ import java.util.*
 */
 
 @Entity
-data class UtilizadorEntity(
+data class EventoEntity(
     @PrimaryKey
     @NonNull
     val id: String,
-    val contact: String?,
-    val height: String?,
-    val weight: String?,
-    val name: String?,
-    val birthDate: String?, // error: Cannot figure out how to save this field into database (Date())
-    val isGuia: Int?
-);
-
-
+    val idGuia: String,
+    val location: String,
+    val dateStart: String, // ISTO PODE NAO DAR
+    val dateFinish: String
+)

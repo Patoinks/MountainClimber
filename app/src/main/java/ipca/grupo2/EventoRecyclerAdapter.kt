@@ -36,7 +36,7 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Retrieve the data for the current position
         holder.data = eventos[position];
-        val bundle = bundleOf("uidUser" to holder.data.getId());
+        val bundle = bundleOf("uid" to holder.data.getId());
 
         // Set the data to the views
         holder.textViewLocal.text = holder.data.getLocation();

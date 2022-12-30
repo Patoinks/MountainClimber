@@ -7,11 +7,26 @@ import com.google.firebase.firestore.ktx.toObject
 import ipca.grupo2.auth.LoginActivity
 import ipca.grupo2.backend.Backend
 import ipca.grupo2.backend.models.Evento
+import ipca.grupo2.backend.models.Utilizador
 import kotlinx.coroutines.tasks.await
 
 object BackendEvento {
     private const val ref = "eventos";
     private val collection = Backend.getFS().collection(ref);
+
+    public suspend fun getEventoByID(idEvento: String) : Evento? {
+        val document = collection.document(idEvento);
+
+        return try {
+            val snapshot = document.get().await();
+            val evento = snapshot.toObject<Evento>();
+            evento!!.setId(idEvento)
+            evento
+        } catch (e: FirebaseFirestoreException) {
+            Log.e(LoginActivity.TAG, "In getEventoByID() -> ", e);
+            null;
+        }
+    }
 
     public suspend fun getAllEventosByUserID() : MutableList<Evento>?{
         var mutableList : MutableList<Evento> = arrayListOf();

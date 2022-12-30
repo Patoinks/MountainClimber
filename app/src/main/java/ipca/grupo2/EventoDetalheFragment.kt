@@ -1,5 +1,7 @@
 package ipca.grupo2
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -38,14 +40,11 @@ class EventoDetalheFragment() : Fragment() {
         val mainScope = CoroutineScope(Dispatchers.Main);
         mainScope.launch {
             // User List
-
             eventoUsers = withContext(Dispatchers.IO) {
                 BackendUtilizador.getAllUtilizadoresByEvento(eventoID!!);
             }
 
-
             // fazes a lista aqui))
-
 
             // User Count
             view.findViewById<TextView>(R.id.textView5).text = eventoUsers.size.toString()
@@ -63,16 +62,9 @@ class EventoDetalheFragment() : Fragment() {
     }
 
     private fun getData() {
-        val db = Room.databaseBuilder(
-            requireContext(),
-            AppDatabase::class.java,
-            "db_grupo2"
-        ).build();
-
         // get data from backend
         GlobalScope.launch {
-            var arrUser = BackendUtilizador.getAllUtilizadoresByEvento(eventoID);
-            db.utilizadorDao().downloadData(arrUser);
+            AppDatabase.getDatabase(requireContext())!!.eventoDao().joinEvento(eventoID, requireContext());
         }
 
         Toast.makeText(
