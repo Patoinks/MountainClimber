@@ -1,13 +1,14 @@
 package ipca.grupo2
 
-import android.media.metrics.Event
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,8 +23,13 @@ class EventosFragment : Fragment() {
     // Function to handle async functions in backend
     private fun populateRecyleView(view: View){
         // Get a reference to the RecyclerView
+
+
         val recyclerView = view.findViewById<RecyclerView>(R.id.eventosRecicla);
-        recyclerView?.layoutManager = LinearLayoutManager(requireActivity());
+        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
+        progressBar.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
+        recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), RecyclerView.HORIZONTAL , false);
         recyclerView?.setHasFixedSize(true);
 
         // mainScope to handle UI calls(this is needed because globalScope has
@@ -38,13 +44,16 @@ class EventosFragment : Fragment() {
             };
 
 
-
             // Create an instance of the Adapter and set it to the RecyclerView
             myAdapter = EventoRecyclerAdapter(ArrayList(dataList), requireActivity());
             myAdapter.notifyDataSetChanged();
+
+            progressBar.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
             recyclerView?.adapter = myAdapter;
         }
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,10 +63,10 @@ class EventosFragment : Fragment() {
         navController = findNavController()
 
         val voltar = view.findViewById<ImageView>(R.id.voltarMenu1)
-
         voltar.setOnClickListener {
             findNavController().navigate(R.id.action_eventosFragment_to_menuFragment2)
         }
+
         populateRecyleView(view);
 
         return view;

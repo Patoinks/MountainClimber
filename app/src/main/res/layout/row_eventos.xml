@@ -3,32 +3,114 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="10dp"
+    android:layout_height="match_parent"
     android:background="@color/white">
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/local"
-        android:layout_width="358dp"
-        android:layout_height="62dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/verde"
-        android:fontFamily="@font/poppins_normal"
-        android:shadowColor="@color/black"
-        android:text=""
-        android:elevation="88dp"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.cardview.widget.CardView
+        android:layout_width="360dp"
+        android:layout_height="201dp"
+        android:layout_marginLeft="6.5dp"
+        android:layout_marginTop="4dp"
+        android:elevation="20dp"
+        android:backgroundTint="@color/white"
+        android:paddingBottom="20dp"
+        app:cardCornerRadius="17dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/rowEventoDown"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="130dp"
+            android:backgroundTint ="@color/verde"
+            android:fontFamily="@font/poppins_normal"
+            android:shadowColor="@color/black"
+            android:text="Selecionar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:cornerRadius="15dp" />
+
+        <TextView
+            android:id="@+id/rowEventoDataFim"
+            android:textColor="@color/azul_marinho"
+            android:layout_width="162dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="75dp"
+            android:text="Data Fim: " />
+
+
+        <TextView
+            android:id="@+id/rowEventoDataInicio"
+            android:textColor="@color/azul_marinho"
+            android:layout_width="161dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="50dp"
+            android:text="Data Inicio: " />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="95dp"
+            android:layout_height="63dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:scaleType="fitCenter"
+            app:shapeAppearanceOverlay="@style/cornerSize"
+            app:tint="#466563"
+            android:src="@drawable/montanhagg">
+
+        </com.google.android.material.imageview.ShapeableImageView>
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="95dp"
+            android:layout_height="73dp"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="fitCenter"
+            app:shapeAppearanceOverlay="@style/cornerSize"
+            app:tint="#466563"
+            android:src="@drawable/montanhagg">
+
+        </com.google.android.material.imageview.ShapeableImageView>
+
+        <TextView
+            android:id="@+id/nomeEvento"
+            android:layout_width="298dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins_medio"
+            android:text="Evereste"
+
+            android:textAlignment="center"
+            android:textColor="@color/azul_marinho"
+            android:textSize="19dp" />
+
+        <TextView
+            android:id="@+id/rowEventoTotalUser"
+            android:textColor="@color/azul_marinho"
+            android:layout_width="102dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="95dp"
+            android:fontFamily="@font/poppins_normal"
+            android:text="36 Inscritos"
+            android:textAlignment="center"
+            android:textSize="12dp" />
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

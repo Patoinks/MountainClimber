@@ -11,11 +11,14 @@
         android:label="MenuFragment" >
         <action
             android:id="@+id/action_menuFragment2_to_eventosFragment"
-            app:destination="@id/eventosFragment" />
+            app:destination="@id/eventosFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"/>
         <action
             android:id="@+id/action_menuFragment2_to_readingFragment2"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:destination="@id/readingFragment2" />
+            app:destination="@id/readingFragment2"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"/>
     </fragment>
     <fragment
         android:id="@+id/eventosFragment"
@@ -25,10 +28,9 @@
         android:label="EventosFragment" >
         <action
             android:id="@+id/action_eventosFragment_to_menuFragment2"
-            app:destination="@id/menuFragment2" />
-        <action
-            android:id="@+id/action_eventosFragment_to_eventoDetalheFragment"
-            app:destination="@id/eventoDetalheFragment" />
+            app:destination="@id/menuFragment2"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/readingFragment2"
@@ -38,18 +40,14 @@
 
         <action
             android:id="@+id/action_readingFragment2_to_menuFragment2"
-            app:destination="@id/menuFragment2" />
+            app:destination="@id/menuFragment2"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"/>
         <action
             android:id="@+id/action_readingFragment2_to_userReadFragment"
-            app:destination="@id/userReadFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/eventoDetalheFragment"
-        android:name="ipca.grupo2.EventoDetalheFragment"
-        android:label="EventoDetalheFragment" >
-        <action
-            android:id="@+id/action_eventoDetalheFragment_to_menuFragment2"
-            app:destination="@id/menuFragment2" />
+            app:destination="@id/userReadFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"/>
     </fragment>
     <fragment
         android:id="@+id/userReadFragment"
@@ -57,6 +55,8 @@
         android:label="UserReadFragment" >
         <action
             android:id="@+id/action_userReadFragment_to_readingFragment2"
-            app:destination="@id/readingFragment2" />
+            app:destination="@id/readingFragment2"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"/>
     </fragment>
 </navigation>

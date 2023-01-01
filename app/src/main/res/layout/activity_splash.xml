@@ -17,7 +17,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="416dp"
         android:fontFamily="@font/poppins_normal"
-        android:text="Grupo 2"
+        android:text="Grupo II"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="70sp"

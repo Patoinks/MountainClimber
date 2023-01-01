@@ -66,6 +66,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="356dp"
         android:src="@drawable/circulo"
+        app:tint="#466563"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

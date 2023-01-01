@@ -1,29 +1,25 @@
 package ipca.grupo2
 
-import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.os.bundleOf
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.Navigation.findNavController
-
-import androidx.navigation.fragment.findNavController
+import android.widget.Toast
+import androidx.core.graphics.toColor
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
 import ipca.grupo2.backend.models.Evento
+import ipca.grupo2.backend.models.Utilizador
+import ipca.grupo2.backend.tables.BackendUtilizador
 import ipca.grupo2.room.AppDatabase
+import kotlinx.coroutines.*
 
 class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context) :
     RecyclerView.Adapter<EventoRecyclerAdapter.ViewHolder>() {
+    private lateinit var eventoID: String;
+    private lateinit var eventoUsers: MutableList<Utilizador>;
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,23 +29,44 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         return ViewHolder(itemView);
     }
 
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Retrieve the data for the current position
         holder.data = eventos[position];
-        val bundle = bundleOf("uid" to holder.data.getId());
+
+        eventoID = holder.data.getId().toString();
 
         // Set the data to the views
-        holder.textViewLocal.text = holder.data.getLocation();
+        holder.textViewLocal.text = holder.data.getLocation()
 
-        if(position %2 != 0) {
-            holder.textViewLocal.setBackgroundColor(Color.parseColor("#466563"))
+        val mainScope = CoroutineScope(Dispatchers.Main);
+
+        mainScope.launch {
+            // User List
+            eventoUsers = withContext(Dispatchers.IO)
+            {
+                BackendUtilizador.getAllUtilizadoresByEvento(eventoID!!);
+            }
+
+            if(eventoUsers.size > 1)
+         holder.textViewTotal.text = eventoUsers.size.toString() + " Inscritos"
+            else
+         holder.textViewTotal.text = eventoUsers.size.toString() + " Inscrito"
+
+
         }
 
-        // Handle events
-        holder.textViewLocal.setOnClickListener {
-            var navController = findNavController(holder.itemView);
-            navController.navigate(R.id.action_eventosFragment_to_eventoDetalheFragment, bundle);
+        holder.textViewInicio.text = "Data Inicio:  " + holder.data.getDateStart().toString()
+        holder.textViewFim.text =  "Data Fim:  " + holder.data.getDateFinish().toString()
+
+
+        holder.buttonEventos.setOnClickListener {
+            getData()
+            holder.buttonEventos.isEnabled = false
+            holder.buttonEventos.setBackgroundColor(Color.parseColor("#440123"))
+            holder.buttonEventos.text  = "Selecionado"
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -59,7 +76,25 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
     // Define the ViewHolder class
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         lateinit var data: Evento;
-        var id : String? =  null;
-        val textViewLocal : Button = itemView.findViewById(R.id.local);
+
+        val textViewLocal : TextView = itemView.findViewById(R.id.nomeEvento);
+        val textViewTotal : TextView = itemView.findViewById(R.id.rowEventoTotalUser)
+        val textViewInicio : TextView = itemView.findViewById(R.id.rowEventoDataInicio)
+        val textViewFim : TextView = itemView.findViewById(R.id.rowEventoDataFim)
+        val buttonEventos : Button = itemView.findViewById(R.id.rowEventoDown)
+
     }
+
+    private fun getData() {
+        // get data from backend
+        GlobalScope.launch {
+            AppDatabase.getDatabase(context)!!.eventoDao().joinEvento(eventoID, context);
+        }
+
+        Toast.makeText(
+            context, "Evento downloaded!",
+            Toast.LENGTH_SHORT
+        ).show();
+    }
+
 }

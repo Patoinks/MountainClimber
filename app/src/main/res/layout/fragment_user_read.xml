@@ -16,6 +16,7 @@
         android:layout_marginBottom="448dp"
         android:elevation="20dp"
         android:paddingBottom="20dp"
+        app:tint="#3664A19D"
         android:src="@drawable/circulo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +32,7 @@
         android:fontFamily="@font/poppins_normal"
         android:text="Resultados"
         android:textAlignment="center"
-        android:textColor="@color/azul_marinho"
+        android:textColor="#36205072"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +42,7 @@
         app:layout_constraintVertical_bias="0.256" />
 
     <androidx.cardview.widget.CardView
+        android:backgroundTint="@color/white"
         android:layout_width="317dp"
         android:layout_height="337dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,7 +80,6 @@
         android:layout_height="32dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:backgroundTint="@color/white"
         android:elevation="20dp"
         android:src="@drawable/seta_branca"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -113,7 +114,7 @@
 
         android:text="Resultados"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="#36FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
