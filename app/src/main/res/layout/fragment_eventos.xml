@@ -165,7 +165,6 @@
     </ImageView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
         android:id="@+id/eventosRecicla"
         android:layout_width="411dp"
         android:layout_height="219dp"
