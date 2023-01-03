@@ -6,7 +6,7 @@ class Utilizador {
     // Attributes
     private var id: String? = null;
     @PropertyName("Contact")
-    private var contact: Int? = null;
+    private var contact: Long? = null;
     @PropertyName("Height")
     private var height: Float? = null;
     @PropertyName("Weight")
@@ -23,7 +23,7 @@ class Utilizador {
 
     constructor(
         id: String?,
-        contact: Int?,
+        contact: Long?,
         height: Float?,
         weight: Float?,
         name: String?,
@@ -43,7 +43,7 @@ class Utilizador {
         this.id = value;
     }
 
-    public fun setContact(value: Int){
+    public fun setContact(value: Long){
         this.contact = value;
     }
 
@@ -71,7 +71,7 @@ class Utilizador {
         return this.id;
     }
 
-    public fun getContact() : Int?{
+    public fun getContact() : Long?{
         return this.contact;
     }
 

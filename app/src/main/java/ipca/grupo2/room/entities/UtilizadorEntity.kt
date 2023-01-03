@@ -16,7 +16,7 @@ data class UtilizadorEntity(
     @PrimaryKey
     @NonNull
     val id: String,
-    val contact: Int?,
+    val contact: Long?,
     val height: Float?,
     val weight: Float?,
     val name: String?,
