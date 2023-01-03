@@ -1,4 +1,4 @@
-package ipca.grupo2
+/*package ipca.grupo2
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -21,7 +21,7 @@ import ipca.grupo2.room.entities.UtilizadorEntity
 import kotlinx.coroutines.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-
+/*
 class EventoDetalheFragment() : Fragment() {
 
     // Class variables
@@ -73,3 +73,4 @@ class EventoDetalheFragment() : Fragment() {
         ).show();
     }
 }
+*/

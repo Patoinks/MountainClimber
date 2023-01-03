@@ -1,13 +1,8 @@
 package ipca.grupo2
 
-import android.app.Application
-import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,19 +11,11 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
-import androidx.core.view.isGone
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import ipca.grupo2.auth.LoginActivity
 import kotlinx.android.synthetic.main.fragment_menu.view.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MenuFragment : Fragment() {
 
@@ -62,8 +49,7 @@ class MenuFragment : Fragment() {
         voltarLogin.setOnClickListener {
 
             auth.signOut()
-            val intent = Intent(getActivity(), LoginActivity::class.java)
-            getActivity()?.startActivity(intent)
+            findNavController().navigate(R.id.action_menuFragment2_to_loginFragment)
 
             /*view.findViewById<CardView>(R.id.nowifi).visibility = View.VISIBLE
                 lifecycleScope.launch(Dispatchers.IO) {

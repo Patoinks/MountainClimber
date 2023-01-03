@@ -4,7 +4,7 @@ import android.util.Log
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ktx.toObject
-import ipca.grupo2.auth.LoginActivity.Companion.TAG
+
 import ipca.grupo2.backend.Backend
 import ipca.grupo2.backend.Utils
 import ipca.grupo2.backend.models.Utilizador
@@ -39,7 +39,6 @@ object BackendUtilizador {
             }.await()
             isSuccessful;
         } catch (e: FirebaseFirestoreException){
-            Log.e(TAG, "In login() -> ", e);
             isSuccessful;
         }
     }
@@ -53,7 +52,6 @@ object BackendUtilizador {
             utilizador!!.setId(uid)
             utilizador
         } catch (e: FirebaseFirestoreException) {
-            Log.e(TAG, "In getUtilizadorById() -> ", e);
             null;
         }
     }
@@ -76,7 +74,6 @@ object BackendUtilizador {
             }
             mutableList;
         } catch (e: FirebaseFirestoreException){
-            Log.e(TAG, "In getAllUtilizadoresByEvento() -> ", e);
             mutableList;
         }
     }

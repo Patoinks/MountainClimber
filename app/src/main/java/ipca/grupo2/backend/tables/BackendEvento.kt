@@ -4,10 +4,8 @@ import android.util.Log
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ktx.toObject
-import ipca.grupo2.auth.LoginActivity
 import ipca.grupo2.backend.Backend
 import ipca.grupo2.backend.models.Evento
-import ipca.grupo2.backend.models.Utilizador
 import kotlinx.coroutines.tasks.await
 
 object BackendEvento {
@@ -23,7 +21,6 @@ object BackendEvento {
             evento!!.setId(idEvento)
             evento
         } catch (e: FirebaseFirestoreException) {
-            Log.e(LoginActivity.TAG, "In getEventoByID() -> ", e);
             null;
         }
     }
@@ -48,7 +45,6 @@ object BackendEvento {
             }.await()
             mutableList;
         } catch (e: FirebaseFirestoreException){
-            Log.e(LoginActivity.TAG, "In getAllEventosByUserID() -> ", e);
             mutableList;
         }
     }
@@ -73,7 +69,6 @@ object BackendEvento {
             }.await()
             mutableList;
         } catch (e: FirebaseFirestoreException){
-            Log.e(LoginActivity.TAG, "In getAllEventosByUserID() -> ", e);
             mutableList;
         }
     }

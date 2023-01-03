@@ -9,17 +9,114 @@
     tools:context=".menu.MainActivity">
 
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="488dp"
-        android:layout_height="796dp"
-        android:layout_marginBottom="448dp"
-        android:elevation="20dp"
-        android:paddingBottom="20dp"
-        android:src="@drawable/circulo"
+    <ProgressBar
+        android:elevation="10dp"
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <ImageView
+        android:id="@+id/montanhaescura5"
+        android:layout_width="477dp"
+        android:layout_height="217dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="4dp"
+        android:elevation="-9dp"
+        android:src="@drawable/montanhagg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:tint="@color/verde" />
+
+    <ImageView
+        android:id="@+id/montanhaescura6"
+        android:layout_width="482dp"
+        android:layout_height="272dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:elevation="-9dp"
+        android:src="@drawable/montanhagg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:tint="@color/verde" />
+
+    <ImageView
+        android:id="@+id/montanhaescura4"
+        android:layout_width="477dp"
+        android:layout_height="266dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="112dp"
+        android:elevation="-9dp"
+        android:src="@drawable/montanhagg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:tint="#466563" />
+
+    <ImageView
+        android:id="@+id/montanhaescura3"
+        android:layout_width="476dp"
+        android:layout_height="244dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="108dp"
+        android:elevation="-12dp"
+        android:src="@drawable/montanhagg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:tint="#466563" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="413dp"
+        android:layout_height="209dp"
+        android:layout_marginBottom="704dp"
+        android:elevation="20dp"
+        android:paddingBottom="20dp"
+        android:src="@drawable/redondinhoqe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/image4"
+        android:layout_width="253dp"
+        android:layout_height="179dp"
+        android:layout_marginBottom="704dp"
+        android:elevation="21dp"
+        android:paddingBottom="20dp"
+        android:src="@drawable/redondinhoq"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -29,59 +126,53 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:backgroundTint="@color/white"
-        android:elevation="20dp"
+        android:elevation="22dp"
         android:src="@drawable/seta_branca"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.034" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:fontFamily="@font/poppins_normal"
         android:paddingLeft="40dp"
-        android:text="Ordenado alfabeticamente"
+        android:text="Selecione o Evento"
         android:textColor="@color/verde"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/eventosRecicla"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.012"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="182dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="116dp"
-        android:elevation="40dp"
-        android:fontFamily="@font/poppins_normal"
-
-        android:text="Eventos"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.176" />
+
+    <ImageView
+        android:layout_width="355dp"
+        android:layout_height="18dp"
+        android:src="@drawable/linha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.221">
+
+    </ImageView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/eventosRecicla"
-        android:layout_width="404dp"
-        android:layout_height="572dp"
+        android:layout_width="411dp"
+        android:layout_height="219dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781"
+        app:layout_constraintVertical_bias="0.328"
         tools:listitem="@layout/row_eventos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
