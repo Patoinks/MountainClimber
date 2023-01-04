@@ -1,6 +1,7 @@
 package ipca.grupo2
 
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,16 @@ class UserReadFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_user_read, container, false)
 
         utilizadorID = arguments?.getString("userid")!!;
+
+
+      /*  val alertDialog = AlertDialog(requireActivity())
+
+        alertDialog.startLoadingDialog()
+
+        Handler().postDelayed({
+            alertDialog.dismissDialog()
+            findNavController().navigate(R.id.action_userReadFragment_to_readingFragment2)
+        }, 1000) */
 
         // Setup Fragment using backend data
         val mainScope = CoroutineScope(Dispatchers.Main);

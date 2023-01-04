@@ -51,8 +51,10 @@ interface EventoDAO {
                 evento.getIdGuia()!!,
                 evento.getLocation()!!,
                 evento.getDateStart()!!.toString(),
-                evento.getDateFinish()!!.toString()
-            );
+                evento.getDateFinish()!!.toString(),
+                evento.getImage()!!,
+                evento.getDescription()!!
+            )
 
             insert(eventoEntity);
         }

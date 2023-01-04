@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.graphics.toColor
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import ipca.grupo2.backend.models.Evento
 import ipca.grupo2.backend.models.Utilizador
 import ipca.grupo2.backend.tables.BackendUtilizador
@@ -59,7 +61,7 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
 
         holder.textViewInicio.text = "Data Inicio:  " + holder.data.getDateStart().toString()
         holder.textViewFim.text =  "Data Fim:  " + holder.data.getDateFinish().toString()
-
+        Picasso.get().load(holder.data.getImage()).into(holder.imagemEvento)
 
         holder.buttonEventos.setOnClickListener {
             getData()
@@ -85,7 +87,7 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         val textViewInicio : TextView = itemView.findViewById(R.id.rowEventoDataInicio)
         val textViewFim : TextView = itemView.findViewById(R.id.rowEventoDataFim)
         val buttonEventos : Button = itemView.findViewById(R.id.rowEventoDown)
-
+        val imagemEvento: ImageView = itemView.findViewById(R.id.imagemMontanha)
     }
 
     private fun getData() {

@@ -1,9 +1,10 @@
 package ipca.grupo2
-
+/*
 import android.app.Activity
 import android.app.AlertDialog
+import androidx.fragment.app.DialogFragment
 
-class AlertDialog internal constructor(var activity: Activity) {
+class AlertDialog : DialogFragment  {
 
 
     var dialog: AlertDialog? = null
@@ -21,3 +22,4 @@ class AlertDialog internal constructor(var activity: Activity) {
         dialog!!.dismiss()
     }
 }
+*/

@@ -9,16 +9,28 @@ class Evento {
     private var location: String? = null;
     private var dateStart: Date? = null;
     private var dateFinish: Date? = null;
+    private var image: String? = null;
+    private var description: String? = null;
 
     // Constructors
     constructor()
 
-    constructor(id: String?, idGuia: String?, location: String?, dateStart: Date?, dateFinish: Date?) {
-        this.id = id;
-        this.idGuia = idGuia;
-        this.location = location;
-        this.dateStart = dateStart;
-        this.dateFinish = dateFinish;
+    constructor(
+        id: String?,
+        idGuia: String?,
+        location: String?,
+        dateStart: Date?,
+        dateFinish: Date?,
+        image: String?,
+        description: String?
+    ) {
+        this.id = id
+        this.idGuia = idGuia
+        this.location = location
+        this.dateStart = dateStart
+        this.dateFinish = dateFinish
+        this.image = image
+        this.description = description
     }
 
     public fun setId(value: String){
@@ -43,6 +55,14 @@ class Evento {
 
     public fun getDateFinish() : Date?{
         return this.dateFinish;
+    }
+
+    public fun getImage() : String?{
+        return this.image;
+    }
+
+    public fun getDescription(): String?{
+        return this.description;
     }
 
     public fun isValid() : Boolean{

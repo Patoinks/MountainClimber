@@ -60,20 +60,9 @@
             android:layout_marginTop="50dp"
             android:text="Data Inicio: " />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="95dp"
-            android:layout_height="63dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="25dp"
-            android:scaleType="fitCenter"
-            app:shapeAppearanceOverlay="@style/cornerSize"
-            app:tint="#466563"
-            android:src="@drawable/montanhagg">
-
-        </com.google.android.material.imageview.ShapeableImageView>
-
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imagemMontanha"
             android:layout_width="95dp"
             android:layout_height="73dp"
             android:layout_marginLeft="29dp"

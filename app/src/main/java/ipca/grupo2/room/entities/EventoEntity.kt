@@ -19,5 +19,7 @@ data class EventoEntity(
     val idGuia: String,
     val location: String,
     val dateStart: String, // ISTO PODE NAO DAR
-    val dateFinish: String
+    val dateFinish: String,
+    val image: String,
+    val description: String
 )

@@ -29,7 +29,6 @@ class MenuFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_menu, container, false)
-        view.findViewById<CardView>(R.id.nowifi).visibility = View.GONE
 
         auth = Firebase.auth
         val btMedir = view.findViewById<Button>(R.id.btMedicoes)
