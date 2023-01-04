@@ -37,9 +37,11 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         eventoID = holder.data.getId().toString();
 
         // Set the data to the views
-        holder.textViewLocal.text = holder.data.getLocation()
+       holder.textViewLocal.text = holder.data.getLocation()
 
         val mainScope = CoroutineScope(Dispatchers.Main);
+
+
 
         mainScope.launch {
             // User List
@@ -52,9 +54,8 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
          holder.textViewTotal.text = eventoUsers.size.toString() + " Inscritos"
             else
          holder.textViewTotal.text = eventoUsers.size.toString() + " Inscrito"
-
-
         }
+
 
         holder.textViewInicio.text = "Data Inicio:  " + holder.data.getDateStart().toString()
         holder.textViewFim.text =  "Data Fim:  " + holder.data.getDateFinish().toString()
@@ -66,6 +67,8 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
             holder.buttonEventos.setBackgroundColor(Color.parseColor("#440123"))
             holder.buttonEventos.text  = "Selecionado"
         }
+
+
 
     }
 

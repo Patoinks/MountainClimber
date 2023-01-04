@@ -11,14 +11,10 @@
         android:label="MenuFragment" >
         <action
             android:id="@+id/action_menuFragment2_to_eventosFragment"
-            app:destination="@id/eventosFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"/>
+            app:destination="@id/eventosFragment" />
         <action
             android:id="@+id/action_menuFragment2_to_readingFragment2"
-            app:destination="@id/readingFragment2"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"/>
+            app:destination="@id/readingFragment2" />
         <action
             android:id="@+id/action_menuFragment2_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -31,9 +27,7 @@
         android:label="EventosFragment" >
         <action
             android:id="@+id/action_eventosFragment_to_menuFragment2"
-            app:destination="@id/menuFragment2"
-            app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"/>
+            app:destination="@id/menuFragment2" />
     </fragment>
     <fragment
         android:id="@+id/readingFragment2"
@@ -43,14 +37,10 @@
 
         <action
             android:id="@+id/action_readingFragment2_to_menuFragment2"
-            app:destination="@id/menuFragment2"
-            app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"/>
+            app:destination="@id/menuFragment2" />
         <action
             android:id="@+id/action_readingFragment2_to_userReadFragment"
-            app:destination="@id/userReadFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"/>
+            app:destination="@id/userReadFragment" />
     </fragment>
     <fragment
         android:id="@+id/userReadFragment"
@@ -58,9 +48,7 @@
         android:label="UserReadFragment" >
         <action
             android:id="@+id/action_userReadFragment_to_readingFragment2"
-            app:destination="@id/readingFragment2"
-            app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"/>
+            app:destination="@id/readingFragment2" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -76,7 +64,9 @@
         android:label="SplashFragment" >
         <action
             android:id="@+id/action_splashFragment_to_menuFragment2"
-            app:destination="@id/menuFragment2" />
+            app:destination="@id/menuFragment2"
+            app:exitAnim="@anim/anim_fadeout"
+            app:enterAnim="@anim/anim_fadein"/>
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
