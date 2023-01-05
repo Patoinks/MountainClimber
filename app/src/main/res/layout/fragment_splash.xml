@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/verde"
     app:layoutDescription="@xml/splash_scene"
-    tools:context=".menu.SplashActivity"
     tools:viewBindingIgnore="true">
 
 

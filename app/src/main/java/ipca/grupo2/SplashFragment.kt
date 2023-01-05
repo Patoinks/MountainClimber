@@ -35,7 +35,6 @@ class SplashFragment : Fragment() {
                 val currentUser = auth.currentUser
                 if (currentUser != null){
                         findNavController().navigate(R.id.action_splashFragment_to_menuFragment2)
-
                 }else{
                     findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
                 }
