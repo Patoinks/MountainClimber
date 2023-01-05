@@ -5,167 +5,83 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/white"
     tools:context=".menu.MainActivity">
 
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="195dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="144dp"
-        android:backgroundTint="@color/verde"
-        android:buttonTint="@color/white"
-        android:elevation="20dp"
-        android:fontFamily="@font/poppins_normal"
-        android:paddingLeft="10dp"
-        android:paddingTop="2dp"
-        android:shadowColor="@color/black"
-        android:text="Noite Mal dormida"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textColorHint="@color/verde"
-        android:textSize="16sp"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </com.google.android.material.checkbox.MaterialCheckBox>
-
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="166dp"
-        android:layout_height="69dp"
-        android:layout_marginBottom="368dp"
-        android:backgroundTint="@color/verde"
-        android:buttonTint="@color/white"
-        android:elevation="20dp"
-        android:fontFamily="@font/poppins_normal"
-        android:paddingLeft="10dp"
-        android:paddingTop="2dp"
-        android:shadowColor="@color/black"
-        android:text="Dor de cabeça"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textColorHint="@color/verde"
-        android:textSize="16sp"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.383"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </com.google.android.material.checkbox.MaterialCheckBox>
-
-    <ImageView
-        android:layout_width="195dp"
-        android:layout_height="61dp"
-        android:background="@drawable/redondinho"
-        android:elevation="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.383"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.501">
-
-    </ImageView>
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="303dp"
-        android:layout_height="76dp"
-        android:background="@drawable/redondinho"
-        android:elevation="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.803">
-
-    </ImageView>
-
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="195dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="36dp"
-        android:backgroundTint="@color/verde"
-        android:buttonTint="@color/white"
-        android:elevation="20dp"
-        android:fontFamily="@font/poppins_normal"
-        android:paddingLeft="10dp"
-        android:paddingTop="2dp"
-        android:shadowColor="@color/black"
-        android:text="Nausea"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textColorHint="@color/verde"
-        android:textSize="16sp"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </com.google.android.material.checkbox.MaterialCheckBox>
-
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="195dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="252dp"
-        android:backgroundTint="@color/verde"
-        android:buttonTint="@color/white"
-        android:elevation="20dp"
-        android:fontFamily="@font/poppins_normal"
-        android:paddingLeft="10dp"
-        android:paddingTop="2dp"
-        android:shadowColor="@color/black"
-        android:text="Falta de apetite"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textColorHint="@color/verde"
-        android:textSize="16sp"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </com.google.android.material.checkbox.MaterialCheckBox>
-
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="303dp"
-        android:layout_height="76dp"
-        android:background="@drawable/redondinho"
-        android:elevation="1dp"
+        android:layout_width="485dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="352dp"
+        android:src="@drawable/circulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#466563" />
+
+    <TextView
+        android:id="@+id/batimentoCardiaco4"
+        android:layout_width="172dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="116dp"
+        android:elevation="40dp"
+        android:fontFamily="@font/poppins_normal"
+        android:text="BPM"
+        android:textAlignment="center"
+        android:textColor="@color/verde"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.401" />
+
+    <TextView
+        android:id="@+id/altitudes"
+        android:layout_width="172dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="116dp"
+        android:elevation="40dp"
+        android:fontFamily="@font/poppins_normal"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/verde"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/repetirMedicao"
+        android:layout_width="157dp"
+        android:layout_height="43dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/verde"
+        android:fontFamily="@font/poppins_normal"
+        android:shadowColor="@color/black"
+        android:text="Repetir Medicao"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.952">
-
-    </ImageView>
-
-    <ImageView
-        android:layout_width="303dp"
-        android:layout_height="76dp"
-        android:background="@drawable/redondinho"
-        android:elevation="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.656">
-
-    </ImageView>
+        app:layout_constraintVertical_bias="0.87" />
 
     <TextView
         android:id="@+id/oxigenioSangue"
@@ -204,6 +120,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.345" />
 
+
     <TextView
         android:id="@+id/oxigenioSangue2"
         android:layout_width="172dp"
@@ -218,10 +135,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376" />
+        app:layout_constraintVertical_bias="0.401" />
 
     <TextView
         android:id="@+id/batimentoCardiaco2"
@@ -230,18 +147,16 @@
         android:layout_marginBottom="116dp"
         android:elevation="40dp"
         android:fontFamily="@font/poppins_normal"
-        android:text="BPM"
+        android:text="Altitude"
         android:textAlignment="center"
         android:textColor="@color/verde"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
-
-
+        app:layout_constraintVertical_bias="0.572" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/Simular"

@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 
 
 class SplashFragment : Fragment() {
-
     private val activityScope   = CoroutineScope(Dispatchers.Main)
 
     override fun onCreateView(
@@ -25,8 +24,6 @@ class SplashFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_splash, container, false)
-
-
 
         lifecycleScope.launch(Dispatchers.IO){
             delay(2000)

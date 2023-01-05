@@ -1,12 +1,13 @@
 package ipca.grupo2.backend.models
 
 import com.google.firebase.firestore.PropertyName
+import java.util.Date
 
 class Utilizador {
     // Attributes
     private var id: String? = null;
     @PropertyName("Contact")
-    private var contact: String? = null;
+    private var contact: Long? = null;
     @PropertyName("Height")
     private var height: Float? = null;
     @PropertyName("Weight")
@@ -14,7 +15,7 @@ class Utilizador {
     @PropertyName("Name")
     private var name: String? = null;
     @PropertyName("BirthDate")
-    private var birthDate: String? = null;
+    private var birthDate: Date? = null;
     @PropertyName("isGuia")
     private var isGuia: Int? = null;
 
@@ -23,11 +24,11 @@ class Utilizador {
 
     constructor(
         id: String?,
-        contact: String?,
+        contact: Long?,
         height: Float?,
         weight: Float?,
         name: String?,
-        birthDate: String?,
+        birthDate: Date?,
         isGuia: Int?
     ) {
         this.id = id
@@ -43,7 +44,7 @@ class Utilizador {
         this.id = value;
     }
 
-    public fun setContact(value: String){
+    public fun setContact(value: Long){
         this.contact = value;
     }
 
@@ -59,7 +60,7 @@ class Utilizador {
         this.name = value;
     }
 
-    public fun setBirthDate(value: String){
+    public fun setBirthDate(value: Date){
         this.birthDate = value;
     }
 
@@ -71,7 +72,7 @@ class Utilizador {
         return this.id;
     }
 
-    public fun getContact() : String?{
+    public fun getContact() : Long?{
         return this.contact;
     }
 
@@ -87,7 +88,7 @@ class Utilizador {
         return this.name;
     }
 
-    public fun getBirthDate() : String?{
+    public fun getBirthDate() : Date?{
         return this.birthDate;
     }
 
@@ -98,5 +99,4 @@ class Utilizador {
     public fun isGuia() : Boolean{
         return (this.isGuia == 1);
     }
-
 }

@@ -35,7 +35,7 @@ interface UtilizadorDAO {
                 user.getHeight(),
                 user.getWeight(),
                 user.getName(),
-                user.getBirthDate(),
+                user.getBirthDate().toString(),
                 user.getIsGuia()!!
             );
             insert(userEntity);

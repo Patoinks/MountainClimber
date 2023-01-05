@@ -35,6 +35,7 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Retrieve the data for the current position
         holder.data = eventos[position];
+        var ImageURL = holder.data.getImage()
 
         eventoID = holder.data.getId().toString();
 
@@ -42,7 +43,6 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
        holder.textViewLocal.text = holder.data.getLocation()
 
         val mainScope = CoroutineScope(Dispatchers.Main);
-
 
 
         mainScope.launch {
@@ -61,7 +61,7 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
 
         holder.textViewInicio.text = "Data Inicio:  " + holder.data.getDateStart().toString()
         holder.textViewFim.text =  "Data Fim:  " + holder.data.getDateFinish().toString()
-        Picasso.get().load(holder.data.getImage()).into(holder.imagemEvento)
+        Picasso.get().load(ImageURL).into(holder.imagemEvento)
 
         holder.buttonEventos.setOnClickListener {
             getData()

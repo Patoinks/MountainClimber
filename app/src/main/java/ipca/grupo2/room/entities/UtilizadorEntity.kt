@@ -3,7 +3,7 @@ package ipca.grupo2.room.entities
 import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
+import java.util.Date
 
 /*
     Not using Backend models, instead creating
@@ -16,7 +16,7 @@ data class UtilizadorEntity(
     @PrimaryKey
     @NonNull
     val id: String,
-    val contact: String?,
+    val contact: Long?,
     val height: Float?,
     val weight: Float?,
     val name: String?,

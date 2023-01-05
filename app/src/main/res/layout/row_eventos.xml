@@ -63,14 +63,11 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imagemMontanha"
-            android:layout_width="95dp"
-            android:layout_height="73dp"
-            android:layout_marginLeft="29dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="408dp"
+            android:layout_height="227dp"
+            android:layout_marginLeft="-20dp"
             android:scaleType="fitCenter"
-            app:shapeAppearanceOverlay="@style/cornerSize"
-            app:tint="#466563"
-            android:src="@drawable/montanhagg">
+            app:shapeAppearanceOverlay="@style/cornerSize">
 
         </com.google.android.material.imageview.ShapeableImageView>
 

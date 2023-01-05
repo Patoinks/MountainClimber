@@ -1,6 +1,9 @@
 package ipca.grupo2
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.provider.Settings.Global
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -36,19 +39,20 @@ class ReadingFragment : Fragment() {
 
         // Handle async code
         mainScope.launch {
-            val db = Room.databaseBuilder(
-                requireContext(),
-                AppDatabase::class.java,
-                "db_grupo2"
-            ).allowMainThreadQueries().build()
+            val db = AppDatabase.getDatabase(requireContext())
 
             // Create an instance of the Adapter and set it to the RecyclerView
+            if(db != null){
+                requireActivity().runOnUiThread{
+                    val utilizadores = db.utilizadorDao().getAll()
 
-            myAdapter = UtilizadoresRecyclerAdapter(db.utilizadorDao().getAll(), requireActivity());
-            myAdapter.notifyDataSetChanged();
-            recyclerView?.adapter = myAdapter;
-
-        }
+                    // Create an instance of the Adapter and set it to the RecyclerView
+                    myAdapter = UtilizadoresRecyclerAdapter(utilizadores, requireActivity())
+                    myAdapter.notifyDataSetChanged()
+                    recyclerView?.adapter = myAdapter
+                }
+            }
+        }.start()
     }
 
     override fun onCreateView(
