@@ -61,7 +61,7 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
 
         holder.textViewInicio.text = "Data Inicio:  " + holder.data.getDateStart().toString()
         holder.textViewFim.text =  "Data Fim:  " + holder.data.getDateFinish().toString()
-        Picasso.get().load(ImageURL).into(holder.imagemEvento)
+        Picasso.get().load(ImageURL).resize(400,200).into(holder.imagemEvento)
 
         holder.buttonEventos.setOnClickListener {
             getData()

@@ -152,27 +152,27 @@
         app:layout_constraintVertical_bias="0.176" />
 
     <ImageView
-        android:layout_width="355dp"
-        android:layout_height="18dp"
+        android:layout_width="311dp"
+        android:layout_height="36dp"
         android:src="@drawable/linha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.221">
+        app:layout_constraintVertical_bias="0.227">
 
     </ImageView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/eventosRecicla"
-        android:layout_width="411dp"
-        android:layout_height="219dp"
+        android:layout_width="match_parent"
+        android:layout_height="303dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.328"
+        app:layout_constraintVertical_bias="0.405"
         tools:listitem="@layout/row_eventos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,7 @@
     </style>
 
     <style name="cornerSize">
-        <item name="cornerSize">20%</item>
+        <item name="cornerSize">12%</item>
     </style>
 
 </resources>

@@ -60,13 +60,18 @@ class UserReadFragment : Fragment() {
         view.findViewById<Button>(R.id.Simular).setOnClickListener {
             var rnds = (90..100).random()
             var rnds2 = (110..120).random()
+
             bpm.text = rnds2.toString()
             o2.text = rnds.toString()
-            if (location != null)
+            if (location != null){
                 GlobalScope.launch {
-                    Looper.prepare()
-                    view.findViewById<TextView>(R.id.altitudes).text = Math.round(location!!.getAltitude()).toString()
+                    var altitude = Math.round(location!!.getAltitude()).toString();
+                    requireActivity().runOnUiThread{
+                        view.findViewById<TextView>(R.id.altitudes).text = altitude;
+                    }
                 }
+            }
+
 
             view.findViewById<Button>(R.id.Simular).setBackgroundColor(Color.parseColor("#440123"))
             view.findViewById<Button>(R.id.Simular).isEnabled = false
