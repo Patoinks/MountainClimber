@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.graphics.toColor
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import ipca.grupo2.backend.models.Evento
@@ -40,7 +42,7 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         var ImageURL = holder.data.getImage()
 
         eventoID = holder.data.getId().toString();
-
+        var curEventoId = AppDatabase.getDatabase(context)!!.eventoDao().getCurEventId().id
         // Set the data to the views
        holder.textViewLocal.text = holder.data.getLocation()
 
@@ -67,11 +69,20 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
 
         Picasso.get().load(ImageURL).resize(400,200).into(holder.imagemEvento)
 
-        holder.buttonEventos.setOnClickListener {
-            getData()
+        if (curEventoId == eventoID){
             holder.buttonEventos.isEnabled = false
             holder.buttonEventos.setBackgroundColor(Color.parseColor("#440123"))
             holder.buttonEventos.text  = "Selecionado"
+        }
+
+        holder.buttonEventos.setOnClickListener {
+
+            var navController: NavController? = null
+            navController = Navigation.findNavController(holder.itemView)
+            getData()
+            navController!!.navigate(R.id.action_eventosFragment_to_menuFragment2)
+
+
         }
 
 

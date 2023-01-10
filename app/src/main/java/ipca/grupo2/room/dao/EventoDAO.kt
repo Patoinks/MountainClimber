@@ -19,6 +19,9 @@ interface EventoDAO {
     @Query("SELECT * FROM EventoEntity")
     fun getAll(): List<EventoEntity>
 
+    @Query("SELECT * FROM EventoEntity LIMIT 1")
+    fun getCurEventId() : EventoEntity;
+
     @Insert
     fun insert(evento: EventoEntity)
 
