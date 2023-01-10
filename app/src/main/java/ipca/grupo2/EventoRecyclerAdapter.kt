@@ -28,6 +28,8 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.row_eventos,
             parent,false);
+
+
         return ViewHolder(itemView);
     }
 
@@ -61,6 +63,8 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
 
         holder.textViewInicio.text = "Data Inicio:  " + holder.data.getDateStart().toString()
         holder.textViewFim.text =  "Data Fim:  " + holder.data.getDateFinish().toString()
+
+
         Picasso.get().load(ImageURL).resize(400,200).into(holder.imagemEvento)
 
         holder.buttonEventos.setOnClickListener {

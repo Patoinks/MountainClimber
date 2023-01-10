@@ -1,28 +1,18 @@
 package ipca.grupo2
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.provider.Settings.Global
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
-import ipca.grupo2.backend.tables.BackendEvento
-import ipca.grupo2.backend.tables.BackendUtilizador
 import ipca.grupo2.room.AppDatabase
-import ipca.grupo2.room.entities.UtilizadorEntity
 import kotlinx.coroutines.*
 
-class ReadingFragment : Fragment() {
+class UserListFragment : Fragment() {
 
     private lateinit var myAdapter: UtilizadoresRecyclerAdapter;
 
@@ -61,7 +51,7 @@ class ReadingFragment : Fragment() {
     ): View? {
 
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_reading, container, false)
+        val view = inflater.inflate(R.layout.fragment_user_list, container, false)
         val voltar = view.findViewById<ImageView>(R.id.voltarMenu2)
 
         voltar.setOnClickListener {

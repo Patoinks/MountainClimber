@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.core.view.isGone
@@ -52,6 +54,7 @@ class EventosFragment : Fragment() {
             recyclerView.visibility = View.VISIBLE
             recyclerView?.adapter = myAdapter;
         }
+
     }
 
 
@@ -68,6 +71,7 @@ class EventosFragment : Fragment() {
         }
 
         populateRecyleView(view);
+
 
         return view;
     }

@@ -20,6 +20,20 @@
 
     </com.google.android.material.imageview.ShapeableImageView>
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/bonito"
+        android:background="@drawable/oks"
+        android:layout_width="340dp"
+        android:layout_height="170dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/cornerSize">
+
+    </com.google.android.material.imageview.ShapeableImageView>
+
     <TextView
         android:id="@+id/nomeEvento"
         android:layout_width="185dp"

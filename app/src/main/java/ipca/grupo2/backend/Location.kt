@@ -18,6 +18,7 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import java.util.*
 import com.google.android.gms.location.*
+import com.google.android.gms.location.FusedLocationProviderClient
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.tasks.await
 
@@ -64,8 +65,7 @@ class Location {
         //this function will return to us the state of the location service
         //if the gps or the network provider is enabled then it will return true otherwise it will return false
         var locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
-                locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
     }
 
     @SuppressLint("MissingPermission")
@@ -96,10 +96,20 @@ class Location {
         return loc.altitude;
     }
 
+    suspend fun getLatitude() : Double{
+        var loc = getLastLocation() ?: return 0.0
+        return loc.latitude;
+    }
+
+    suspend fun getLongitude() : Double{
+        var loc = getLastLocation() ?: return 0.0
+        return loc.longitude;
+    }
+
     @SuppressLint("MissingPermission")
     fun NewLocationData(){
         var locationRequest =  LocationRequest()
-        locationRequest.priority = android.location.LocationRequest.QUALITY_HIGH_ACCURACY
+        locationRequest.priority = android.location.LocationRequest.QUALITY_BALANCED_POWER_ACCURACY
         locationRequest.interval = 0
         locationRequest.fastestInterval = 0
         locationRequest.numUpdates = 1

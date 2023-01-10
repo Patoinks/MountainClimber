@@ -3,6 +3,8 @@ package ipca.grupo2.menu
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.hardware.Sensor
+import android.hardware.SensorManager
 import android.location.LocationManager
 import android.location.LocationRequest
 import android.os.Build
@@ -30,6 +32,8 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+
+
     //Declaring the needed Variables
     val PERMISSION_ID = 1010
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient

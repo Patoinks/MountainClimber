@@ -31,8 +31,8 @@
     </fragment>
     <fragment
         android:id="@+id/readingFragment2"
-        tools:layout="@layout/fragment_reading"
-        android:name="ipca.grupo2.ReadingFragment"
+        tools:layout="@layout/fragment_user_list"
+        android:name="ipca.grupo2.UserListFragment"
         android:label="ReadingFragment" >
 
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/userReadFragment"
-        android:name="ipca.grupo2.UserReadFragment"
+        android:name="ipca.grupo2.MedicaoFragment"
         android:label="UserReadFragment" >
         <action
             android:id="@+id/action_userReadFragment_to_readingFragment2"
