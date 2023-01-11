@@ -25,6 +25,7 @@ import android.location.Location
 import android.os.Looper
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.gms.location.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -43,6 +44,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

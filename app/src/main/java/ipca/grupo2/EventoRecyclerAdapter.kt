@@ -42,25 +42,26 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         var ImageURL = holder.data.getImage()
 
         eventoID = holder.data.getId().toString();
-        var curEventoId = AppDatabase.getDatabase(context)!!.eventoDao().getCurEventId().id
+
         // Set the data to the views
-       holder.textViewLocal.text = holder.data.getLocation()
-
+        holder.textViewLocal.text = holder.data.getLocation()
+        var curEventoId = AppDatabase.getDatabase(context)?.eventoDao()?.getCurEventId()?.id
         val mainScope = CoroutineScope(Dispatchers.Main);
-
 
         mainScope.launch {
             // User List
+
             eventoUsers = withContext(Dispatchers.IO)
             {
                 BackendUtilizador.getAllUtilizadoresByEvento(eventoID!!);
             }
 
             if(eventoUsers.size > 1)
-         holder.textViewTotal.text = eventoUsers.size.toString() + " Inscritos"
+                holder.textViewTotal.text = eventoUsers.size.toString() + " Inscritos"
             else
-         holder.textViewTotal.text = eventoUsers.size.toString() + " Inscrito"
+                holder.textViewTotal.text = eventoUsers.size.toString() + " Inscrito"
         }
+
 
 
         holder.textViewInicio.text = "Data Inicio:  " + holder.data.getDateStart().toString()
@@ -76,15 +77,17 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         }
 
         holder.buttonEventos.setOnClickListener {
-
-            var navController: NavController? = null
-            navController = Navigation.findNavController(holder.itemView)
-            getData()
-            navController!!.navigate(R.id.action_eventosFragment_to_menuFragment2)
+            val mainScope = CoroutineScope(Dispatchers.Main);
+            eventoID = holder.data.getId().toString()
+            mainScope.launch {
+                var navController: NavController? = null
+                navController = Navigation.findNavController(holder.itemView)
+                getData()
+                navController!!.navigate(R.id.action_eventosFragment_to_menuFragment2)
+            }
 
 
         }
-
 
 
     }

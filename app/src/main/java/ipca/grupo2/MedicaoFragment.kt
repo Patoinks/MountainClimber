@@ -33,20 +33,25 @@ class MedicaoFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_medicao, container, false)
-        var color : Color
         val o2 = view.findViewById<TextView>(R.id.oxigenioSangue)
         val resultado = view.findViewById<TextView>(R.id.resultadoPos)
         val textoEscalada = view.findViewById<TextView>(R.id.continuarEscalada)
         val circleView = view.findViewById<HeartRateView>(R.id.bpm)
+
+
 
         location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
 
         //Botão de Simular
         view.findViewById<Button>(R.id.Simular).setOnClickListener {
 
-            var rnds = (70..100).random()
-            var rnds2 = (110..120).random()
-            circleView.setValueAnimated(rnds.toFloat() / 100, 1500)
+            var location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
+            if(location!!.CheckPermission() == false)
+            {
+                location!!.RequestPermission()
+            }
+
+            var rnds = (97..100).random()
             o2.text = rnds.toString() + "%"
 
             //Altitude
@@ -55,6 +60,21 @@ class MedicaoFragment : Fragment() {
                     var altitude = Math.round(location!!.getAltitude() - 56)
                     requireActivity().runOnUiThread{
                         view.findViewById<TextView>(R.id.altitudes).text = "Altitude: " + altitude + " m";
+                        circleView.setValueAnimated(rnds.toFloat() / 100, 1500, altitude.toFloat())
+                        if (rnds in 98 .. 100 && altitude.toFloat() in 0F .. 562F)
+                        {
+                            resultado.text = "Positivo"
+                            textoEscalada.text = "Pode continuar viagem"
+                            resultado.setTextColor((Color.parseColor("#64A19D")))
+                            o2.setTextColor((Color.parseColor("#64A19D")))
+                        }
+                        else
+                        {
+                            resultado.text = "Negativo"
+                            textoEscalada.text = "Não pode continuar viagem"
+                            resultado.setTextColor((Color.parseColor("#FF7878")))
+                            o2.setTextColor((Color.parseColor("#FF7878")))
+                        }
 
                     }
                 }
@@ -67,16 +87,33 @@ class MedicaoFragment : Fragment() {
 
         //Botão de Repetir
         view.findViewById<Button>(R.id.repetirMedicao).setOnClickListener{
-            var oxigenioRandom = (70..100).random()
+            var rnds = (96..100).random()
 
             GlobalScope.launch {
                 // Backend Calls
                 var altitude = location!!.getLastLocation()!!.altitude
 
+
                 // Ui Threads
                 requireActivity().runOnUiThread {
-                    o2.text = oxigenioRandom.toString() + "%"
-                    circleView.setValueAnimated(oxigenioRandom.toFloat() / 100, 1500, )
+
+                    if (rnds in 98 .. 100 && altitude.toFloat() in 0F .. 562F)
+                    {
+                        resultado.text = "Positivo"
+                        textoEscalada.text = "Pode continuar viagem"
+                        resultado.setTextColor((Color.parseColor("#64A19D")))
+                        o2.setTextColor((Color.parseColor("#64A19D")))
+                    }
+                    else
+                    {
+                        resultado.text = "Negativo"
+                        textoEscalada.text = "Não pode continuar viagem"
+                        resultado.setTextColor((Color.parseColor("#FF7878")))
+                        o2.setTextColor((Color.parseColor("#FF7878")))
+                    }
+
+                    o2.text = rnds.toString() + "%"
+                    circleView.setValueAnimated(rnds.toFloat() / 100, 1500, altitude.toFloat())
                 }
             }
         }

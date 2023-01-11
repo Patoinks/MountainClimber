@@ -1,6 +1,6 @@
 package ipca.grupo2.backend.models
 
-class EventoUtilizador {
+class  EventoUtilizador {
 
     // Attributes
     private var id: String? = null;

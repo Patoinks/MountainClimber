@@ -22,8 +22,7 @@ import java.lang.Math.min
 
 @RequiresApi(Build.VERSION_CODES.M)
 class HeartRateView @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : View(context, attrs, defStyleAttr) {
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
 
         private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
@@ -39,7 +38,11 @@ class HeartRateView @JvmOverloads constructor(
             invalidate()
         }
 
-
+    private var altitude = 0f
+        set(altitude) {
+            field = altitude
+            invalidate()
+        }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
@@ -49,38 +52,25 @@ class HeartRateView @JvmOverloads constructor(
         val x = (width - size) / 2
         val y = (height - size) / 2
 
-        // Cor baseada no resultado
-        GlobalScope.launch {
-            var borderColor: Int
-            var location = Location(context, (this@HeartRateView.context) as Activity)
-            var altitude = Math.round(location!!.getAltitude() - 56)
-            ((this@HeartRateView.context) as Activity).runOnUiThread{
-                if (value2 ==  0F) {
-
-                    borderColor = Color.parseColor("#64A19D") // red for low values
-                } else if (value2  < 0.9F && value2 != 0F) {
-                    borderColor = Color.parseColor("#FF7878") // yellow for medium values
-                } else {
-                    borderColor = Color.parseColor("#64A19D")// green for high values
-                }
-
-            }
+        // Set the border color based on the value
+        val borderColor: Int
+        if (value2 ==  0F) {
+            borderColor = Color.parseColor("#64A19D") // red for low values
+        } else if (value2 in 0.98F .. 0.99F && altitude in 0F .. 562F) {
+            borderColor = Color.parseColor("#64A19D") // yellow for medium values
+        } else {
+            borderColor = Color.parseColor("#FF7878")// green for high values
         }
 
-
-
-
-
-        // Fundo do circulo
+        // Draw the circle background
         paint.color = Color.parseColor("#36D8D8D8")
         canvas.drawCircle(x + size / 2f, y + size / 2f, size / 2f, paint)
 
-        //Cor e forma da borda
         paint.strokeCap = Paint.Cap.ROUND
+
+
         paint.color = borderColor
-
-
-        // Desenha o progresso
+        // Draw the progress arc
         val sweepAngle = 360 * value
         canvas.drawArc(x.toFloat(), y.toFloat(), (x + size).toFloat(), (y + size).toFloat(), -90f, sweepAngle, true, paint)
 
@@ -90,7 +80,8 @@ class HeartRateView @JvmOverloads constructor(
     }
 
     // Animar o Progresso
-    fun setValueAnimated(value: Float, duration: Long) {
+    fun setValueAnimated(value: Float, duration: Long, altitude: Float) {
+        this.altitude = altitude
         this.value2 = value
         val animator = ValueAnimator.ofFloat(0f, value)
         animator.addUpdateListener {

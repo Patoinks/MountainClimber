@@ -11,6 +11,8 @@ import ipca.grupo2.backend.tables.BackendEvento
 import ipca.grupo2.backend.tables.BackendUtilizador
 import ipca.grupo2.room.AppDatabase
 import ipca.grupo2.room.entities.EventoEntity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -42,7 +44,9 @@ interface EventoDAO {
         // Remove any evento if registered
         deleteAll()
 
-        GlobalScope.launch {
+        val mainScope = CoroutineScope(Dispatchers.Main);
+
+        mainScope.launch {
             var evento = BackendEvento.getEventoByID(idEvento);
 
             // get all users
@@ -65,3 +69,4 @@ interface EventoDAO {
     }
 
 }
+
