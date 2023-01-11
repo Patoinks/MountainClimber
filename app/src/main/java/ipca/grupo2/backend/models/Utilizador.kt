@@ -1,6 +1,9 @@
 package ipca.grupo2.backend.models
 
 import com.google.firebase.firestore.PropertyName
+import io.grpc.okhttp.internal.Util
+import ipca.grupo2.room.entities.EventoEntity
+import ipca.grupo2.room.entities.UtilizadorEntity
 import java.util.Date
 
 class Utilizador {
@@ -98,5 +101,20 @@ class Utilizador {
 
     public fun isGuia() : Boolean{
         return (this.isGuia == 1);
+    }
+
+
+    companion object{
+        public fun toEntity(user: Utilizador) : UtilizadorEntity {
+            return UtilizadorEntity(
+                user.getId()!!,
+                user.getContact(),
+                user.getHeight(),
+                user.getWeight(),
+                user.getName(),
+                user.getBirthDate().toString(),
+                user.getIsGuia()!!
+            );
+        }
     }
 }

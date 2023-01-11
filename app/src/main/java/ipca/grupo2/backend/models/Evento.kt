@@ -1,5 +1,6 @@
 package ipca.grupo2.backend.models
 
+import ipca.grupo2.room.entities.EventoEntity
 import java.util.*
 
 class Evento {
@@ -70,5 +71,19 @@ class Evento {
             return false;
 
         return !(this.dateFinish!!.after(Date()));
+    }
+
+    companion object{
+        public fun toEntity(evento: Evento) : EventoEntity{
+            return EventoEntity(
+                evento?.getId()!!,
+                evento.getIdGuia()!!,
+                evento.getLocation()!!,
+                evento.getDateStart()!!.toString(),
+                evento.getDateFinish()!!.toString(),
+                evento.getImage()!!,
+                evento.getDescription()!!
+            )
+        }
     }
 }
