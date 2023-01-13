@@ -60,15 +60,13 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
                 holder.textViewTotal.text = eventoUsers.size.toString() + " Inscritos"
             else
                 holder.textViewTotal.text = eventoUsers.size.toString() + " Inscrito"
+
+            holder.textViewInicio.text = "Data Inicio:  " + holder.data.getDateStart().toString()
+            holder.textViewFim.text =  "Data Fim:  " + holder.data.getDateFinish().toString()
+
+
+            Picasso.get().load(ImageURL).resize(400,200).into(holder.imagemEvento)
         }
-
-
-
-        holder.textViewInicio.text = "Data Inicio:  " + holder.data.getDateStart().toString()
-        holder.textViewFim.text =  "Data Fim:  " + holder.data.getDateFinish().toString()
-
-
-        Picasso.get().load(ImageURL).resize(400,200).into(holder.imagemEvento)
 
         if (curEventoId == eventoID){
             holder.buttonEventos.isEnabled = false
