@@ -1,6 +1,7 @@
 package ipca.grupo2
 
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +42,10 @@ class UtilizadoresRecyclerAdapter(val utilizadores: List<UtilizadorEntity>, val 
             var navController = Navigation.findNavController(holder.itemView);
             navController.navigate(R.id.action_readingFragment2_to_userReadFragment, bundle);
         }
+
+
+        if (position % 2 != 0)
+            holder.textViewLocal.setBackgroundColor(Color.parseColor("#466563"))
 
         // Set the data to the views
         holder.textViewLocal.text = data.name

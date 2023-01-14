@@ -10,36 +10,20 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="454dp"
-        android:layout_height="340dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="624dp"
-        android:src="@drawable/circulo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
         android:id="@+id/voltarMenu2"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/azul_marinho"
         android:elevation="20dp"
-        android:src="@drawable/seta_branca"
+        android:src="@drawable/voltar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintVertical_bias="0.044" />
 
     <TextView
         android:id="@+id/textView3"
@@ -48,7 +32,7 @@
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/poppins_normal"
         android:paddingLeft="40dp"
-        android:text="Ordenado alfabeticamente"
+        android:text="Utilizadores não medidos"
         android:textColor="@color/verde"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,35 +40,33 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.287" />
+        app:layout_constraintVertical_bias="0.172" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="316dp"
-        android:layout_height="75dp"
+        android:layout_width="311dp"
+        android:layout_height="72dp"
         android:elevation="40dp"
         android:fontFamily="@font/poppins_normal"
         android:text="Selecionar Utilizador"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/azul_marinho"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/userRecicla"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056" />
+        app:layout_constraintVertical_bias="0.054" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userRecicla"
-        android:layout_width="383dp"
-        android:layout_height="441dp"
+        android:layout_width="369dp"
+        android:layout_height="679dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.743"
+        app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/row_utilizadores" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

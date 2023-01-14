@@ -39,17 +39,16 @@ class MedicaoFragment : Fragment() {
         val circleView = view.findViewById<HeartRateView>(R.id.bpm)
 
 
+        var location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
+        if(location!!.CheckPermission() == false)
+        {
+            location!!.RequestPermission()
+        }
 
         location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
 
         //Botão de Simular
         view.findViewById<Button>(R.id.Simular).setOnClickListener {
-
-            var location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
-            if(location!!.CheckPermission() == false)
-            {
-                location!!.RequestPermission()
-            }
 
             var rnds = (97..100).random()
             o2.text = rnds.toString() + "%"

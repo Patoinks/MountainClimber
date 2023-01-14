@@ -1,5 +1,6 @@
 package ipca.grupo2
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,6 +27,7 @@ class UserListFragment : Fragment() {
         // mainScope to handle UI calls(this is needed because globalScope has
         // trouble working with UI
         val mainScope = CoroutineScope(Dispatchers.Main);
+
 
         // Handle async code
         mainScope.launch {
