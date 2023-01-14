@@ -43,6 +43,7 @@ class Utilizador {
         this.isGuia = isGuia
     }
 
+    // Functions / gets sets
     public fun setId(value: String){
         this.id = value;
     }

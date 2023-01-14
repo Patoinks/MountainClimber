@@ -34,6 +34,7 @@ class Evento {
         this.description = description
     }
 
+    // Functions / gets sets
     public fun setId(value: String){
         this.id = value;
     }

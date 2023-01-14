@@ -1,7 +1,6 @@
 package ipca.grupo2.backend.models
 
 class  EventoUtilizador {
-
     // Attributes
     private var id: String? = null;
     private var idEvento: String? = null;
@@ -16,6 +15,7 @@ class  EventoUtilizador {
         this.idUtilizador = idUtilizador;
     }
 
+    // Functions / gets sets
     public fun setId(value : String){
         this.id = value;
     }
