@@ -19,8 +19,8 @@ object BackendEvento {
         return try {
             val snapshot = document.get().await();
             val evento = snapshot.toObject<Evento>();
-            evento!!.setId(idEvento)
-            evento
+            evento!!.setId(idEvento);
+            evento;
         } catch (e: FirebaseFirestoreException) {
             null;
         }
