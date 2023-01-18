@@ -9,21 +9,107 @@
     tools:context=".menu.MainActivity">
 
 
+    <TextView
+        android:id="@+id/nome"
+        android:layout_width="210dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="116dp"
+        android:elevation="40dp"
+        android:fontFamily="@font/poppins_normal"
+        android:text="Martim Moreira"
+        android:textAlignment="center"
+        android:textColor="#B364A19D"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.194" />
+
+    <TextView
+        android:id="@+id/txtQuestoes"
+        android:layout_width="141dp"
+        android:layout_height="41dp"
+        android:elevation="40dp"
+        android:fontFamily="@font/poppins_medio"
+        android:text="Questões"
+        android:textAlignment="center"
+        android:textColor="@color/verde"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.938" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btProximo"
+        android:layout_width="162dp"
+        android:layout_height="53dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#466563"
+        android:fontFamily="@font/poppins_normal"
+        android:shadowColor="@color/black"
+        android:text="Proximo"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.763" />
+
+    <TextView
+        android:id="@+id/altitudes"
+        android:layout_width="37dp"
+        android:layout_height="19dp"
+        android:elevation="40dp"
+        android:fontFamily="@font/poppins_normal"
+        android:text="67 m"
+        android:textColor="@color/verde"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.733"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.604" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="18dp"
+        android:background="@drawable/scroll"
+        android:backgroundTint="@color/verde"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.604" />
+
     <ipca.grupo2.HeartRateView
         android:id="@+id/bpm"
         android:layout_width="238dp"
         android:layout_height="226dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419" />
+        app:layout_constraintVertical_bias="0.321" />
 
     <TextView
         android:id="@+id/oxigenioSangue"
-        android:layout_width="138dp"
-        android:layout_height="21dp"
+        android:layout_width="136dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="116dp"
         android:elevation="40dp"
         android:fontFamily="@font/poppins_normal"
@@ -33,41 +119,23 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintVertical_bias="0.418" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="275dp"
-        android:layout_height="39dp"
+        android:layout_width="274dp"
+        android:layout_height="28dp"
         android:src="@drawable/linha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632">
+        app:layout_constraintVertical_bias="0.555">
 
     </ImageView>
-
-    <TextView
-        android:id="@+id/oxigenioSangue3"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="116dp"
-        android:elevation="40dp"
-        android:fontFamily="@font/poppins_normal"
-        android:text="Resultado"
-
-        android:textColor="#5C64A19D"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
 
     <TextView
         android:id="@+id/continuarEscalada"
@@ -82,10 +150,45 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.847" />
+        app:layout_constraintVertical_bias="0.77" />
+
+    <TextView
+        android:id="@+id/resultadoPos"
+        android:layout_width="136dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="116dp"
+        android:elevation="40dp"
+        android:fontFamily="@font/poppins_medio"
+        android:text="Positivo"
+        android:textColor="@color/verde"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.315"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73" />
+
+    <TextView
+        android:id="@+id/oxigenioSangue3"
+        android:layout_width="135dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="116dp"
+        android:elevation="40dp"
+        android:fontFamily="@font/poppins_normal"
+        android:text="Resultado"
+
+        android:textColor="#5C64A19D"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.705" />
 
     <TextView
         android:id="@+id/oxigenioSangue2"
@@ -100,89 +203,11 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552" />
+        app:layout_constraintVertical_bias="0.467" />
 
-    <TextView
-        android:id="@+id/resultadoPos"
-        android:layout_width="136dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="116dp"
-        android:elevation="40dp"
-        android:fontFamily="@font/poppins_medio"
-        android:text="Positivo"
-        android:textColor="@color/verde"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.33"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.805" />
-
-    <TextView
-        android:id="@+id/altitudes"
-        android:layout_width="92dp"
-        android:layout_height="26dp"
-        android:elevation="40dp"
-        android:fontFamily="@font/poppins_normal"
-        android:text="Altitude"
-        android:textColor="@color/verde"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/repetirMedicao"
-        android:layout_width="173dp"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/verde"
-        android:fontFamily="@font/poppins_normal"
-        android:shadowColor="@color/black"
-        android:text="Repetir Medicao"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.832" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/Simular"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/verde"
-        android:fontFamily="@font/poppins_normal"
-        android:shadowColor="@color/black"
-        android:text="Simular"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
 
     <ImageView
         android:id="@+id/voltarUser"
@@ -194,29 +219,9 @@
         android:src="@drawable/voltar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintHorizontal_bias="0.124"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
-
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="172dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="116dp"
-        android:elevation="40dp"
-        android:fontFamily="@font/poppins_normal"
-
-        android:text="Resultados"
-        android:textAlignment="center"
-        android:textColor="@color/verde"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.056" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
