@@ -61,8 +61,7 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
             else
                 holder.textViewTotal.text = eventoUsers.size.toString() + " Inscrito"
 
-            holder.textViewInicio.text = "Data Inicio:  " + holder.data.getDateStart().toString()
-            holder.textViewFim.text =  "Data Fim:  " + holder.data.getDateFinish().toString()
+            holder.textViewInicio.text = "Inicio:  " + holder.data.getDateStart().toString()
 
 
             Picasso.get().load(ImageURL).resize(400,200).into(holder.imagemEvento)
@@ -72,6 +71,8 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
             holder.buttonEventos.isEnabled = false
             holder.buttonEventos.setBackgroundColor(Color.parseColor("#440123"))
             holder.buttonEventos.text  = "Selecionado"
+
+
         }
 
         holder.buttonEventos.setOnClickListener {
@@ -101,7 +102,6 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         val textViewLocal : TextView = itemView.findViewById(R.id.nomeEvento);
         val textViewTotal : TextView = itemView.findViewById(R.id.rowEventoTotalUser)
         val textViewInicio : TextView = itemView.findViewById(R.id.rowEventoDataInicio)
-        val textViewFim : TextView = itemView.findViewById(R.id.rowEventoDataFim)
         val buttonEventos : Button = itemView.findViewById(R.id.rowEventoDown)
         val imagemEvento: ImageView = itemView.findViewById(R.id.imagemMontanha)
     }

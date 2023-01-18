@@ -9,6 +9,32 @@
     tools:context=".menu.MainActivity">
 
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btLogin2"
+        android:layout_width="226dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/white"
+        android:elevation="12dp"
+        android:fontFamily="@font/poppins_normal"
+        android:outlineAmbientShadowColor="@color/azul_marinho"
+        android:outlineSpotShadowColor="@color/verde"
+        android:shadowColor="@color/black"
+        android:text="Upload"
+        android:textAllCaps="false"
+        android:textColor="#009688"
+        android:textSize="15sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.928" />
+
     <ProgressBar
         android:elevation="10dp"
         android:id="@+id/progressBar"
@@ -149,7 +175,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.159" />
 
     <ImageView
         android:layout_width="311dp"
@@ -159,20 +185,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.227">
+        app:layout_constraintVertical_bias="0.192">
 
     </ImageView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/eventosRecicla"
-        android:layout_width="419dp"
-        android:layout_height="359dp"
+        android:layout_width="388dp"
+        android:layout_height="258dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409"
+        app:layout_constraintVertical_bias="0.345"
         tools:listitem="@layout/row_eventos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

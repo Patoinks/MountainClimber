@@ -31,7 +31,7 @@ object BackendEvento {
 
         return try{
             // Getting from server ignoring cache:
-            collection.get(Source.SERVER).addOnSuccessListener { result ->
+            collection.get().addOnSuccessListener { result ->
                 for (doc in result) {
                     // this can throw an exception if document handled
                     // incorrectly (missing keys/wrong data types)
