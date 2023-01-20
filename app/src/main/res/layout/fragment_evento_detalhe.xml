@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".menu.MainActivity">
+
+    <!--text view for heading-->
+
+    <!--edit text for user name-->
+
+    <!--edit text for user password-->
+
+    <!--button to register our new user-->
+
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="123dp"
+        android:fontFamily="@font/poppins_normal"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="Detalhes"
+        android:textColor="@color/azul_marinho"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="231dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="479dp"
+        android:layout_marginEnd="147dp"
+        android:fontFamily="@font/poppins_normal"
+        android:padding="5dp"
+        android:text="Lista de utilizadores"
+        android:textColor="@color/verde"
+        android:textSize="13sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/userRecicla"
+        android:layout_width="match_parent"
+        android:layout_height="391dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="518dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/row_utilizadores" />
+
+    <ImageView
+        android:id="@+id/voltarLogin3"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/voltar" />
+
+
+    <TextView
+        android:id="@+id/totalDetalhe"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="26dp"
+        android:fontFamily="@font/poppins_normal"
+        android:padding="5dp"
+        android:text="2 Utilizadores"
+        android:textColor="@color/azul_marinho"
+        android:textSize="12sp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imagemMontanhaDetalhe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="566dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/cornerSize">
+
+    </com.google.android.material.imageview.ShapeableImageView>
+
+    <TextView
+        android:id="@+id/detalheLocal"
+        android:layout_width="336dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="298dp"
+        android:layout_marginEnd="43dp"
+        android:fontFamily="@font/poppins_normal"
+        android:padding="5dp"
+        android:text="Localização"
+        android:textColor="@color/azul_marinho"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/detalheDuracao"
+        android:layout_width="266dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="373dp"
+        android:layout_marginEnd="110dp"
+        android:fontFamily="@font/poppins_normal"
+        android:padding="5dp"
+        android:text="Duração"
+        android:textColor="@color/azul_marinho"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/detalheElevacao"
+        android:layout_width="231dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="341dp"
+        android:layout_marginEnd="145dp"
+        android:fontFamily="@font/poppins_normal"
+        android:padding="5dp"
+        android:text="Elevação"
+        android:textColor="@color/azul_marinho"
+        android:textSize="14sp" />
+
+    «
+</RelativeLayout>

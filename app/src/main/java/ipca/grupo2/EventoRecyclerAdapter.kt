@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.graphics.toColor
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
@@ -73,6 +74,14 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
             holder.buttonEventos.text  = "Selecionado"
 
 
+        }
+
+        holder.imagemEvento.setOnClickListener{
+
+            val bundle = bundleOf("eventoid" to eventoID);
+            var navController: NavController? = null
+            navController = Navigation.findNavController(holder.itemView)
+            navController!!.navigate(R.id.action_eventosFragment_to_eventoDetalheFragment, bundle)
         }
 
         holder.buttonEventos.setOnClickListener {

@@ -28,6 +28,12 @@
         <action
             android:id="@+id/action_eventosFragment_to_menuFragment2"
             app:destination="@id/menuFragment2" />
+        <action
+            android:id="@+id/action_eventosFragment_to_eventoDetalheFragment"
+            app:destination="@id/eventoDetalheFragment" />
+        <argument
+            android:name="eventoid"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/readingFragment2"
@@ -73,5 +79,16 @@
         <action
             android:id="@+id/action_splashFragment_to_userReadFragment"
             app:destination="@id/userReadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventoDetalheFragment"
+        android:name="ipca.grupo2.EventoDetalheFragment"
+        android:label="EventoDetalheFragment" >
+        <action
+            android:id="@+id/action_eventoDetalheFragment_to_eventosFragment"
+            app:destination="@id/eventosFragment" />
+        <argument
+            android:name="eventoid"
+            app:argType="string" />
     </fragment>
 </navigation>

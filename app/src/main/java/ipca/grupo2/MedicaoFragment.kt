@@ -18,7 +18,8 @@ import ipca.grupo2.backend.Location
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.util.Hashtable
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MedicaoFragment : Fragment() {
 
@@ -76,7 +77,13 @@ class MedicaoFragment : Fragment() {
                         }
 
                     }
+
+                    val sdf = SimpleDateFormat("dd/M/yyyy")
+                    val currentDate = sdf.format(Date())
+
+                    view.findViewById<TextView>(R.id.dataMed).text = currentDate.toString()
                 }
+
             }
 
             view.findViewById<Button>(R.id.Simular).setBackgroundColor(Color.parseColor("#440123"))

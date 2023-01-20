@@ -26,22 +26,18 @@ class SplashFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_splash, container, false)
 
-        lifecycleScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO) {
             delay(2000)
-            lifecycleScope.launch(Dispatchers.Main){
+            lifecycleScope.launch(Dispatchers.Main) {
                 val auth = Firebase.auth
                 val currentUser = auth.currentUser
-                if (currentUser != null){
-                        findNavController().navigate(R.id.action_splashFragment_to_menuFragment2)
-                }else{
+                if (currentUser != null) {
+                    findNavController().navigate(R.id.action_splashFragment_to_menuFragment2)
+                } else {
                     findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
                 }
             }
         }
-
-
-
         return view;
     }
-
 }
