@@ -46,10 +46,11 @@ class MedicaoFragment : Fragment() {
             location!!.RequestPermission()
         }
 
-        location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
+        else
+        {
+            location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
+        }
 
-        //Botão de Simular
-        view.findViewById<Button>(R.id.Simular).setOnClickListener {
 
             var rnds = (97..100).random()
             o2.text = rnds.toString() + "%"
@@ -59,7 +60,7 @@ class MedicaoFragment : Fragment() {
                 GlobalScope.launch {
                     var altitude = Math.round(location!!.getAltitude() - 56)
                     requireActivity().runOnUiThread{
-                        view.findViewById<TextView>(R.id.altitudes).text = "Altitude: " + altitude + " m";
+                        view.findViewById<TextView>(R.id.altitudes).text = "" + altitude + " m";
                         circleView.setValueAnimated(rnds.toFloat() / 100, 1500, altitude.toFloat())
                         if (rnds in 98 .. 100 && altitude.toFloat() in 0F .. 562F)
                         {
@@ -86,47 +87,16 @@ class MedicaoFragment : Fragment() {
 
             }
 
-            view.findViewById<Button>(R.id.Simular).setBackgroundColor(Color.parseColor("#440123"))
-            view.findViewById<Button>(R.id.Simular).isEnabled = false
-        }
 
 
-        //Botão de Repetir
-        view.findViewById<Button>(R.id.repetirMedicao).setOnClickListener{
-            var rnds = (96..100).random()
-
-            GlobalScope.launch {
-                // Backend Calls
-                var altitude = location!!.getLastLocation()!!.altitude
-
-
-                // Ui Threads
-                requireActivity().runOnUiThread {
-
-                    if (rnds in 98 .. 100 && altitude.toFloat() in 0F .. 562F)
-                    {
-                        resultado.text = "Positivo"
-                        textoEscalada.text = "Pode continuar viagem"
-                        resultado.setTextColor((Color.parseColor("#64A19D")))
-                        o2.setTextColor((Color.parseColor("#64A19D")))
-                    }
-                    else
-                    {
-                        resultado.text = "Negativo"
-                        textoEscalada.text = "Não pode continuar viagem"
-                        resultado.setTextColor((Color.parseColor("#FF7878")))
-                        o2.setTextColor((Color.parseColor("#FF7878")))
-                    }
-
-                    o2.text = rnds.toString() + "%"
-                    circleView.setValueAnimated(rnds.toFloat() / 100, 1500, altitude.toFloat())
-                }
-            }
-        }
 
 
         // Botão de voltar
         view.findViewById<ImageView>(R.id.voltarUser).setOnClickListener{
+            findNavController().navigate(R.id.action_userReadFragment_to_readingFragment2)
+        }
+
+        view.findViewById<Button>(R.id.btProximo).setOnClickListener {
             findNavController().navigate(R.id.action_userReadFragment_to_readingFragment2)
         }
 

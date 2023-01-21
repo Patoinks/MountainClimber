@@ -9,31 +9,7 @@
     tools:context=".menu.MainActivity">
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btLogin2"
-        android:layout_width="226dp"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/white"
-        android:elevation="12dp"
-        android:fontFamily="@font/poppins_normal"
-        android:outlineAmbientShadowColor="@color/azul_marinho"
-        android:outlineSpotShadowColor="@color/verde"
-        android:shadowColor="@color/black"
-        android:text="Upload"
-        android:textAllCaps="false"
-        android:textColor="#009688"
-        android:textSize="15sp"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.928" />
+
 
     <ProgressBar
         android:elevation="10dp"
@@ -111,7 +87,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="108dp"
+        android:layout_marginEnd="104dp"
         android:elevation="-12dp"
         android:src="@drawable/montanhagg"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -175,30 +151,31 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.159" />
+        app:layout_constraintVertical_bias="0.17" />
 
     <ImageView
-        android:layout_width="311dp"
-        android:layout_height="36dp"
+        android:layout_width="358dp"
+        android:layout_height="35dp"
         android:src="@drawable/linha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.192">
+        app:layout_constraintVertical_bias="0.204">
 
     </ImageView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/eventosRecicla"
         android:layout_width="388dp"
-        android:layout_height="258dp"
+        android:layout_height="313dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.345"
+        app:layout_constraintVertical_bias="0.406"
         tools:listitem="@layout/row_eventos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,7 +47,7 @@ class EventosFragment : Fragment() {
 
 
             // Create an instance of the Adapter and set it to the RecyclerView
-            myAdapter = EventoRecyclerAdapter(ArrayList(dataList), requireActivity());
+            myAdapter = EventoRecyclerAdapter(ArrayList(dataList), requireActivity(), recyclerView);
             myAdapter.notifyDataSetChanged();
 
             progressBar.visibility = View.GONE

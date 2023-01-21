@@ -2,6 +2,7 @@ package ipca.grupo2
 
 import android.content.Context
 import android.graphics.Color
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,10 +22,34 @@ import ipca.grupo2.backend.tables.BackendUtilizador
 import ipca.grupo2.room.AppDatabase
 import kotlinx.coroutines.*
 
-class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context) :
+class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context, var recyclerView: RecyclerView) :
     RecyclerView.Adapter<EventoRecyclerAdapter.ViewHolder>() {
     private lateinit var eventoID: String;
     private lateinit var eventoUsers: MutableList<Utilizador>;
+    private var currentPosition: Int = 0
+    private val handler = Handler()
+    private val runnable = object : Runnable {
+        override fun run() {
+            if (currentPosition == itemCount - 1) {
+                currentPosition = 0
+            } else {
+                currentPosition++
+            }
+            recyclerView.smoothScrollToPosition(currentPosition)
+            handler.postDelayed(this, 5000)
+        }
+    }
+
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+        this.recyclerView = recyclerView
+        handler.postDelayed(runnable, 5000)
+    }
+
+    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView)
+        handler.removeCallbacks(runnable)
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -57,18 +82,17 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
                 BackendUtilizador.getAllUtilizadoresByEvento(eventoID!!);
             }
 
-            if(eventoUsers.size > 1)
+         /*   if(eventoUsers.size > 1)
                 holder.textViewTotal.text = eventoUsers.size.toString() + " Inscritos"
             else
                 holder.textViewTotal.text = eventoUsers.size.toString() + " Inscrito"
 
-            holder.textViewInicio.text = "Inicio:  " + holder.data.getDateStart().toString()
+            holder.textViewInicio.text = "Inicio:  " + holder.data.getDateStart().toString() */
 
 
-            Picasso.get().load(ImageURL).resize(400,200).into(holder.imagemEvento)
+            Picasso.get().load(ImageURL).resize(360,180).into(holder.imagemEvento)
         }
-
-        if (curEventoId == eventoID){
+         if (curEventoId == eventoID){
             holder.buttonEventos.isEnabled = false
             holder.buttonEventos.setBackgroundColor(Color.parseColor("#440123"))
             holder.buttonEventos.text  = "Selecionado"
@@ -109,8 +133,8 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         lateinit var data: Evento;
 
         val textViewLocal : TextView = itemView.findViewById(R.id.nomeEvento);
-        val textViewTotal : TextView = itemView.findViewById(R.id.rowEventoTotalUser)
-        val textViewInicio : TextView = itemView.findViewById(R.id.rowEventoDataInicio)
+       // val textViewTotal : TextView = itemView.findViewById(R.id.rowEventoTotalUser)
+       // val textViewInicio : TextView = itemView.findViewById(R.id.rowEventoDataInicio)
         val buttonEventos : Button = itemView.findViewById(R.id.rowEventoDown)
         val imagemEvento: ImageView = itemView.findViewById(R.id.imagemMontanha)
     }
