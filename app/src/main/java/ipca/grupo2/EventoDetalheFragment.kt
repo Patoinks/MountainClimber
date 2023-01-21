@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -84,6 +85,10 @@ class EventoDetalheFragment : Fragment() {
             var datadiff = TimeUnit.MILLISECONDS.toDays(long!!)
 
             duracao.text = "Duração do evento: " + datadiff.toString() + " dias"
+        }
+
+        view.findViewById<ImageView>(R.id.voltarEvento).setOnClickListener {
+            findNavController().navigate(R.id.action_eventoDetalheFragment_to_eventosFragment)
         }
         return view
     }
