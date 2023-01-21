@@ -96,9 +96,6 @@ class MedicaoFragment : Fragment() {
             findNavController().navigate(R.id.action_userReadFragment_to_readingFragment2)
         }
 
-        view.findViewById<Button>(R.id.btProximo).setOnClickListener {
-            findNavController().navigate(R.id.action_userReadFragment_to_readingFragment2)
-        }
 
         return view
     }
