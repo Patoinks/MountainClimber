@@ -24,10 +24,7 @@ class UserListFragment : Fragment() {
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity());
         recyclerView?.setHasFixedSize(true);
 
-        // mainScope to handle UI calls(this is needed because globalScope has
-        // trouble working with UI
         val mainScope = CoroutineScope(Dispatchers.Main);
-
 
         // Handle async code
         mainScope.launch {
@@ -55,6 +52,7 @@ class UserListFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_user_list, container, false)
         val voltar = view.findViewById<ImageView>(R.id.voltarMenu2)
+
 
         voltar.setOnClickListener {
             findNavController().navigate(R.id.action_readingFragment2_to_menuFragment2)

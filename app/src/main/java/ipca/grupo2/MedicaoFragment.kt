@@ -12,6 +12,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.toColor
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ipca.grupo2.backend.Location
@@ -35,9 +37,23 @@ class MedicaoFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_medicao, container, false)
         val o2 = view.findViewById<TextView>(R.id.oxigenioSangue)
+        val o2T = view.findViewById<TextView>(R.id.oxigenioSangue2)
+        val o2T2 = view.findViewById<TextView>(R.id.oxigenioSangue3)
         val resultado = view.findViewById<TextView>(R.id.resultadoPos)
         val textoEscalada = view.findViewById<TextView>(R.id.continuarEscalada)
         val circleView = view.findViewById<HeartRateView>(R.id.bpm)
+        val dataMed =  view.findViewById<TextView>(R.id.dataMed)
+        val altitudes = view.findViewById<TextView>(R.id.altitudes)
+        val fingerprint = view.findViewById<ImageView>(R.id.Simular)
+
+        o2.isVisible = false
+        o2T.isVisible = false
+        resultado.isVisible = false
+        textoEscalada.isVisible = false
+        circleView.isVisible = false
+        dataMed.isVisible = false
+        altitudes.isVisible = false
+        o2T2.isVisible = false
 
 
         var location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
@@ -52,6 +68,10 @@ class MedicaoFragment : Fragment() {
         }
 
 
+
+
+
+        fingerprint.setOnClickListener {
             var rnds = (97..100).random()
             o2.text = rnds.toString() + "%"
 
@@ -60,7 +80,7 @@ class MedicaoFragment : Fragment() {
                 GlobalScope.launch {
                     var altitude = Math.round(location!!.getAltitude() - 56)
                     requireActivity().runOnUiThread{
-                        view.findViewById<TextView>(R.id.altitudes).text = "" + altitude + " m";
+                        altitudes.text = "" + altitude + " m";
                         circleView.setValueAnimated(rnds.toFloat() / 100, 1500, altitude.toFloat())
                         if (rnds in 98 .. 100 && altitude.toFloat() in 0F .. 562F)
                         {
@@ -82,19 +102,26 @@ class MedicaoFragment : Fragment() {
                     val sdf = SimpleDateFormat("dd/M/yyyy")
                     val currentDate = sdf.format(Date())
 
-                    view.findViewById<TextView>(R.id.dataMed).text = currentDate.toString()
+                    dataMed.text = currentDate.toString()
                 }
 
             }
-
-
-
-
+            o2.isVisible = true
+            o2T.isVisible = true
+            resultado.isVisible = true
+            textoEscalada.isVisible = true
+            circleView.isVisible = true
+            dataMed.isVisible = true
+            altitudes.isVisible = true
+            o2T2.isVisible = true
+        }
 
         // Botão de voltar
         view.findViewById<ImageView>(R.id.voltarUser).setOnClickListener{
             findNavController().navigate(R.id.action_userReadFragment_to_readingFragment2)
         }
+
+
 
 
         return view

@@ -25,6 +25,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
+
     private lateinit var auth: FirebaseAuth
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -36,16 +37,13 @@ class LoginFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
         // Inflate the layout for this fragment, bind and get FireBase authentication methods into "auth"
-
         auth = Firebase.auth
-
 
 
         // On click login
         view.findViewById<Button>(R.id.btLogin).setOnClickListener {
             val email = view.findViewById<TextView>(R.id.email).text.toString()
             val password = view.findViewById<TextView>(R.id.password).text.toString()
-
             val mainScope = CoroutineScope(Dispatchers.Main);
 
             if (isOnline(requireContext())) {
@@ -83,22 +81,15 @@ class LoginFragment : Fragment() {
                 connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
             if (capabilities != null) {
                 if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
-                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
                     return true
                 } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
-                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
                     return true
                 } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
-                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
                     return true
                 }
             }
         }
         return false
-    }
-
-    companion object {
-        const val TAG = "LoginActivity"
     }
 }
 

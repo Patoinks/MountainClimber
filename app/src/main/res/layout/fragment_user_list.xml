@@ -10,34 +10,6 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="350dp"
-        android:layout_height="24dp"
-        android:src="@drawable/linha"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.249">
-
-    </ImageView>
-
-    <ImageView
-        android:id="@+id/montanhaclara2"
-        android:layout_width="507dp"
-        android:layout_height="235dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/eli"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-89dp" />
-
-    <ImageView
         android:id="@+id/voltarMenu2"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -45,7 +17,7 @@
         android:layout_alignParentTop="true"
         android:backgroundTint="@color/azul_marinho"
         android:elevation="20dp"
-        android:src="@drawable/seta_branca"
+        android:src="@drawable/voltar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.089"
@@ -68,7 +40,33 @@
         app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229" />
+        app:layout_constraintVertical_bias="0.189" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="350dp"
+        android:layout_height="24dp"
+        android:src="@drawable/linha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.212">
+
+    </ImageView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/userRecicla"
+        android:layout_width="356dp"
+        android:layout_height="534dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.747"
+        tools:listitem="@layout/row_utilizadores" />
 
     <TextView
         android:id="@+id/textView4"
@@ -78,7 +76,7 @@
         android:fontFamily="@font/poppins_normal"
         android:text="Selecionar Utilizador"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/verde"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/userRecicla"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,17 +84,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.047" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/userRecicla"
-        android:layout_width="358dp"
-        android:layout_height="498dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75"
-        tools:listitem="@layout/row_utilizadores" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -76,10 +76,10 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintVertical_bias="0.316" />
 
     <EditText
         android:id="@+id/password"
@@ -115,11 +115,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/verde"
-        android:elevation="12dp"
+        android:elevation="35dp"
         android:fontFamily="@font/poppins_normal"
         android:outlineAmbientShadowColor="@color/azul_marinho"
-        android:outlineSpotShadowColor="@color/verde"
-        android:shadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/azul_marinho"
         android:text="Entrar"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -130,7 +129,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625" />
+        app:layout_constraintVertical_bias="0.627" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

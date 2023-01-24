@@ -8,8 +8,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/rowEventoDown"
-        android:layout_width="146dp"
-        android:layout_height="47dp"
+        android:layout_width="132dp"
+        android:layout_height="45dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
@@ -23,14 +23,14 @@
         android:text="Selecionar"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="13sp"
         app:cornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931" />
+        app:layout_constraintVertical_bias="0.808" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imagemMontanha"
@@ -50,6 +50,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/bonito"
         android:layout_width="360dp"
+        android:alpha="0.4"
         android:layout_height="180dp"
         android:background="@drawable/preto"
         android:scaleType="fitCenter"
@@ -67,10 +68,10 @@
         android:id="@+id/nomeEvento"
         android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:fontFamily="@font/poppins_medio"
+        android:fontFamily="@font/poppins_black"
         android:text="Evereste"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFF"
         android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

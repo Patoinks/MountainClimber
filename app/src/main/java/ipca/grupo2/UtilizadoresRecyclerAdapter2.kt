@@ -17,8 +17,8 @@ import ipca.grupo2.backend.models.Evento
 import ipca.grupo2.room.dao.UtilizadorDAO
 import ipca.grupo2.room.entities.UtilizadorEntity
 
-class UtilizadoresRecyclerAdapter(val utilizadores: List<UtilizadorEntity>, val context: Context) :
-    RecyclerView.Adapter<UtilizadoresRecyclerAdapter.ViewHolder>() {
+class UtilizadoresRecyclerAdapter2(val utilizadores: List<UtilizadorEntity>, val context: Context) :
+    RecyclerView.Adapter<UtilizadoresRecyclerAdapter2.ViewHolder>() {
 
     // Define the ViewHolder class
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

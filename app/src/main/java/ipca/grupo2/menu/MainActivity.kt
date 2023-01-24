@@ -34,19 +34,10 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-
-    //Declaring the needed Variables
-    val PERMISSION_ID = 1010
-    lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    lateinit var locationRequest: LocationRequest
-
     //Ao criar pagina
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
