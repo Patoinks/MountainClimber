@@ -90,5 +90,16 @@
         <argument
             android:name="eventoid"
             app:argType="string" />
+        <action
+            android:id="@+id/action_eventoDetalheFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="ipca.grupo2.UserDetailFragment"
+        android:label="UserDetailFragment" >
+        <action
+            android:id="@+id/action_userDetailFragment_to_eventoDetalheFragment"
+            app:destination="@id/eventoDetalheFragment" />
     </fragment>
 </navigation>

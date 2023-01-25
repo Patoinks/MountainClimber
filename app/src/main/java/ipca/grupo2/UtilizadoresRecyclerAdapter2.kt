@@ -35,7 +35,7 @@ class UtilizadoresRecyclerAdapter2(val utilizadores: List<UtilizadorEntity>, val
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Retrieve the data for the current position
         val data = utilizadores[position];
-        val bundle = bundleOf("userid" to data.id);
+        val bundle = bundleOf("useridD" to data.id);
 
         holder.ButtonNome.setOnClickListener {
             var navController = Navigation.findNavController(holder.itemView);

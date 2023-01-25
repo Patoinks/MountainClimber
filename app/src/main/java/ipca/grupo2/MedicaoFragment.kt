@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.toColor
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -45,8 +46,11 @@ class MedicaoFragment : Fragment() {
         val dataMed =  view.findViewById<TextView>(R.id.dataMed)
         val altitudes = view.findViewById<TextView>(R.id.altitudes)
         val fingerprint = view.findViewById<ImageView>(R.id.Simular)
+        val barra = view.findViewById<ImageView>(R.id.barra)
+        val questoes = view.findViewById<Button>(R.id.questoes)
 
         o2.isVisible = false
+        barra.isVisible = false
         o2T.isVisible = false
         resultado.isVisible = false
         textoEscalada.isVisible = false
@@ -54,9 +58,11 @@ class MedicaoFragment : Fragment() {
         dataMed.isVisible = false
         altitudes.isVisible = false
         o2T2.isVisible = false
+        questoes.isVisible = false
 
 
         var location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
+
         if(location!!.CheckPermission() == false)
         {
             location!!.RequestPermission()
@@ -114,11 +120,21 @@ class MedicaoFragment : Fragment() {
             dataMed.isVisible = true
             altitudes.isVisible = true
             o2T2.isVisible = true
+            fingerprint.isVisible = false
+            questoes.isVisible = true
+            barra.isVisible = true
         }
+
+
 
         // Botão de voltar
         view.findViewById<ImageView>(R.id.voltarUser).setOnClickListener{
             findNavController().navigate(R.id.action_userReadFragment_to_readingFragment2)
+        }
+
+        questoes.setOnClickListener {
+            val showPopUp = QuestionsFragment()
+            showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showPopuUp")
         }
 
 

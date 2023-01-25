@@ -13,6 +13,7 @@
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
     <color name="verde">#64A19D</color>
+    <color name="verdeEsc">#FF466563</color>
     <color name="azul_marinho">#205072</color>
     <color name="colorBackgroundCircle">@android:color/darker_gray</color>
     <color name="colorProgress">#4CAF50</color>
