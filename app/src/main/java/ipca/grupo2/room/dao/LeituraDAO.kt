@@ -48,7 +48,19 @@ interface LeituraDAO {
         }
         return highestNumLeitura;
     }
+    fun findUsersWithLowerNumLeitura(): List<String> {
+        val maxNumLeitura = findHighestNumLeitura();
+        val usersWithLowerNumLeitura = ArrayList<String>();
+        val allLeitura = getAll();
 
+        for (leitura in allLeitura) {
+            val numLeitura = numLeituraToday(leitura.idUtilizador);
+            if (numLeitura < maxNumLeitura) {
+                usersWithLowerNumLeitura.add(leitura.idUtilizador);
+            }
+        }
+        return usersWithLowerNumLeitura;
+    }
 
     suspend fun upload(){
 
