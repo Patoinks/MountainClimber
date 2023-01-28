@@ -8,11 +8,11 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.ContextCompat
+import ipca.grupo2.backend.models.Leitura
 
 class CheckpointSliderView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
-
 
     // constants for the checkpoint radius, line width, and text size
     private val checkpointRadius = 30f

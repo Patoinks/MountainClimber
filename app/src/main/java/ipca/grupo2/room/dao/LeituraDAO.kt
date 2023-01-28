@@ -20,6 +20,8 @@ interface LeituraDAO {
     @Query("DELETE FROM LeituraEntity WHERE id=id;")
     fun deleteAll()
 
+    @Query("SELECT * FROM leituraentity WHERE id=id")
+
     suspend fun upload(){
 
     }
