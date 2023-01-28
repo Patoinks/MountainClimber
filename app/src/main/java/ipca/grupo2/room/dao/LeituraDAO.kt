@@ -24,20 +24,23 @@ interface LeituraDAO {
     @Query("SELECT * FROM LeituraEntity WHERE data = :date AND idUtilizador = :id")
     fun getByDate(date: Date, id: String): List<LeituraEntity>
 
+    // Check if a user has a leitura today
     fun hasLeituraToday(idUtilizador: String) : Boolean{
         val today = Date(System.currentTimeMillis());
         val leituras = getByDate(today, idUtilizador);
         return leituras.isNotEmpty();
     }
 
+    // Check how much leituras a user did today
     fun numLeituraToday(idUtilizador: String) : Int{
         val today = Date(System.currentTimeMillis());
         val leituras = getByDate(today, idUtilizador);
         return leituras.size;
     }
 
+    // Returns current num of leitura(most likely 1 or 2, 1 for first)
     fun findHighestNumLeitura(): Int {
-        var highestNumLeitura = 0;
+            var highestNumLeitura = 0;
         val allLeitura = getAll();
 
         for (leitura in allLeitura) {
@@ -48,6 +51,8 @@ interface LeituraDAO {
         }
         return highestNumLeitura;
     }
+
+    // Returns list of users who are left to do a leitura
     fun findUsersWithLowerNumLeitura(): List<String> {
         val maxNumLeitura = findHighestNumLeitura();
         val usersWithLowerNumLeitura = ArrayList<String>();
