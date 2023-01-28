@@ -30,10 +30,25 @@ interface LeituraDAO {
         return leituras.isNotEmpty();
     }
 
-    // 1 or 2
     fun numLeituraToday(idUtilizador: String) : Int{
-        return if (hasLeituraToday(idUtilizador)) 2 else 1
+        val today = Date(System.currentTimeMillis());
+        val leituras = getByDate(today, idUtilizador);
+        return leituras.size;
     }
+
+    fun findHighestNumLeitura(): Int {
+        var highestNumLeitura = 0;
+        val allLeitura = getAll();
+
+        for (leitura in allLeitura) {
+            val numLeitura = numLeituraToday(leitura.idUtilizador);
+            if (numLeitura > highestNumLeitura) {
+                highestNumLeitura = numLeitura;
+            }
+        }
+        return highestNumLeitura;
+    }
+
 
     suspend fun upload(){
 
