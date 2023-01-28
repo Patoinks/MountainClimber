@@ -3,7 +3,7 @@ package ipca.grupo2.room.entities
 import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
+import java.sql.Date
 
 /*
     Not using Backend models, instead creating

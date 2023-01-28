@@ -20,8 +20,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import ipca.grupo2.backend.Location
+import ipca.grupo2.backend.models.Leitura
 import ipca.grupo2.backend.tables.BackendEvento
 import ipca.grupo2.backend.tables.BackendUtilizador
+import ipca.grupo2.room.AppDatabase
+import ipca.grupo2.room.dao.LeituraDAO
+import ipca.grupo2.room.entities.LeituraEntity
 import kotlinx.android.synthetic.main.fragment_medicao.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +33,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalTime
 import java.util.*
 
 class MedicaoFragment : Fragment() {
@@ -112,18 +118,22 @@ class MedicaoFragment : Fragment() {
                         }
                     }
 
-                    val sdf = SimpleDateFormat("dd/M/yyyy")
-                    val currentDate = sdf.format(Date())
 
-                    //dataMed.text = currentDate.toString()
+                    //insert logica da batata
+                    var leitura: Leitura = Leitura()
+                    leitura.setIdUtilizador(userid!!)
+                    leitura.setO2(rnds)
+                    leitura.setData(Date() as java.sql.Date)
+                    val db = AppDatabase.getDatabase(requireContext())
+                    db?.leituraDao()?.insert(Leitura.toEntity(leitura))
                 }
             }
+
             o2.isVisible = true
             o2T.isVisible = true
             resultado.isVisible = true
             textoEscalada.isVisible = true
             circleView.isVisible = true
-
             altitudes.isVisible = true
             o2T2.isVisible = true
             fingerprint.isVisible = false
@@ -137,7 +147,6 @@ class MedicaoFragment : Fragment() {
         questoes.setOnClickListener {
             val showPopUp = QuestionsFragment()
             showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showPopuUp")
-
             questoes.isGone = true
             proximo.isVisible = true
         }
@@ -145,19 +154,15 @@ class MedicaoFragment : Fragment() {
 
         //Proxima leitura
         proximo.setOnClickListener {
-            //Coloca o utilizador como já lido.
-
+            findNavController().navigate(R.id.action_userReadFragment_to_readingFragment2)
         }
 
 
         val mainScope = CoroutineScope(Dispatchers.Main)
-
         //Buscar dados do evento
         mainScope.launch {
             val utilizador = BackendUtilizador.getUtilizadorById(userid!!)
-
              nome.text = utilizador?.getName()
-
         }
 
 
