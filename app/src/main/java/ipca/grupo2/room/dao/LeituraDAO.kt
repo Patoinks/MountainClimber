@@ -30,6 +30,11 @@ interface LeituraDAO {
         return leituras.isNotEmpty();
     }
 
+    // 1 or 2
+    fun numLeituraToday(idUtilizador: String) : Int{
+        return if (hasLeituraToday(idUtilizador)) 2 else 1
+    }
+
     suspend fun upload(){
 
     }
