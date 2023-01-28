@@ -5,13 +5,13 @@ import java.util.*
 
 class Evento {
     // Attributes
-    private var id: String? = null;
-    private var idGuia: String? = null;
-    private var location: String? = null;
-    private var dateStart: Date? = null;
-    private var dateFinish: Date? = null;
-    private var image: String? = null;
-    private var description: String? = null;
+    private var id: String? = null
+    private var idGuia: String? = null
+    private var location: String? = null
+    private var dateStart: Date? = null
+    private var dateFinish: Date? = null
+    private var image: String? = null
+    private var description: String? = null
 
     // Constructors
     constructor()
@@ -35,49 +35,49 @@ class Evento {
     }
 
     // Functions / gets sets
-    public fun setId(value: String){
-        this.id = value;
+    fun setId(value: String){
+        this.id = value
     }
 
-    public fun getId() : String?{
-        return this.id;
+    fun getId() : String?{
+        return this.id
     }
 
-    public fun getIdGuia() : String?{
-        return this.idGuia;
+    fun getIdGuia() : String?{
+        return this.idGuia
     }
 
-    public fun getLocation() : String?{
-        return this.location;
+    fun getLocation() : String?{
+        return this.location
     }
 
-    public fun getDateStart() : Date?{
-        return this.dateStart;
+    fun getDateStart() : Date?{
+        return this.dateStart
     }
 
-    public fun getDateFinish() : Date?{
-        return this.dateFinish;
+    fun getDateFinish() : Date?{
+        return this.dateFinish
     }
 
-    public fun getImage() : String?{
-        return this.image;
+    fun getImage() : String?{
+        return this.image
     }
 
-    public fun getDescription(): String?{
-        return this.description;
+    fun getDescription(): String?{
+        return this.description
     }
 
-    public fun isValid() : Boolean{
+    fun isValid() : Boolean{
         if (this.dateFinish == null || this.dateStart == null)
-            return false;
+            return false
 
-        return !(this.dateFinish!!.after(Date()));
+        return !(this.dateFinish!!.after(Date()))
     }
 
     companion object{
-        public fun toEntity(evento: Evento) : EventoEntity{
+        fun toEntity(evento: Evento) : EventoEntity{
             return EventoEntity(
-                evento?.getId()!!,
+                evento.getId()!!,
                 evento.getIdGuia()!!,
                 evento.getLocation()!!,
                 evento.getDateStart()!!.toString(),

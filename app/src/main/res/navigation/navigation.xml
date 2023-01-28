@@ -55,6 +55,12 @@
         <action
             android:id="@+id/action_userReadFragment_to_readingFragment2"
             app:destination="@id/readingFragment2" />
+        <action
+            android:id="@+id/action_userReadFragment_to_questionsFragment"
+            app:destination="@id/questionsFragment" />
+        <argument
+            android:name="userid"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -101,5 +107,17 @@
         <action
             android:id="@+id/action_userDetailFragment_to_eventoDetalheFragment"
             app:destination="@id/eventoDetalheFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionsFragment"
+        android:name="ipca.grupo2.QuestionsFragment"
+        android:label="fragment_questions"
+        tools:layout="@layout/fragment_questions" >
+        <action
+            android:id="@+id/action_questionsFragment_to_userReadFragment"
+            app:destination="@id/userReadFragment" />
+        <action
+            android:id="@+id/action_questionsFragment_to_readingFragment2"
+            app:destination="@id/readingFragment2" />
     </fragment>
 </navigation>

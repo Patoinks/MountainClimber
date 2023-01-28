@@ -24,8 +24,8 @@ import kotlinx.coroutines.*
 
 class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context, var recyclerView: RecyclerView) :
     RecyclerView.Adapter<EventoRecyclerAdapter.ViewHolder>() {
-    private lateinit var eventoID: String;
-    private lateinit var eventoUsers: MutableList<Utilizador>;
+    private lateinit var eventoID: String
+    private lateinit var eventoUsers: MutableList<Utilizador>
     private var currentPosition: Int = 0
     private val handler = Handler()
     private val runnable = object : Runnable {
@@ -51,35 +51,31 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         handler.removeCallbacks(runnable)
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.row_eventos,
-            parent,false);
-
-
-        return ViewHolder(itemView);
+            parent,false)
+        return ViewHolder(itemView)
     }
-
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Retrieve the data for the current position
-        holder.data = eventos[position];
+        holder.data = eventos[position]
         var ImageURL = holder.data.getImage()
 
-        eventoID = holder.data.getId().toString();
+        eventoID = holder.data.getId().toString()
 
         // Set the data to the views
         holder.textViewLocal.text = holder.data.getLocation()
         var curEventoId = AppDatabase.getDatabase(context)?.eventoDao()?.getCurEventId()?.id
-        val mainScope = CoroutineScope(Dispatchers.Main);
+        val mainScope = CoroutineScope(Dispatchers.Main)
 
         mainScope.launch {
             // User List
 
             eventoUsers = withContext(Dispatchers.IO)
             {
-                BackendUtilizador.getAllUtilizadoresByEvento(eventoID!!);
+                BackendUtilizador.getAllUtilizadoresByEvento(eventoID)
             }
 
          /*   if(eventoUsers.size > 1)
@@ -102,14 +98,14 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
 
         holder.imagemEvento.setOnClickListener{
 
-            val bundle = bundleOf("eventoid" to eventoID);
+            val bundle = bundleOf("eventoid" to eventoID)
             var navController: NavController? = null
             navController = Navigation.findNavController(holder.itemView)
-            navController!!.navigate(R.id.action_eventosFragment_to_eventoDetalheFragment, bundle)
+            navController.navigate(R.id.action_eventosFragment_to_eventoDetalheFragment, bundle)
         }
 
         holder.buttonEventos.setOnClickListener {
-            val mainScope = CoroutineScope(Dispatchers.Main);
+            val mainScope = CoroutineScope(Dispatchers.Main)
             eventoID = holder.data.getId().toString()
             mainScope.launch {
                 var navController: NavController? = null
@@ -125,15 +121,16 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
     }
 
     override fun getItemCount(): Int {
-        return eventos.size;
+        return eventos.size
     }
 
     // Define the ViewHolder class
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var data: Evento;
+        lateinit var data: Evento
 
-        val textViewLocal : TextView = itemView.findViewById(R.id.nomeEvento);
-       // val textViewTotal : TextView = itemView.findViewById(R.id.rowEventoTotalUser)
+        val textViewLocal : TextView = itemView.findViewById(R.id.nomeEvento)
+
+        // val textViewTotal : TextView = itemView.findViewById(R.id.rowEventoTotalUser)
        // val textViewInicio : TextView = itemView.findViewById(R.id.rowEventoDataInicio)
         val buttonEventos : Button = itemView.findViewById(R.id.rowEventoDown)
         val imagemEvento: ImageView = itemView.findViewById(R.id.imagemMontanha)
@@ -142,13 +139,13 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
     private fun getData() {
         // get data from backend
         GlobalScope.launch {
-            AppDatabase.getDatabase(context)!!.eventoDao().joinEvento(eventoID, context);
+            AppDatabase.getDatabase(context)!!.eventoDao().joinEvento(eventoID, context)
         }
 
         Toast.makeText(
             context, "Evento downloaded!",
             Toast.LENGTH_SHORT
-        ).show();
+        ).show()
     }
 
 }

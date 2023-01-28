@@ -22,24 +22,24 @@ class UtilizadoresRecyclerAdapter2(val utilizadores: List<UtilizadorEntity>, val
 
     // Define the ViewHolder class
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val ButtonNome : Button = itemView.findViewById(R.id.nome);
+        val ButtonNome : Button = itemView.findViewById(R.id.nome)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.row_utilizadores,
-            parent,false);
-        return ViewHolder(itemView);
+            parent,false)
+        return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Retrieve the data for the current position
-        val data = utilizadores[position];
-        val bundle = bundleOf("useridD" to data.id);
+        val data = utilizadores[position]
+        val bundle = bundleOf("useridD" to data.id)
 
         holder.ButtonNome.setOnClickListener {
-            var navController = Navigation.findNavController(holder.itemView);
-            navController.navigate(R.id.action_readingFragment2_to_userReadFragment, bundle);
+            var navController = Navigation.findNavController(holder.itemView)
+            navController.navigate(R.id.action_readingFragment2_to_userReadFragment, bundle)
         }
 
         if (position % 2 != 0)
@@ -49,6 +49,6 @@ class UtilizadoresRecyclerAdapter2(val utilizadores: List<UtilizadorEntity>, val
     }
 
     override fun getItemCount(): Int {
-        return utilizadores.size;
+        return utilizadores.size
     }
 }

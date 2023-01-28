@@ -22,6 +22,6 @@ data class UtilizadorEntity(
     val name: String?,
     val birthDate: String?, // error: Cannot figure out how to save this field into database (Date())
     val isGuia: Int?
-);
+)
 
 

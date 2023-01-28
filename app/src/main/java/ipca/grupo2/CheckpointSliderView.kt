@@ -15,7 +15,7 @@ class CheckpointSliderView @JvmOverloads constructor(
 
 
     // constants for the checkpoint radius, line width, and text size
-    private val checkpointRadius = 20f
+    private val checkpointRadius = 30f
     private val lineWidth = 5f
     private val textSize = 24f
 
@@ -25,22 +25,25 @@ class CheckpointSliderView @JvmOverloads constructor(
 
     // variables for the paint objects and the current position
     private val checkpointPaint = Paint()
+    private val bolaBranca = Paint()
     private val linePaint = Paint()
     private val textPaint = Paint()
-    private var currentPosition = 50f
+    private var currentPosition = 40F
 
     // variables for the number of checkpoints and the checkpoint positions
     private val numCheckpoints = 4
-    private val checkpointPositions = floatArrayOf(0.08f, 0.33f, 0.66f, 0.98F)
+    private val checkpointPositions = floatArrayOf(0.04f, 0.33f, 0.66f, 1F)
 
     init {
         // set the paint colors
+        bolaBranca.color = ContextCompat.getColor(context, R.color.white)
         checkpointPaint.color = ContextCompat.getColor(context, R.color.verde)
         linePaint.color = ContextCompat.getColor(context, R.color.verde)
         textPaint.color = ContextCompat.getColor(context, R.color.verde)
 
         // set the paint styles
         checkpointPaint.style = Paint.Style.FILL
+        bolaBranca.style = Paint.Style.FILL
         linePaint.style = Paint.Style.STROKE
         textPaint.style = Paint.Style.FILL
 
@@ -53,18 +56,24 @@ class CheckpointSliderView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        val margin = 13f
 
         // draw the checkpoints at the specified positions
+        canvas.drawLine(checkpointRadius * 2, height / 2f, width - checkpointRadius * 2, height / 2f, linePaint)
+
         for (i in 0 until numCheckpoints) {
-            var x = if (i == 0) checkpointRadius else checkpointPositions[i] * width
-            x = if (i == numCheckpoints - 1) width - checkpointRadius else checkpointPositions[i] * width
+            var x = if (i == numCheckpoints - 1) width - checkpointRadius else checkpointPositions[i] * width
             canvas.drawCircle(x, height / 2f, checkpointRadius, checkpointPaint)
+
+
+            canvas.drawCircle(x, height / 2f, checkpointRadius -5f, bolaBranca)
+
+            x = if (i == 0) margin + checkpointRadius else if (i == numCheckpoints - 1) width - checkpointRadius else checkpointPositions[i] * width
+
             // draw the checkpoint number on top of the checkpoint
             canvas.drawText((i).toString(), x - textSize / 4, height / 2f - checkpointRadius - textSize / 2, textPaint)
         }
 
-        // draw the line between the checkpoints, starting and ending after the first and last checkpoints
-        canvas.drawLine(checkpointRadius * 2, height / 2f, width - checkpointRadius * 2, height / 2f, linePaint)
 
         // draw the current position indicator
         canvas.drawCircle(currentPosition , height / 2f, checkpointRadius, checkpointPaint)

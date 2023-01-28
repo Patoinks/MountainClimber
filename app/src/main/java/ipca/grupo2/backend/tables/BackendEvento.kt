@@ -10,24 +10,24 @@ import ipca.grupo2.backend.models.Evento
 import kotlinx.coroutines.tasks.await
 
 object BackendEvento {
-    private const val ref = "eventos";
-    private val collection = Backend.getFS().collection(ref);
+    private const val ref = "eventos"
+    private val collection = Backend.getFS().collection(ref)
 
-    public suspend fun getEventoByID(idEvento: String) : Evento? {
-        val document = collection.document(idEvento);
+    suspend fun getEventoByID(idEvento: String) : Evento? {
+        val document = collection.document(idEvento)
 
         return try {
-            val snapshot = document.get().await();
-            val evento = snapshot.toObject<Evento>();
-            evento!!.setId(idEvento);
-            evento;
+            val snapshot = document.get().await()
+            val evento = snapshot.toObject<Evento>()
+            evento!!.setId(idEvento)
+            evento
         } catch (e: FirebaseFirestoreException) {
-            null;
+            null
         }
     }
 
-    public suspend fun getAllEventosByUserID() : MutableList<Evento>?{
-        var mutableList : MutableList<Evento> = arrayListOf();
+    suspend fun getAllEventosByUserID() : MutableList<Evento>?{
+        var mutableList : MutableList<Evento> = arrayListOf()
 
         return try{
             // Getting from server ignoring cache:
@@ -36,50 +36,50 @@ object BackendEvento {
                     // this can throw an exception if document handled
                     // incorrectly (missing keys/wrong data types)
                     try {
-                        var tempEvento = doc.toObject<Evento>();
-                        tempEvento.setId(doc.id);
+                        var tempEvento = doc.toObject<Evento>()
+                        tempEvento.setId(doc.id)
                         if (tempEvento.getIdGuia() == Backend.getCurrentUser()!!.uid)
-                            mutableList.add(tempEvento);
+                            mutableList.add(tempEvento)
                     } catch (e: Exception){
                         // pls frontend
                     }
                 }
             }.await()
-            mutableList;
+            mutableList
         } catch (e: FirebaseFirestoreException){
-            mutableList;
+            mutableList
         }
     }
 
-    public suspend fun getAllValidEventosByUserID() : MutableList<Evento>?{
-        var mutableList : MutableList<Evento> = arrayListOf();
+    suspend fun getAllValidEventosByUserID() : MutableList<Evento>?{
+        var mutableList : MutableList<Evento> = arrayListOf()
 
         return try{
             collection.get().addOnSuccessListener { result ->
                 for (doc in result) {
                     try {
-                        var tempEvento = doc.toObject<Evento>();
-                        tempEvento.setId(doc.id);
+                        var tempEvento = doc.toObject<Evento>()
+                        tempEvento.setId(doc.id)
                         if (tempEvento.getIdGuia() == Backend.getCurrentUser()!!.uid)
                             // Check valid
                             if (tempEvento.isValid())
-                                mutableList.add(tempEvento);
+                                mutableList.add(tempEvento)
                     } catch (e: Exception){
                         // pls frontend
                     }
                 }
             }.await()
-            mutableList;
+            mutableList
         } catch (e: FirebaseFirestoreException){
-            mutableList;
+            mutableList
         }
     }
 
-    public fun getCollection() : CollectionReference{
-        return this.collection;
+    fun getCollection() : CollectionReference{
+        return this.collection
     }
 
-    public fun getRef() : String{
-        return this.ref;
+    fun getRef() : String{
+        return this.ref
     }
 }

@@ -9,29 +9,29 @@ import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
 object BackendEventoUtilizador {
-    private const val ref = "eventosUtilizadores";
-    private val collection = Backend.getFS().collection(ref);
+    private const val ref = "eventosUtilizadores"
+    private val collection = Backend.getFS().collection(ref)
 
-    public suspend fun getAllEventosUtilizadores() : MutableList<EventoUtilizador>? = suspendCoroutine {
+    suspend fun getAllEventosUtilizadores() : MutableList<EventoUtilizador>? = suspendCoroutine {
         continuation ->
             collection.get().addOnSuccessListener { result ->
                 val eventosUtilizadores = mutableListOf<EventoUtilizador>()
                 for (document in result) {
-                    var eventoUtilizador = document.toObject<EventoUtilizador>();
-                    eventoUtilizador.setId(document.id);
-                    eventosUtilizadores.add(eventoUtilizador);
+                    var eventoUtilizador = document.toObject<EventoUtilizador>()
+                    eventoUtilizador.setId(document.id)
+                    eventosUtilizadores.add(eventoUtilizador)
                 }
-                continuation.resume(eventosUtilizadores);
+                continuation.resume(eventosUtilizadores)
             }.addOnFailureListener { exception ->
-                continuation.resumeWithException(exception);
+                continuation.resumeWithException(exception)
             }
     }
 
-    public fun getCollection() : CollectionReference {
-        return this.collection;
+    fun getCollection() : CollectionReference {
+        return this.collection
     }
 
-    public fun getRef() : String{
-        return this.ref;
+    fun getRef() : String{
+        return this.ref
     }
 }

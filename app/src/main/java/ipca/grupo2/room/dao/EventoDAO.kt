@@ -22,7 +22,7 @@ interface EventoDAO {
     fun getAll(): List<EventoEntity>
 
     @Query("SELECT * FROM EventoEntity LIMIT 1")
-    fun getCurEventId() : EventoEntity;
+    fun getCurEventId() : EventoEntity
 
     @Insert
     fun insert(evento: EventoEntity)
@@ -37,21 +37,21 @@ interface EventoDAO {
     fun deleteAll()
 
     fun isInEvento() : Boolean {
-        return true;
+        return true
     }
 
     suspend fun joinEvento(idEvento : String, context: Context) {
         // Remove any evento if registered
         deleteAll()
 
-        val mainScope = CoroutineScope(Dispatchers.Main);
+        val mainScope = CoroutineScope(Dispatchers.Main)
 
         mainScope.launch {
-            var evento = BackendEvento.getEventoByID(idEvento);
+            var evento = BackendEvento.getEventoByID(idEvento)
 
             // get all users
-            var users = BackendUtilizador.getAllUtilizadoresByEvento(idEvento);
-            AppDatabase.getDatabase(context)!!.utilizadorDao().downloadData(users);
+            var users = BackendUtilizador.getAllUtilizadoresByEvento(idEvento)
+            AppDatabase.getDatabase(context)!!.utilizadorDao().downloadData(users)
 
             var eventoEntity = EventoEntity(
                 evento?.getId()!!,
@@ -63,7 +63,7 @@ interface EventoDAO {
                 evento.getDescription()!!
             )
 
-            insert(eventoEntity);
+            insert(eventoEntity)
         }
 
     }

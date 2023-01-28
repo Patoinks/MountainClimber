@@ -15,9 +15,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.toColor
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import ipca.grupo2.backend.Location
+import ipca.grupo2.backend.tables.BackendEvento
+import ipca.grupo2.backend.tables.BackendUtilizador
+import kotlinx.android.synthetic.main.fragment_medicao.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -26,7 +33,7 @@ import java.util.*
 
 class MedicaoFragment : Fragment() {
 
-    private var location: ipca.grupo2.backend.Location? = null;
+    private var location: ipca.grupo2.backend.Location? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
     @SuppressLint("MissingPermission", "SetTextI18n")
@@ -43,11 +50,16 @@ class MedicaoFragment : Fragment() {
         val resultado = view.findViewById<TextView>(R.id.resultadoPos)
         val textoEscalada = view.findViewById<TextView>(R.id.continuarEscalada)
         val circleView = view.findViewById<HeartRateView>(R.id.bpm)
-        val dataMed =  view.findViewById<TextView>(R.id.dataMed)
         val altitudes = view.findViewById<TextView>(R.id.altitudes)
         val fingerprint = view.findViewById<ImageView>(R.id.Simular)
         val barra = view.findViewById<ImageView>(R.id.barra)
         val questoes = view.findViewById<Button>(R.id.questoes)
+        val proximo = view.findViewById<Button>(R.id.proximo)
+        val dedoTexto = view.findViewById<TextView>(R.id.dedoInserir)
+        val bundle = this.arguments
+        val userid = bundle?.getString("userid", "")
+        val nome = view.findViewById<TextView>(R.id.nomeUtilizadorMed)
+
 
         o2.isVisible = false
         barra.isVisible = false
@@ -55,28 +67,24 @@ class MedicaoFragment : Fragment() {
         resultado.isVisible = false
         textoEscalada.isVisible = false
         circleView.isVisible = false
-        dataMed.isVisible = false
         altitudes.isVisible = false
         o2T2.isVisible = false
         questoes.isVisible = false
+        proximo.isVisible = false
 
 
-        var location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
-
-        if(location!!.CheckPermission() == false)
+        var location = ipca.grupo2.backend.Location(requireContext(), requireActivity())
+        if(location.CheckPermission() == false)
         {
-            location!!.RequestPermission()
+            location.RequestPermission()
         }
-
         else
         {
-            location = ipca.grupo2.backend.Location(requireContext(), requireActivity());
+            location = ipca.grupo2.backend.Location(requireContext(), requireActivity())
         }
 
 
-
-
-
+        //Leitura
         fingerprint.setOnClickListener {
             var rnds = (97..100).random()
             o2.text = rnds.toString() + "%"
@@ -84,9 +92,9 @@ class MedicaoFragment : Fragment() {
             //Altitude
             if (location != null){
                 GlobalScope.launch {
-                    var altitude = Math.round(location!!.getAltitude() - 56)
+                    var altitude = Math.round(location.getAltitude() - 56)
                     requireActivity().runOnUiThread{
-                        altitudes.text = "" + altitude + " m";
+                        altitudes.text = "Altitude: " + altitude.toString() + " m"
                         circleView.setValueAnimated(rnds.toFloat() / 100, 1500, altitude.toFloat())
                         if (rnds in 98 .. 100 && altitude.toFloat() in 0F .. 562F)
                         {
@@ -102,41 +110,55 @@ class MedicaoFragment : Fragment() {
                             resultado.setTextColor((Color.parseColor("#FF7878")))
                             o2.setTextColor((Color.parseColor("#FF7878")))
                         }
-
                     }
 
                     val sdf = SimpleDateFormat("dd/M/yyyy")
                     val currentDate = sdf.format(Date())
 
-                    dataMed.text = currentDate.toString()
+                    //dataMed.text = currentDate.toString()
                 }
-
             }
             o2.isVisible = true
             o2T.isVisible = true
             resultado.isVisible = true
             textoEscalada.isVisible = true
             circleView.isVisible = true
-            dataMed.isVisible = true
+
             altitudes.isVisible = true
             o2T2.isVisible = true
             fingerprint.isVisible = false
             questoes.isVisible = true
             barra.isVisible = true
+            dedoTexto.isVisible = false
         }
 
 
-
-        // Botão de voltar
-        view.findViewById<ImageView>(R.id.voltarUser).setOnClickListener{
-            findNavController().navigate(R.id.action_userReadFragment_to_readingFragment2)
-        }
-
+        //Questionario
         questoes.setOnClickListener {
             val showPopUp = QuestionsFragment()
             showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showPopuUp")
+
+            questoes.isGone = true
+            proximo.isVisible = true
         }
 
+
+        //Proxima leitura
+        proximo.setOnClickListener {
+            //Coloca o utilizador como já lido.
+
+        }
+
+
+        val mainScope = CoroutineScope(Dispatchers.Main)
+
+        //Buscar dados do evento
+        mainScope.launch {
+            val utilizador = BackendUtilizador.getUtilizadorById(userid!!)
+
+             nome.text = utilizador?.getName()
+
+        }
 
 
 
