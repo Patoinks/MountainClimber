@@ -3,6 +3,7 @@ package ipca.grupo2.room.entities
 import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.Date
 
 /*
     Not using Backend models, instead creating
@@ -15,6 +16,13 @@ data class LeituraEntity(
     @PrimaryKey
     @NonNull
     val id: String,
+    val idEvento: String,
+    val idUtilizador: String,
     val o2: Int,
-    val altitude: Int
+    val altitude: Int,
+    val data: Date,
+    val nausea: Int,
+    val cabeca: Int,
+    val apetite: Int,
+    val noite: Int,
 )
