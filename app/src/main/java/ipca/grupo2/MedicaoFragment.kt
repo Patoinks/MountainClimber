@@ -27,11 +27,8 @@ import ipca.grupo2.room.AppDatabase
 import ipca.grupo2.room.dao.LeituraDAO
 import ipca.grupo2.room.entities.LeituraEntity
 import kotlinx.android.synthetic.main.fragment_medicao.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalTime
@@ -93,6 +90,7 @@ class MedicaoFragment : Fragment() {
         //Leitura
         fingerprint.setOnClickListener {
             var rnds = (97..100).random()
+            var rnds2 = (1.. 9999999999999).random()
             o2.text = rnds.toString() + "%"
 
             //Altitude
@@ -119,12 +117,22 @@ class MedicaoFragment : Fragment() {
                     }
 
 
-                    //insert logica da batata
+                        // Get data from backend
+                    val db = AppDatabase.getDatabase(requireContext())
+                    val currentSqlDate = java.sql.Date(System.currentTimeMillis())
                     var leitura: Leitura = Leitura()
+
                     leitura.setIdUtilizador(userid!!)
                     leitura.setO2(rnds)
-                    leitura.setData(Date() as java.sql.Date)
-                    val db = AppDatabase.getDatabase(requireContext())
+                    leitura.setData(currentSqlDate)
+                    leitura.setApetite(0)
+                    leitura.setAltitude(altitude.toInt())
+                    leitura.setCabeca(0)
+                    leitura.setNoite(0)
+                    leitura.setNausea(0)
+                    leitura.setId((rnds2).toString())
+                    leitura.setIdEvento(db?.eventoDao()?.getCurEventId().toString())
+
                     db?.leituraDao()?.insert(Leitura.toEntity(leitura))
                 }
             }
@@ -170,3 +178,4 @@ class MedicaoFragment : Fragment() {
         return view
     }
 }
+
