@@ -24,4 +24,7 @@
         app:navGraph="@navigation/navigation"
         tools:layout="@layout/fragment_menu" />
 
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

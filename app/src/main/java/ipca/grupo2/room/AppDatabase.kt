@@ -12,10 +12,10 @@ import ipca.grupo2.room.entities.UtilizadorEntity
 @Database(entities = [UtilizadorEntity::class, EventoEntity::class], version = 5)
 abstract class  AppDatabase : RoomDatabase()  {
     // Signatures for frontend access to room
-    abstract fun utilizadorDao() : UtilizadorDAO;
-    abstract fun eventoDao() : EventoDAO;
+    abstract fun utilizadorDao() : UtilizadorDAO
+    abstract fun eventoDao() : EventoDAO
 
-    // wtf queisto
+    // tb nsei
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null

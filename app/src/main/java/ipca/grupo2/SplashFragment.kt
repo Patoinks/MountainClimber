@@ -38,6 +38,6 @@ class SplashFragment : Fragment() {
                 }
             }
         }
-        return view;
+        return view
     }
 }

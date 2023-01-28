@@ -8,19 +8,25 @@ import java.util.Date
 
 class Utilizador {
     // Attributes
-    private var id: String? = null;
+    private var id: String? = null
+
     @PropertyName("Contact")
-    private var contact: Long? = null;
+    private var contact: Long? = null
+
     @PropertyName("Height")
-    private var height: Float? = null;
+    private var height: Float? = null
+
     @PropertyName("Weight")
-    private var weight: Float? = null;
+    private var weight: Float? = null
+
     @PropertyName("Name")
-    private var name: String? = null;
+    private var name: String? = null
+
     @PropertyName("BirthDate")
-    private var birthDate: Date? = null;
+    private var birthDate: Date? = null
+
     @PropertyName("isGuia")
-    private var isGuia: Int? = null;
+    private var isGuia: Int? = null
 
     // Constructors
     constructor()
@@ -44,69 +50,69 @@ class Utilizador {
     }
 
     // Functions / gets sets
-    public fun setId(value: String){
-        this.id = value;
+    fun setId(value: String){
+        this.id = value
     }
 
-    public fun setContact(value: Long){
-        this.contact = value;
+    fun setContact(value: Long){
+        this.contact = value
     }
 
-    public fun setHeight(value: Float){
-        this.height = value;
+    fun setHeight(value: Float){
+        this.height = value
     }
 
-    public fun setWeight(value: Float){
-        this.weight = value;
+    fun setWeight(value: Float){
+        this.weight = value
     }
 
-    public fun setName(value: String){
-        this.name = value;
+    fun setName(value: String){
+        this.name = value
     }
 
-    public fun setBirthDate(value: Date){
-        this.birthDate = value;
+    fun setBirthDate(value: Date){
+        this.birthDate = value
     }
 
-    public fun setIsGuia(value: Int){
-        this.isGuia = value;
+    fun setIsGuia(value: Int){
+        this.isGuia = value
     }
 
-    public fun getId() : String?{
-        return this.id;
+    fun getId() : String?{
+        return this.id
     }
 
-    public fun getContact() : Long?{
-        return this.contact;
+    fun getContact() : Long?{
+        return this.contact
     }
 
-    public fun getHeight() : Float?{
-        return this.height;
+    fun getHeight() : Float?{
+        return this.height
     }
 
-    public fun getWeight() : Float?{
-        return this.weight;
+    fun getWeight() : Float?{
+        return this.weight
     }
 
-    public fun getName() : String?{
-        return this.name;
+    fun getName() : String?{
+        return this.name
     }
 
-    public fun getBirthDate() : Date?{
-        return this.birthDate;
+    fun getBirthDate() : Date?{
+        return this.birthDate
     }
 
-    public fun getIsGuia() : Int?{
-        return this.isGuia;
+    fun getIsGuia() : Int?{
+        return this.isGuia
     }
 
-    public fun isGuia() : Boolean{
-        return (this.isGuia == 1);
+    fun isGuia() : Boolean{
+        return (this.isGuia == 1)
     }
 
 
     companion object{
-        public fun toEntity(user: Utilizador) : UtilizadorEntity {
+        fun toEntity(user: Utilizador) : UtilizadorEntity {
             return UtilizadorEntity(
                 user.getId()!!,
                 user.getContact(),
@@ -115,7 +121,7 @@ class Utilizador {
                 user.getName(),
                 user.getBirthDate().toString(),
                 user.getIsGuia()!!
-            );
+            )
         }
     }
 }

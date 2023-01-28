@@ -1,6 +1,5 @@
 package ipca.grupo2
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,16 +14,15 @@ import kotlinx.coroutines.*
 
 class UserListFragment : Fragment() {
 
-    private lateinit var myAdapter: UtilizadoresRecyclerAdapter;
-
+    private lateinit var myAdapter: UtilizadoresRecyclerAdapter
 
     private fun populateRecyleView(view: View){
         // Get a reference to the RecyclerView
-        val recyclerView = view.findViewById<RecyclerView>(R.id.userRecicla);
-        recyclerView?.layoutManager = LinearLayoutManager(requireActivity());
-        recyclerView?.setHasFixedSize(true);
+        val recyclerView = view.findViewById<RecyclerView>(R.id.userRecicla)
+        recyclerView?.layoutManager = LinearLayoutManager(requireActivity())
+        recyclerView?.setHasFixedSize(true)
 
-        val mainScope = CoroutineScope(Dispatchers.Main);
+        val mainScope = CoroutineScope(Dispatchers.Main)
 
         // Handle async code
         mainScope.launch {
@@ -53,14 +51,12 @@ class UserListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_user_list, container, false)
         val voltar = view.findViewById<ImageView>(R.id.voltarMenu2)
 
-
         voltar.setOnClickListener {
             findNavController().navigate(R.id.action_readingFragment2_to_menuFragment2)
         }
 
-        populateRecyleView(view);
+        populateRecyleView(view)
 
         return view
     }
-
 }

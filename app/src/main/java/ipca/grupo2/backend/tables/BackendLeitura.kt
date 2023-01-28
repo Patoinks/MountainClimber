@@ -9,29 +9,29 @@ import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
 object BackendLeitura {
-    private const val ref = "leituras";
-    private val collection = Backend.getFS().collection(ref);
+    private const val ref = "leituras"
+    private val collection = Backend.getFS().collection(ref)
 
-    public suspend fun getAllLeituras() : MutableList<Leitura>? = suspendCoroutine {
+    suspend fun getAllLeituras() : MutableList<Leitura>? = suspendCoroutine {
             continuation ->
         collection.get().addOnSuccessListener { result ->
             val leituras = mutableListOf<Leitura>()
             for (document in result) {
-                var leitura = document.toObject<Leitura>();
-                leitura.setId(document.id);
-                leituras.add(leitura);
+                var leitura = document.toObject<Leitura>()
+                leitura.setId(document.id)
+                leituras.add(leitura)
             }
-            continuation.resume(leituras);
+            continuation.resume(leituras)
         }.addOnFailureListener { exception ->
-            continuation.resumeWithException(exception);
+            continuation.resumeWithException(exception)
         }
     }
 
-    public fun getCollection() : CollectionReference {
-        return this.collection;
+    fun getCollection() : CollectionReference {
+        return this.collection
     }
 
-    public fun getRef() : String{
-        return this.ref;
+    fun getRef() : String{
+        return this.ref
     }
 }

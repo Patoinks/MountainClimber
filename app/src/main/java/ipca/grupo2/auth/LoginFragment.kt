@@ -44,20 +44,19 @@ class LoginFragment : Fragment() {
         view.findViewById<Button>(R.id.btLogin).setOnClickListener {
             val email = view.findViewById<TextView>(R.id.email).text.toString()
             val password = view.findViewById<TextView>(R.id.password).text.toString()
-            val mainScope = CoroutineScope(Dispatchers.Main);
+            val mainScope = CoroutineScope(Dispatchers.Main)
 
             if (isOnline(requireContext())) {
-            mainScope.launch {
-                var success = BackendUtilizador.login(email, password);
-                if (success){
-                    findNavController().navigate(R.id.action_loginFragment_to_menuFragment2)
-                }
+                mainScope.launch {
+                    var success = BackendUtilizador.login(email, password)
 
-                else {
+                    if (success)
+                        findNavController().navigate(R.id.action_loginFragment_to_menuFragment2)
+                    else {
                         Toast.makeText(
                             context, "Utilizador ou password errado!",
                             Toast.LENGTH_SHORT
-                        ).show();
+                        ).show()
                     }
                 }
             }
@@ -65,12 +64,11 @@ class LoginFragment : Fragment() {
                 Toast.makeText(
                     context, "Porfavor, ligue á internet",
                     Toast.LENGTH_SHORT
-                ).show();
+                ).show()
             }
         }
         return view
     }
-
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun isOnline(context: Context): Boolean {

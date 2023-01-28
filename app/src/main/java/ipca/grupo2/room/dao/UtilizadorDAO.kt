@@ -24,7 +24,7 @@ interface UtilizadorDAO {
     // Used to start an event
     fun downloadData(arrUser: MutableList<Utilizador>){
         // Remove current downloaded event, if any
-        deleteAll();
+        deleteAll()
 
         // Register new event
         for (user in arrUser){
@@ -37,8 +37,8 @@ interface UtilizadorDAO {
                 user.getName(),
                 user.getBirthDate().toString(),
                 user.getIsGuia()!!
-            );
-            insert(userEntity);
+            )
+            insert(userEntity)
         }
     }
 }

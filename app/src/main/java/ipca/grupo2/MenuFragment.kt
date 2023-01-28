@@ -47,12 +47,12 @@ class MenuFragment : Fragment() {
         btEventos.setOnClickListener {
 
             if(isOnline(requireContext()))
-            findNavController().navigate(R.id.action_menuFragment2_to_eventosFragment);
+            findNavController().navigate(R.id.action_menuFragment2_to_eventosFragment)
             else {
                 Toast.makeText(
                     context, "Porfavor, ligue á internet",
                     Toast.LENGTH_SHORT
-                ).show();
+                ).show()
             }
 
         }
@@ -67,7 +67,7 @@ class MenuFragment : Fragment() {
                 Toast.makeText(
                     context, "Porfavor, ligue á internet",
                     Toast.LENGTH_SHORT
-                ).show();
+                ).show()
             }
         }
 

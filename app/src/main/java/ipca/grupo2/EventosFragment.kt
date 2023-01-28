@@ -19,7 +19,7 @@ import ipca.grupo2.backend.tables.BackendEvento
 import kotlinx.coroutines.*
 
 class EventosFragment : Fragment() {
-    private lateinit var myAdapter: EventoRecyclerAdapter;
+    private lateinit var myAdapter: EventoRecyclerAdapter
     private lateinit var navController: NavController
 
     // Function to handle async functions in backend
@@ -27,32 +27,32 @@ class EventosFragment : Fragment() {
         // Get a reference to the RecyclerView
 
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.eventosRecicla);
+        val recyclerView = view.findViewById<RecyclerView>(R.id.eventosRecicla)
         val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
         progressBar.visibility = View.VISIBLE
         recyclerView.visibility = View.GONE
-        recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), RecyclerView.HORIZONTAL , false);
-        recyclerView?.setHasFixedSize(true);
+        recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), RecyclerView.HORIZONTAL , false)
+        recyclerView?.setHasFixedSize(true)
 
         // mainScope to handle UI calls(this is needed because globalScope has
         // trouble working with UI
-        val mainScope = CoroutineScope(Dispatchers.Main);
+        val mainScope = CoroutineScope(Dispatchers.Main)
 
         // Handle async code
         mainScope.launch {
             // Get data from backend
             val dataList = withContext(Dispatchers.IO) {
-                BackendEvento.getAllEventosByUserID();
-            };
+                BackendEvento.getAllEventosByUserID()
+            }
 
 
             // Create an instance of the Adapter and set it to the RecyclerView
-            myAdapter = EventoRecyclerAdapter(ArrayList(dataList), requireActivity(), recyclerView);
-            myAdapter.notifyDataSetChanged();
+            myAdapter = EventoRecyclerAdapter(ArrayList(dataList), requireActivity(), recyclerView)
+            myAdapter.notifyDataSetChanged()
 
             progressBar.visibility = View.GONE
             recyclerView.visibility = View.VISIBLE
-            recyclerView?.adapter = myAdapter;
+            recyclerView?.adapter = myAdapter
         }
 
     }
@@ -62,7 +62,7 @@ class EventosFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view: View = inflater.inflate(R.layout.fragment_eventos, container, false);
+        var view: View = inflater.inflate(R.layout.fragment_eventos, container, false)
         navController = findNavController()
 
         val voltar = view.findViewById<ImageView>(R.id.voltarMenu1)
@@ -70,9 +70,9 @@ class EventosFragment : Fragment() {
             findNavController().navigate(R.id.action_eventosFragment_to_menuFragment2)
         }
 
-        populateRecyleView(view);
+        populateRecyleView(view)
 
 
-        return view;
+        return view
     }
 }

@@ -24,16 +24,16 @@ import java.util.concurrent.TimeUnit
 
 class EventoDetalheFragment : Fragment() {
 
-    private lateinit var myAdapter: UtilizadoresRecyclerAdapter2;
+    private lateinit var myAdapter: UtilizadoresRecyclerAdapter2
 
 
     private fun populateRecyleView(view: View){
         // Get a reference to the RecyclerView
-        val recyclerView = view.findViewById<RecyclerView>(R.id.userRecicla2);
-        recyclerView?.layoutManager = LinearLayoutManager(requireActivity());
-        recyclerView?.setHasFixedSize(true);
+        val recyclerView = view.findViewById<RecyclerView>(R.id.userRecicla2)
+        recyclerView?.layoutManager = LinearLayoutManager(requireActivity())
+        recyclerView?.setHasFixedSize(true)
 
-        val mainScope = CoroutineScope(Dispatchers.Main);
+        val mainScope = CoroutineScope(Dispatchers.Main)
 
         // Handle async code
         mainScope.launch {
@@ -68,7 +68,7 @@ class EventoDetalheFragment : Fragment() {
         val total : TextView  = view.findViewById<TextView>(R.id.totalDetalhe)
         val bundle = this.arguments
         val eventoID = bundle?.getString("eventoid", "")
-        val mainScope = CoroutineScope(Dispatchers.Main);
+        val mainScope = CoroutineScope(Dispatchers.Main)
 
         //Buscar dados do evento
         mainScope.launch {
@@ -77,7 +77,7 @@ class EventoDetalheFragment : Fragment() {
             Picasso.get().load(evento?.getImage()).resize(400,200).into(imagemMontanha)
             localizacao.text = evento?.getLocation()
 
-            var long : Long? = evento?.getDateFinish()!!.time - evento?.getDateStart()!!.time
+            var long : Long? = evento?.getDateFinish()!!.time - evento.getDateStart()!!.time
             var datadiff = TimeUnit.MILLISECONDS.toDays(long!!)
 
             duracao.text = "Duração do evento: " + datadiff.toString() + " dias"
@@ -89,7 +89,7 @@ class EventoDetalheFragment : Fragment() {
             findNavController().navigate(R.id.action_eventoDetalheFragment_to_eventosFragment)
         }
 
-        populateRecyleView(view);
+        populateRecyleView(view)
 
         return view
     }

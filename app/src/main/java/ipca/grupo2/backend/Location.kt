@@ -24,14 +24,14 @@ import kotlinx.coroutines.tasks.await
 
 
 class Location {
-    private final val PERMISSIONID = 2;
-    private lateinit var context: Context;
-    private lateinit var activity: Activity;
+    private val PERMISSIONID = 2
+    private lateinit var context: Context
+    private lateinit var activity: Activity
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     constructor(context: Context, activity: Activity) {
-        this.context = context;
-        this.activity = activity;
+        this.context = context
+        this.activity = activity
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)
     }
 
@@ -69,7 +69,7 @@ class Location {
     }
 
     @SuppressLint("MissingPermission")
-    public suspend fun getLastLocation() : Location? {
+    suspend fun getLastLocation() : Location? {
         var location: Location? = null
         if(CheckPermission()){
             if(isLocationEnabled()){
@@ -80,7 +80,7 @@ class Location {
                             NewLocationData()
                     }.await()
                 } catch (e: java.lang.Exception){
-                    location;
+                    location
                 }
             }else{
                 Toast.makeText(context,"Device Location Off", Toast.LENGTH_SHORT).show()
@@ -88,22 +88,22 @@ class Location {
         }else{
             RequestPermission()
         }
-        return location;
+        return location
     }
 
     suspend fun getAltitude() : Double{
         var loc = getLastLocation() ?: return 0.0
-        return loc.altitude;
+        return loc.altitude
     }
 
     suspend fun getLatitude() : Double{
         var loc = getLastLocation() ?: return 0.0
-        return loc.latitude;
+        return loc.latitude
     }
 
     suspend fun getLongitude() : Double{
         var loc = getLastLocation() ?: return 0.0
-        return loc.longitude;
+        return loc.longitude
     }
 
     @SuppressLint("MissingPermission")
@@ -114,7 +114,7 @@ class Location {
         locationRequest.fastestInterval = 0
         locationRequest.numUpdates = 1
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)
-        fusedLocationProviderClient!!.requestLocationUpdates(
+        fusedLocationProviderClient.requestLocationUpdates(
             locationRequest,locationCallback, Looper.myLooper()
         )
     }
