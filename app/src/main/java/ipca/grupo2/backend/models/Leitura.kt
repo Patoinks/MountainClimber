@@ -1,7 +1,7 @@
 package ipca.grupo2.backend.models
 
 import ipca.grupo2.room.entities.LeituraEntity
-import java.util.Date
+import java.sql.Date
 
 class Leitura {
     // Attributes

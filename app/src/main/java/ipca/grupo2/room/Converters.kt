@@ -1,7 +1,7 @@
 package ipca.grupo2.room
 
 import androidx.room.TypeConverter
-import java.util.*
+import java.sql.*
 
 class Converters {
     @TypeConverter
