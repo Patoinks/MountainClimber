@@ -2,6 +2,7 @@ package ipca.grupo2.room.dao
 
 import androidx.room.*
 import ipca.grupo2.room.entities.LeituraEntity
+import java.sql.Date
 
 @Dao
 interface LeituraDAO {
@@ -20,7 +21,14 @@ interface LeituraDAO {
     @Query("DELETE FROM LeituraEntity WHERE id=id;")
     fun deleteAll()
 
-    @Query("SELECT * FROM leituraentity WHERE id=id")
+    @Query("SELECT * FROM LeituraEntity WHERE data = :date AND idUtilizador = :id")
+    fun getByDate(date: Date, id: String): List<LeituraEntity>
+
+    fun hasLeituraToday(idUtilizador: String) : Boolean{
+        val today = Date(System.currentTimeMillis());
+        val leituras = getByDate(today, idUtilizador);
+        return leituras.isNotEmpty();
+    }
 
     suspend fun upload(){
 
