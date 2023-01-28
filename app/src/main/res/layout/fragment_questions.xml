@@ -13,8 +13,8 @@
 
     <ipca.grupo2.CheckpointSliderView
         android:id="@+id/Cabeca"
-        android:layout_width="314dp"
-        android:layout_height="116dp"
+        android:layout_width="327dp"
+        android:layout_height="110dp"
         android:layout_marginBottom="388dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,24 +25,24 @@
         android:id="@+id/textView16"
         android:layout_width="314dp"
         android:layout_height="19dp"
-        android:layout_marginBottom="492dp"
+        android:layout_marginBottom="496dp"
         android:fontFamily="@font/poppins_normal"
         android:text="Dor de cabeça"
         android:textColor="@color/azul_marinho"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ipca.grupo2.CheckpointSliderView
         android:id="@+id/Nausea"
-        android:layout_width="314dp"
-        android:layout_height="116dp"
-        android:layout_marginBottom="524dp"
+        android:layout_width="327dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="512dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -57,6 +57,7 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
@@ -80,27 +81,27 @@
 
     <ipca.grupo2.CheckpointSliderView
         android:id="@+id/Dormir"
-        android:layout_width="312dp"
-        android:layout_height="98dp"
-        android:layout_marginBottom="148dp"
+        android:layout_width="327dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="136dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="320dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="640dp"
+        android:layout_marginBottom="620dp"
         android:fontFamily="@font/poppins_normal"
-        android:text="Nausea"
         android:gravity="bottom"
+        android:text="Nausea"
         android:textColor="@color/azul_marinho"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -108,23 +109,24 @@
         android:layout_width="309dp"
         android:layout_height="19dp"
 
-        android:layout_marginBottom="248dp"
+        android:layout_marginBottom="244dp"
         android:fontFamily="@font/poppins_normal"
         android:text="Noite mal dormida"
         android:textColor="@color/azul_marinho"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ipca.grupo2.CheckpointSliderView
         android:id="@+id/Apetite"
-        android:layout_width="307dp"
-        android:layout_height="111dp"
-        android:layout_marginBottom="268dp"
+        android:layout_width="327dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="264dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
