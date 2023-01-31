@@ -18,16 +18,13 @@ import ipca.grupo2.room.AppDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.util.Date
 import java.util.concurrent.TimeUnit
 
 class EventoDetalheFragment : Fragment() {
 
     private lateinit var myAdapter: UtilizadoresRecyclerAdapter2
 
-
-    private fun populateRecyleView(view: View){
+    private fun populateRecyleView(view: View, utilizadores : MutableList<Utilizador>) {
         // Get a reference to the RecyclerView
         val recyclerView = view.findViewById<RecyclerView>(R.id.userRecicla2)
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity())
@@ -42,7 +39,7 @@ class EventoDetalheFragment : Fragment() {
             // Create an instance of the Adapter and set it to the RecyclerView
             if(db != null){
                 requireActivity().runOnUiThread{
-                    val utilizadores = db.utilizadorDao().getAll()
+
 
                     // Create an instance of the Adapter and set it to the RecyclerView
                     myAdapter = UtilizadoresRecyclerAdapter2(utilizadores, requireActivity())
@@ -70,9 +67,11 @@ class EventoDetalheFragment : Fragment() {
         val eventoID = bundle?.getString("eventoid", "")
         val mainScope = CoroutineScope(Dispatchers.Main)
 
+
         //Buscar dados do evento
         mainScope.launch {
             val evento = BackendEvento.getEventoByID(eventoID!!)
+            val utilizadores = BackendUtilizador.getAllUtilizadoresByEvento(eventoID)
 
             Picasso.get().load(evento?.getImage()).resize(400,200).into(imagemMontanha)
             localizacao.text = evento?.getLocation()
@@ -81,6 +80,10 @@ class EventoDetalheFragment : Fragment() {
             var datadiff = TimeUnit.MILLISECONDS.toDays(long!!)
 
             duracao.text = "Duração do evento: " + datadiff.toString() + " dias"
+
+            view.findViewById<TextView>(R.id.totalDetalhe).text = utilizadores.size.toString() + if
+                    (utilizadores.size > 1) " Utilizadores" else " Utilizador"
+            populateRecyleView(view, utilizadores)
         }
 
 
@@ -89,7 +92,6 @@ class EventoDetalheFragment : Fragment() {
             findNavController().navigate(R.id.action_eventoDetalheFragment_to_eventosFragment)
         }
 
-        populateRecyleView(view)
 
         return view
     }

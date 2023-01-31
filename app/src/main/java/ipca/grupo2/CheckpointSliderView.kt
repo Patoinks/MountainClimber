@@ -37,9 +37,9 @@ class CheckpointSliderView @JvmOverloads constructor(
     init {
         // set the paint colors
         bolaBranca.color = ContextCompat.getColor(context, R.color.white)
-        checkpointPaint.color = ContextCompat.getColor(context, R.color.verde)
-        linePaint.color = ContextCompat.getColor(context, R.color.verde)
-        textPaint.color = ContextCompat.getColor(context, R.color.verde)
+        checkpointPaint.color = ContextCompat.getColor(context, R.color.azul_marinho)
+        linePaint.color = ContextCompat.getColor(context, R.color.azul_marinho)
+        textPaint.color = ContextCompat.getColor(context, R.color.azul_marinho)
 
         // set the paint styles
         checkpointPaint.style = Paint.Style.FILL

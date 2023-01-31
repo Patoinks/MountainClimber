@@ -55,11 +55,14 @@ class HeartRateView @JvmOverloads constructor(
         // Set the border color based on the value
         val borderColor: Int
         if (value2 ==  0F) {
-            borderColor = Color.parseColor("#64A19D") // red for low values
+            borderColor = Color.parseColor("#64A19D")
         } else if (value2 in 0.98F .. 1F && altitude in 0F .. 562F) {
-            borderColor = Color.parseColor("#64A19D") // yellow for medium values
+            borderColor = Color.parseColor("#64A19D")
+        }
+        else if (value2 in 0.97F .. 1F && altitude in 563F .. 1400F) {
+            borderColor = Color.parseColor("#64A19D")
         } else {
-            borderColor = Color.parseColor("#FF7878")// green for high values
+            borderColor = Color.parseColor("#FFFF5252")
         }
 
         // Draw the circle background

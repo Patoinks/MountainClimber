@@ -11,80 +11,110 @@
 
     <ipca.grupo2.HeartRateView
         android:id="@+id/bpm"
-        android:layout_width="277dp"
-        android:layout_height="247dp"
+        android:layout_width="match_parent"
+        android:layout_height="289dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintVertical_bias="0.295" />
 
     <TextView
-        android:id="@+id/oxigenioSangue"
-        android:layout_width="138dp"
-        android:layout_height="21dp"
+        android:id="@+id/oxigenioSangue3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="116dp"
         android:elevation="40dp"
         android:fontFamily="@font/poppins_normal"
-        android:text="0%"
+        android:text="Oxigénio no sangue"
         android:textAlignment="center"
-        android:textColor="@color/verde"
+        android:textColor="#4D205072"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.413" />
+        app:layout_constraintVertical_bias="0.457" />
 
     <TextView
-        android:id="@+id/continuarEscalada"
-        android:layout_width="210dp"
-        android:layout_height="43dp"
+        android:id="@+id/oxigenioSangue"
+        android:layout_width="390dp"
+        android:layout_height="53dp"
         android:layout_marginBottom="116dp"
         android:elevation="40dp"
         android:fontFamily="@font/poppins_normal"
-        android:text="Pode continuar a viagem"
+        android:paddingLeft="9dp"
+        android:text="0%"
+        android:textAlignment="center"
+        android:textColor="@color/verde"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.432" />
 
-        android:textColor="#5C64A19D"
+    <ImageView
+        android:id="@+id/barra"
+        android:layout_width="314dp"
+        android:layout_height="51dp"
+        android:src="@drawable/linha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.621">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/altitudes"
+        android:layout_width="92dp"
+        android:layout_height="26dp"
+        android:elevation="40dp"
+        android:fontFamily="@font/poppins_normal"
+
+        android:text="Altitude"
+        android:textColor="#99205072"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.858" />
+        app:layout_constraintVertical_bias="0.601" />
+
+    <TextView
+        android:id="@+id/continuarEscalada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/poppins_normal"
+        android:text="Pode continuar a viagem"
+        android:textColor="#4D205072"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.699" />
 
     <TextView
         android:id="@+id/resultadoPos"
-        android:layout_width="136dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="116dp"
-        android:elevation="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medio"
         android:text="Positivo"
         android:textColor="@color/verde"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82" />
-
-    <ImageView
-        android:id="@+id/barra"
-        android:layout_width="241dp"
-        android:layout_height="56dp"
-        android:src="@drawable/linha"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626">
-
-    </ImageView>
+        app:layout_constraintVertical_bias="0.666" />
 
     <TextView
         android:id="@+id/dedoInserir"
@@ -95,78 +125,25 @@
         android:fontFamily="@font/poppins_normal"
         android:gravity="center"
         android:text="Insira o dedo para realizar a medição"
-        android:textColor="#5C64A19D"
+        android:textColor="#4D205072"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.903" />
-
-    <TextView
-        android:id="@+id/altitudes"
-        android:layout_width="92dp"
-        android:layout_height="26dp"
-        android:elevation="40dp"
-        android:fontFamily="@font/poppins_normal"
-
-        android:text="Altitude"
-        android:textColor="#5C64A19D"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.282"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.603" />
-
-    <TextView
-        android:id="@+id/oxigenioSangue2"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="116dp"
-        android:elevation="40dp"
-        android:fontFamily="@font/poppins_normal"
-        android:text="Resultado"
-
-        android:textColor="#5C64A19D"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.797" />
-
-    <TextView
-        android:id="@+id/oxigenioSangue3"
-        android:layout_width="136dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="116dp"
-        android:elevation="40dp"
-        android:fontFamily="@font/poppins_normal"
-        android:text="Oxigénio no sangue"
-        android:textAlignment="center"
-        android:textColor="#5C64A19D"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
+        app:layout_constraintVertical_bias="0.913" />
 
     <TextView
         android:id="@+id/nomeUtilizadorMed"
-        android:layout_width="172dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="116dp"
         android:elevation="40dp"
         android:fontFamily="@font/poppins_normal"
-        android:text="Martim Moreira"
+        android:text=""
         android:textAlignment="center"
-        android:textColor="#5C64A19D"
+        android:textColor="#2E5956"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -206,7 +183,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/verde"
+        android:backgroundTint="@color/azul_marinho"
         android:elevation="88dp"
         android:fontFamily="@font/poppins_medio"
         android:shadowColor="@color/black"
@@ -244,7 +221,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.887"
-        app:tint="#BF7BD3CE" />
+        app:tint="#B3205072"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

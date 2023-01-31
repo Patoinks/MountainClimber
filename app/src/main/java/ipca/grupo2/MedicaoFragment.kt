@@ -48,7 +48,6 @@ class MedicaoFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_medicao, container, false)
         val o2 = view.findViewById<TextView>(R.id.oxigenioSangue)
-        val o2T = view.findViewById<TextView>(R.id.oxigenioSangue2)
         val o2T2 = view.findViewById<TextView>(R.id.oxigenioSangue3)
         val resultado = view.findViewById<TextView>(R.id.resultadoPos)
         val textoEscalada = view.findViewById<TextView>(R.id.continuarEscalada)
@@ -66,7 +65,6 @@ class MedicaoFragment : Fragment() {
 
         o2.isVisible = false
         barra.isVisible = false
-        o2T.isVisible = false
         resultado.isVisible = false
         textoEscalada.isVisible = false
         circleView.isVisible = false
@@ -90,7 +88,8 @@ class MedicaoFragment : Fragment() {
         //Leitura
         fingerprint.setOnClickListener {
             var rnds = (97..100).random()
-            var rnds2 = (1.. 9999999999999).random()
+            var rnd = Random(System.nanoTime())
+            var rnds2 = (rnd.nextInt(1000000000)..999999999 + rnd.nextInt(1000000000)).random()
             o2.text = rnds.toString() + "%"
 
             //Altitude
@@ -111,13 +110,13 @@ class MedicaoFragment : Fragment() {
                         {
                             resultado.text = "Negativo"
                             textoEscalada.text = "Não pode continuar viagem"
-                            resultado.setTextColor((Color.parseColor("#FF7878")))
-                            o2.setTextColor((Color.parseColor("#FF7878")))
+                            resultado.setTextColor((Color.parseColor("#FFFF5252")))
+                            o2.setTextColor((Color.parseColor("#FFFF5252")))
                         }
                     }
 
 
-                        // Get data from backend
+                    //Insert leitura
                     val db = AppDatabase.getDatabase(requireContext())
                     val currentSqlDate = java.sql.Date(System.currentTimeMillis())
                     var leitura: Leitura = Leitura()
@@ -138,7 +137,6 @@ class MedicaoFragment : Fragment() {
             }
 
             o2.isVisible = true
-            o2T.isVisible = true
             resultado.isVisible = true
             textoEscalada.isVisible = true
             circleView.isVisible = true
@@ -172,8 +170,6 @@ class MedicaoFragment : Fragment() {
             val utilizador = BackendUtilizador.getUtilizadorById(userid!!)
              nome.text = utilizador?.getName()
         }
-
-
 
         return view
     }

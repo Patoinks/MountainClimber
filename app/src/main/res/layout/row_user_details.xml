@@ -3,53 +3,99 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="15dp"
-    android:background="#FFFFFF">
+    android:layout_height="200dp"
+    android:background="@color/white">
 
-    <TextView
-        android:id="@+id/resultadoPos3"
-        android:layout_width="99dp"
-        android:layout_height="22dp"
-        android:fontFamily="@font/poppins_medio"
-        android:text="Positivo"
-        android:textColor="@color/verde"
-        android:textSize="18sp"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        app:cardCornerRadius="26dp"
+        android:layout_marginRight="180dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.514">
 
-    <TextView
-        android:id="@+id/resultadoPos2"
-        android:layout_width="86dp"
-        android:layout_height="18dp"
-        android:fontFamily="@font/poppins_medio"
-        android:text="98%"
-        android:textColor="@color/azul_marinho"
-        android:textSize="12sp"
+        <ipca.grupo2.HeartRateView
+            android:layout_margin="20dp"
+            android:id="@+id/bpm2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="20dp" />
+
+        <TextView
+            android:id="@+id/oxigenioSangue4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="40dp"
+            android:fontFamily="@font/poppins_normal"
+            android:text="Oxigénio no sangue"
+            android:paddingTop="30dp"
+            android:gravity="center"
+            android:textColor="#4D205072"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/oxigenioSangue2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="40dp"
+            android:fontFamily="@font/poppins_normal"
+            android:gravity="center"
+            android:paddingLeft="9dp"
+            android:text="0%"
+            android:textColor="@color/verde"
+            android:textSize="12sp" />
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        app:cardCornerRadius="26dp"
+        android:layout_marginLeft="180dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.514">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="132dp"
-        android:layout_height="39dp"
-        android:fontFamily="@font/poppins_medio"
-        android:text="Data da leitura"
-        android:textColor="@color/azul_marinho"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.011"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166" />
+        <ipca.grupo2.HeartRateView
+            android:layout_margin="20dp"
+            android:id="@+id/bpm132"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="20dp" />
+
+        <TextView
+            android:id="@+id/oxigenioSangue12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="40dp"
+            android:fontFamily="@font/poppins_normal"
+            android:text="Oxigénio no sangue"
+            android:paddingTop="30dp"
+            android:gravity="center"
+            android:textColor="#4D205072"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/oxigenioSangue13"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="40dp"
+            android:fontFamily="@font/poppins_normal"
+            android:gravity="center"
+            android:paddingLeft="9dp"
+            android:text="0%"
+            android:textColor="@color/verde"
+            android:textSize="12sp" />
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
