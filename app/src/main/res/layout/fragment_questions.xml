@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="700dp"
     android:layout_gravity="bottom"
-    android:background="@drawable/round_corner"
+    android:background="@drawable/round_corner_q"
     tools:context=".QuestionsFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -65,7 +65,7 @@
         android:layout_width="219dp"
         android:layout_height="50dp"
         android:layout_marginBottom="68dp"
-        android:backgroundTint="#466563"
+        android:backgroundTint="@color/azul_marinho"
         android:fontFamily="@font/poppins_normal"
         android:outlineAmbientShadowColor="@color/azul_marinho"
         android:outlineSpotShadowColor="@color/azul_marinho"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,31 +24,35 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="122dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="123dp"
         android:fontFamily="@font/poppins_normal"
         android:gravity="center_horizontal"
         android:padding="5dp"
         android:text="Detalhes"
         android:textColor="@color/azul_marinho"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="231dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="456dp"
-        android:layout_marginEnd="147dp"
+
         android:fontFamily="@font/poppins_normal"
         android:padding="5dp"
         android:text="Lista de utilizadores"
         android:textColor="@color/verde"
-        android:textSize="13sp" />
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.594" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userRecicla2"
@@ -70,21 +74,23 @@
         app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/row_utilizadores" />
 
+
     <TextView
         android:id="@+id/totalDetalhe"
-        android:layout_width="121dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="265dp"
-        android:layout_marginTop="457dp"
-        android:layout_marginEnd="25dp"
+
         android:fontFamily="@font/poppins_normal"
         android:padding="5dp"
         android:text="2 Utilizadores"
         android:textColor="@color/azul_marinho"
-        android:textSize="12sp" />
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.593" />
 
     <ImageView
         android:id="@+id/voltarEvento"
@@ -92,53 +98,42 @@
         android:layout_height="32dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="44dp"
-        android:src="@drawable/voltar" />
-
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/bonito"
-        android:layout_width="319dp"
-        android:layout_height="174dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="102dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="570dp"
-        android:alpha="0.4"
-        android:background="@drawable/preto"
-        android:scaleType="fitCenter"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/voltar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.041" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imagemMontanhadetalhe"
+        android:layout_width="360dp"
+        android:layout_height="180dp"
+
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/userRecicla2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.14"
         app:shapeAppearanceOverlay="@style/cornerSize">
 
     </com.google.android.material.imageview.ShapeableImageView>
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imagemMontanhadetalhe"
-        android:layout_width="322dp"
-        android:layout_height="173dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="101dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="572dp"
+        android:id="@+id/bonito"
+        android:layout_width="360dp"
+        android:layout_height="180dp"
+        android:alpha="0.4"
+        android:background="@drawable/preto"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.14"
         app:shapeAppearanceOverlay="@style/cornerSize">
 
     </com.google.android.material.imageview.ShapeableImageView>
@@ -147,50 +142,47 @@
         android:id="@+id/detalheLocal"
         android:layout_width="336dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="298dp"
-        android:layout_marginEnd="43dp"
         android:fontFamily="@font/poppins_normal"
         android:padding="5dp"
         android:text="Localização"
         android:textColor="@color/azul_marinho"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/detalheDuracao"
-        android:layout_width="266dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="373dp"
-        android:layout_marginEnd="110dp"
-        android:fontFamily="@font/poppins_normal"
-        android:padding="5dp"
-        android:text="Duração"
-        android:textColor="@color/azul_marinho"
-        android:textSize="12sp" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.379" />
 
     <TextView
         android:id="@+id/detalheElevacao"
         android:layout_width="231dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="341dp"
-        android:layout_marginEnd="145dp"
         android:fontFamily="@font/poppins_normal"
         android:padding="5dp"
         android:text="Elevação"
         android:textColor="@color/azul_marinho"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/detalheDuracao"
+        android:layout_width="266dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="424dp"
+        android:fontFamily="@font/poppins_normal"
+        android:padding="5dp"
+        android:text="Duração"
+        android:textColor="@color/azul_marinho"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.314"
+        app:layout_constraintStart_toStartOf="parent" />
 
     «
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

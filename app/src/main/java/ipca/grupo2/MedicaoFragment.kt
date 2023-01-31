@@ -27,11 +27,8 @@ import ipca.grupo2.room.AppDatabase
 import ipca.grupo2.room.dao.LeituraDAO
 import ipca.grupo2.room.entities.LeituraEntity
 import kotlinx.android.synthetic.main.fragment_medicao.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalTime
@@ -51,7 +48,6 @@ class MedicaoFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_medicao, container, false)
         val o2 = view.findViewById<TextView>(R.id.oxigenioSangue)
-        val o2T = view.findViewById<TextView>(R.id.oxigenioSangue2)
         val o2T2 = view.findViewById<TextView>(R.id.oxigenioSangue3)
         val resultado = view.findViewById<TextView>(R.id.resultadoPos)
         val textoEscalada = view.findViewById<TextView>(R.id.continuarEscalada)
@@ -69,7 +65,6 @@ class MedicaoFragment : Fragment() {
 
         o2.isVisible = false
         barra.isVisible = false
-        o2T.isVisible = false
         resultado.isVisible = false
         textoEscalada.isVisible = false
         circleView.isVisible = false
@@ -93,6 +88,8 @@ class MedicaoFragment : Fragment() {
         //Leitura
         fingerprint.setOnClickListener {
             var rnds = (97..100).random()
+            var rnd = Random(System.nanoTime())
+            var rnds2 = (rnd.nextInt(1000000000)..999999999 + rnd.nextInt(1000000000)).random()
             o2.text = rnds.toString() + "%"
 
             //Altitude
@@ -113,24 +110,33 @@ class MedicaoFragment : Fragment() {
                         {
                             resultado.text = "Negativo"
                             textoEscalada.text = "Não pode continuar viagem"
-                            resultado.setTextColor((Color.parseColor("#FF7878")))
-                            o2.setTextColor((Color.parseColor("#FF7878")))
+                            resultado.setTextColor((Color.parseColor("#FFFF5252")))
+                            o2.setTextColor((Color.parseColor("#FFFF5252")))
                         }
                     }
 
 
-                    //insert logica da batata
+                    //Insert leitura
+                    val db = AppDatabase.getDatabase(requireContext())
+                    val currentSqlDate = java.sql.Date(System.currentTimeMillis())
                     var leitura: Leitura = Leitura()
+
                     leitura.setIdUtilizador(userid!!)
                     leitura.setO2(rnds)
-                    leitura.setData(Date() as java.sql.Date)
-                    val db = AppDatabase.getDatabase(requireContext())
+                    leitura.setData(currentSqlDate)
+                    leitura.setApetite(0)
+                    leitura.setAltitude(altitude.toInt())
+                    leitura.setCabeca(0)
+                    leitura.setNoite(0)
+                    leitura.setNausea(0)
+                    leitura.setId((rnds2).toString())
+                    leitura.setIdEvento(db?.eventoDao()?.getCurEventId().toString())
+
                     db?.leituraDao()?.insert(Leitura.toEntity(leitura))
                 }
             }
 
             o2.isVisible = true
-            o2T.isVisible = true
             resultado.isVisible = true
             textoEscalada.isVisible = true
             circleView.isVisible = true
@@ -165,8 +171,7 @@ class MedicaoFragment : Fragment() {
              nome.text = utilizador?.getName()
         }
 
-
-
         return view
     }
 }
+

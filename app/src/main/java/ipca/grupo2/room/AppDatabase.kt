@@ -12,7 +12,7 @@ import ipca.grupo2.room.entities.EventoEntity
 import ipca.grupo2.room.entities.LeituraEntity
 import ipca.grupo2.room.entities.UtilizadorEntity
 
-@Database(entities = [UtilizadorEntity::class, EventoEntity::class, LeituraEntity::class], version = 5)
+@Database(entities = [UtilizadorEntity::class, EventoEntity::class, LeituraEntity::class], version = 6)
 @TypeConverters(Converters::class)
 abstract class  AppDatabase : RoomDatabase()  {
     // Signatures for frontend access to room
