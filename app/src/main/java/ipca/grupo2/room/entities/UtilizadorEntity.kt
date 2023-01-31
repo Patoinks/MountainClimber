@@ -21,7 +21,8 @@ data class UtilizadorEntity(
     val weight: Float?,
     val name: String?,
     val birthDate: String?, // error: Cannot figure out how to save this field into database (Date())
-    val isGuia: Int?
+    val isGuia: Int?,
+    var readingDone: Boolean
 )
 
 

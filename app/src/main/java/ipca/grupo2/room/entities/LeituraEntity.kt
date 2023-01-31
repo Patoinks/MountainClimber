@@ -24,5 +24,5 @@ data class LeituraEntity(
     val nausea: Int,
     val cabeca: Int,
     val apetite: Int,
-    val noite: Int,
+    val noite: Int
 )

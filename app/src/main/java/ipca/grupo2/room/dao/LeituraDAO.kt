@@ -1,7 +1,10 @@
 package ipca.grupo2.room.dao
 
+import android.content.Context
 import androidx.room.*
+import ipca.grupo2.room.AppDatabase
 import ipca.grupo2.room.entities.LeituraEntity
+import ipca.grupo2.room.entities.UtilizadorEntity
 import java.sql.Date
 
 @Dao
@@ -24,6 +27,21 @@ interface LeituraDAO {
     @Query("SELECT * FROM LeituraEntity WHERE data = :date AND idUtilizador = :id")
     fun getByDate(date: Date, id: String): List<LeituraEntity>
 
+    // use this instead of @Insert because we need to handle "readings"
+    fun _insert(leitura: LeituraEntity, context: Context){
+        var uDAO = AppDatabase.getDatabase(context)!!.utilizadorDao();
+
+        if (uDAO.get(leitura.idUtilizador).readingDone) {
+            throw Exception("Cannot do a reading while its done, se estas a ver isto fizeste merda");
+        }
+
+        uDAO.triggerReading(leitura.idUtilizador);
+        insert(leitura);
+
+        if (uDAO.areAllReadingsDone())
+            uDAO.resetLidos()
+    }
+
     // Check if a user has a leitura today
     fun hasLeituraToday(idUtilizador: String) : Boolean{
         val today = Date(System.currentTimeMillis());
@@ -40,7 +58,7 @@ interface LeituraDAO {
 
     // Returns current num of leitura(most likely 1 or 2, 1 for first)
     fun findHighestNumLeitura(): Int {
-            var highestNumLeitura = 0;
+        var highestNumLeitura = 0;
         val allLeitura = getAll();
 
         for (leitura in allLeitura) {
@@ -68,6 +86,6 @@ interface LeituraDAO {
     }
 
     suspend fun upload(){
-
+        // WHERE??????? FRONTEND PLS?
     }
 }
