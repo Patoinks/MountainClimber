@@ -110,7 +110,6 @@ class Utilizador {
         return (this.isGuia == 1)
     }
 
-
     companion object{
         fun toEntity(user: Utilizador) : UtilizadorEntity {
             return UtilizadorEntity(
@@ -120,7 +119,8 @@ class Utilizador {
                 user.getWeight(),
                 user.getName(),
                 user.getBirthDate().toString(),
-                user.getIsGuia()!!
+                user.getIsGuia()!!,
+                false
             )
         }
     }
