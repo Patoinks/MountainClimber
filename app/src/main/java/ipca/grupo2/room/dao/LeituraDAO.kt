@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.*
 import ipca.grupo2.room.AppDatabase
 import ipca.grupo2.room.entities.LeituraEntity
-import ipca.grupo2.room.entities.UtilizadorEntity
 import java.sql.Date
 
 @Dao

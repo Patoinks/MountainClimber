@@ -28,10 +28,10 @@ interface UtilizadorDAO {
     fun triggerReading(id: String)
 
     @Query("SELECT * FROM UtilizadorEntity WHERE readingDone == 1")
-    fun getAllLidos()
+    fun getAllLidos() : List<UtilizadorEntity>
 
     @Query("SELECT * FROM UtilizadorEntity WHERE readingDone == 0")
-    fun getAllNaoLidos()
+    fun getAllNaoLidos() : List<UtilizadorEntity>
 
     fun areAllReadingsDone(): Boolean {
         val allUsers = getAll()

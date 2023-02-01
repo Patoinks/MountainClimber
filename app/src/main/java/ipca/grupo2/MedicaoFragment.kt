@@ -132,7 +132,7 @@ class MedicaoFragment : Fragment() {
                     leitura.setId((rnds2).toString())
                     leitura.setIdEvento(db?.eventoDao()?.getCurEventId().toString())
 
-                    db?.leituraDao()?.insert(Leitura.toEntity(leitura))
+                    db?.leituraDao()?._insert(Leitura.toEntity(leitura),)
                 }
             }
 
