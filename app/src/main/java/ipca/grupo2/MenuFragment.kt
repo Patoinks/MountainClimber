@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,12 +21,14 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import ipca.grupo2.room.AppDatabase
 import kotlinx.android.synthetic.main.fragment_menu.view.*
 
 class MenuFragment : Fragment() {
 
 
     private lateinit var auth: FirebaseAuth
+    var toastDisplayed = false
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(
@@ -39,9 +42,17 @@ class MenuFragment : Fragment() {
         val btMedir = view.findViewById<Button>(R.id.btMedicoes)
         val btEventos = view.findViewById<Button>(R.id.btEventos)
         val voltarLogin = view.findViewById<ImageView>(R.id.voltarLogin)
+        var curEventoId = AppDatabase.getDatabase(requireContext())?.eventoDao()?.getCurEventId()?.id
 
         btMedir.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment2_to_readingFragment2)
+          Singleton.currentID?.let {
+              findNavController().navigate(R.id.action_menuFragment2_to_readingFragment2)
+          }?: run {
+              Toast.makeText(
+                  context, "Selecione um evento primeiro",
+                  Toast.LENGTH_SHORT
+              ).show()
+          }
         }
 
         btEventos.setOnClickListener {
@@ -49,12 +60,19 @@ class MenuFragment : Fragment() {
             if(isOnline(requireContext()))
             findNavController().navigate(R.id.action_menuFragment2_to_eventosFragment)
             else {
+            if (!toastDisplayed) {
+                // show toast
                 Toast.makeText(
-                    context, "Porfavor, ligue á internet",
+                    context, "Ligue á internet primeiro",
                     Toast.LENGTH_SHORT
                 ).show()
-            }
 
+
+                // Reset the toastDisplayed flag after the toast length has passed
+                Handler().postDelayed({ toastDisplayed = false }, Toast.LENGTH_SHORT.toLong())
+            }
+                toastDisplayed = true
+          }
         }
 
         voltarLogin.setOnClickListener {

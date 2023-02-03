@@ -60,7 +60,12 @@ interface EventoDAO {
                 evento.getDateStart()!!.toString(),
                 evento.getDateFinish()!!.toString(),
                 evento.getImage()!!,
-                evento.getDescription()!!
+                evento.getDem()!!,
+                evento.getElevation()!!,
+                evento.getLatitude()!!,
+                evento.getLongitude()!!,
+                evento.getName()!!,
+                evento.getRegistrations()!!
             )
 
             insert(eventoEntity)

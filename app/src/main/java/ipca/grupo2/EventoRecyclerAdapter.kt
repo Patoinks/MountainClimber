@@ -66,7 +66,7 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         eventoID = holder.data.getId().toString()
 
         // Set the data to the views
-        holder.textViewLocal.text = holder.data.getLocation()
+        holder.textViewLocal.text = holder.data.getName()
         var curEventoId = AppDatabase.getDatabase(context)?.eventoDao()?.getCurEventId()?.id
         val mainScope = CoroutineScope(Dispatchers.Main)
 
@@ -97,7 +97,6 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         }
 
         holder.imagemEvento.setOnClickListener{
-
             val bundle = bundleOf("eventoid" to eventoID)
             var navController: NavController? = null
             navController = Navigation.findNavController(holder.itemView)
@@ -105,14 +104,14 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         }
 
         holder.buttonEventos.setOnClickListener {
-            val mainScope = CoroutineScope(Dispatchers.Main)
+            Singleton.currentID = holder.data.getId().toString()
             eventoID = holder.data.getId().toString()
-            mainScope.launch {
+            getData(){
                 var navController: NavController? = null
                 navController = Navigation.findNavController(holder.itemView)
-                getData()
                 navController!!.navigate(R.id.action_eventosFragment_to_menuFragment2)
             }
+
 
 
         }
@@ -136,16 +135,17 @@ class EventoRecyclerAdapter(val eventos: ArrayList<Evento>, val context: Context
         val imagemEvento: ImageView = itemView.findViewById(R.id.imagemMontanha)
     }
 
-    private fun getData() {
-        // get data from backend
-        GlobalScope.launch {
+    private fun getData(callback:()->Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
             AppDatabase.getDatabase(context)!!.eventoDao().joinEvento(eventoID, context)
+            CoroutineScope(Dispatchers.Main).launch {
+                Toast.makeText(
+                    context, "Evento downloaded!",
+                    Toast.LENGTH_SHORT
+                ).show()
+                callback.invoke()
+            }
         }
-
-        Toast.makeText(
-            context, "Evento downloaded!",
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
 }

@@ -139,5 +139,20 @@ class Leitura {
                 leitura.getNoite()!!
             );
         }
+
+        public fun fromEntity(leituraEntity: LeituraEntity) : Leitura {
+            return Leitura(
+                null,
+                leituraEntity.o2,
+                leituraEntity.altitude,
+                leituraEntity.data,
+                leituraEntity.idEvento,
+                leituraEntity.idUtilizador,
+                leituraEntity.nausea,
+                leituraEntity.cabeca,
+                leituraEntity.apetite,
+                leituraEntity.noite
+            );
+        }
     }
 }

@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -16,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ipca.grupo2.backend.tables.BackendEvento
+import ipca.grupo2.backend.tables.BackendLeitura
 import kotlinx.coroutines.*
 
 class EventosFragment : Fragment() {
@@ -71,7 +74,19 @@ class EventosFragment : Fragment() {
         }
 
         populateRecyleView(view)
+        val mainScope = CoroutineScope(Dispatchers.Main)
 
+
+        view.findViewById<Button>(R.id.btUpload).setOnClickListener {
+            mainScope.launch {
+                BackendLeitura.uploadAllLeituras(requireContext())
+            }
+            Singleton.currentID = null
+            Toast.makeText(
+                context, "Leituras enviadas com sucesso!" ,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
         return view
     }

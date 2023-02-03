@@ -91,10 +91,11 @@ class MedicaoFragment : Fragment() {
             var rnd = Random(System.nanoTime())
             var rnds2 = (rnd.nextInt(1000000000)..999999999 + rnd.nextInt(1000000000)).random()
             o2.text = rnds.toString() + "%"
+            val mainScope = CoroutineScope(Dispatchers.Main)
 
             //Altitude
             if (location != null){
-                GlobalScope.launch {
+                mainScope.launch {
                     var altitude = Math.round(location.getAltitude() - 56)
                     requireActivity().runOnUiThread{
                         altitudes.text = "Altitude: " + altitude.toString() + " m"
@@ -130,9 +131,9 @@ class MedicaoFragment : Fragment() {
                     leitura.setNoite(0)
                     leitura.setNausea(0)
                     leitura.setId((rnds2).toString())
-                    leitura.setIdEvento(db?.eventoDao()?.getCurEventId().toString())
+                    leitura.setIdEvento(db?.eventoDao()?.getCurEventId()!!.id)
 
-                    db?.leituraDao()?._insert(Leitura.toEntity(leitura),)
+                    db?.leituraDao()?._insert(Leitura.toEntity(leitura), requireActivity())
                 }
             }
 

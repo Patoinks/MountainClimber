@@ -44,7 +44,7 @@
         android:layout_marginBottom="116dp"
         android:elevation="40dp"
         android:fontFamily="@font/poppins_normal"
-        android:paddingLeft="9dp"
+        android:paddingLeft="25dp"
         android:text="0%"
         android:textAlignment="center"
         android:textColor="@color/verde"
@@ -125,14 +125,14 @@
         android:fontFamily="@font/poppins_normal"
         android:gravity="center"
         android:text="Insira o dedo para realizar a medição"
-        android:textColor="#4D205072"
+        android:textColor="#4D64A19D"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.913" />
+        app:layout_constraintVertical_bias="0.911" />
 
     <TextView
         android:id="@+id/nomeUtilizadorMed"
@@ -183,7 +183,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/azul_marinho"
+        android:backgroundTint="@color/verdeEsc"
         android:elevation="88dp"
         android:fontFamily="@font/poppins_medio"
         android:shadowColor="@color/black"
@@ -221,7 +221,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.887"
-        app:tint="#B3205072"/>
+        app:tint="#4D64A19D"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

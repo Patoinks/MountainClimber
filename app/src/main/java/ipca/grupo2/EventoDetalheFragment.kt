@@ -1,6 +1,7 @@
 package ipca.grupo2
 
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.StructuredName
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +25,7 @@ class EventoDetalheFragment : Fragment() {
 
     private lateinit var myAdapter: UtilizadoresRecyclerAdapter2
 
-    private fun populateRecyleView(view: View, utilizadores : MutableList<Utilizador>) {
+    private fun populateRecyleView(view: View, utilizadores : MutableList<Utilizador>, eventoID : String) {
         // Get a reference to the RecyclerView
         val recyclerView = view.findViewById<RecyclerView>(R.id.userRecicla2)
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity())
@@ -42,7 +43,7 @@ class EventoDetalheFragment : Fragment() {
 
 
                     // Create an instance of the Adapter and set it to the RecyclerView
-                    myAdapter = UtilizadoresRecyclerAdapter2(utilizadores, requireActivity())
+                    myAdapter = UtilizadoresRecyclerAdapter2(utilizadores, requireActivity(), eventoID)
                     myAdapter.notifyDataSetChanged()
                     recyclerView?.adapter = myAdapter
                 }
@@ -74,7 +75,8 @@ class EventoDetalheFragment : Fragment() {
             val utilizadores = BackendUtilizador.getAllUtilizadoresByEvento(eventoID)
 
             Picasso.get().load(evento?.getImage()).resize(400,200).into(imagemMontanha)
-            localizacao.text = evento?.getLocation()
+            localizacao.text = evento?.getName()
+            elevacao.text = "Elevação: " + evento?.getElevation().toString() + " m"
 
             var long : Long? = evento?.getDateFinish()!!.time - evento.getDateStart()!!.time
             var datadiff = TimeUnit.MILLISECONDS.toDays(long!!)
@@ -83,7 +85,7 @@ class EventoDetalheFragment : Fragment() {
 
             view.findViewById<TextView>(R.id.totalDetalhe).text = utilizadores.size.toString() + if
                     (utilizadores.size > 1) " Utilizadores" else " Utilizador"
-            populateRecyleView(view, utilizadores)
+            populateRecyleView(view, utilizadores, eventoID)
         }
 
 

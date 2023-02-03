@@ -9,8 +9,8 @@ interface UtilizadorDAO {
     @Query("SELECT * FROM UtilizadorEntity")
     fun getAll(): List<UtilizadorEntity>
 
-    @Query("SELECT * FROM UtilizadorEntity Where id = :id")
-    fun get(id: String) : UtilizadorEntity
+    @Query("SELECT * FROM UtilizadorEntity Where id == :idU")
+    fun get(idU: String) : UtilizadorEntity
 
     @Insert
     fun insert(utilizador: UtilizadorEntity)
@@ -21,10 +21,10 @@ interface UtilizadorDAO {
     @Delete
     fun delete(user: UtilizadorEntity)
 
-    @Query("DELETE FROM UtilizadorEntity WHERE id=id;")
+    @Query("DELETE FROM UtilizadorEntity WHERE id==id;")
     fun deleteAll()
 
-    @Query("UPDATE UtilizadorEntity SET readingDone = 1 WHERE id = :id")
+    @Query("UPDATE UtilizadorEntity SET readingDone = 1 WHERE id == :id")
     fun triggerReading(id: String)
 
     @Query("SELECT * FROM UtilizadorEntity WHERE readingDone == 1")

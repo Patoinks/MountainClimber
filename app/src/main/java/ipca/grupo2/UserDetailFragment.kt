@@ -19,11 +19,11 @@ class UserDetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_user_detail, container, false)
-
-        var curEventoId = context?.let { AppDatabase.getDatabase(it)?.eventoDao()?.getCurEventId()?.id }
+        val bundle = this.arguments
+        val eventoID = bundle?.getString("eventoid", "")
 
         view.findViewById<ImageView>(R.id.voltarEventoDet).setOnClickListener {
-            val bundle = bundleOf("eventoid" to curEventoId)
+            val bundle = bundleOf("eventoid" to eventoID)
             var navController: NavController? = null
             findNavController().navigate(R.id.action_userDetailFragment_to_eventoDetalheFragment, bundle)
         }

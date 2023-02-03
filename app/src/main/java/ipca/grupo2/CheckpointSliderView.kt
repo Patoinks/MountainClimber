@@ -8,7 +8,6 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.ContextCompat
-import ipca.grupo2.backend.models.Leitura
 
 class CheckpointSliderView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -34,12 +33,14 @@ class CheckpointSliderView @JvmOverloads constructor(
     private val numCheckpoints = 4
     private val checkpointPositions = floatArrayOf(0.04f, 0.33f, 0.66f, 1F)
 
+    private val margin = 40f
+
     init {
         // set the paint colors
         bolaBranca.color = ContextCompat.getColor(context, R.color.white)
-        checkpointPaint.color = ContextCompat.getColor(context, R.color.azul_marinho)
-        linePaint.color = ContextCompat.getColor(context, R.color.azul_marinho)
-        textPaint.color = ContextCompat.getColor(context, R.color.azul_marinho)
+        checkpointPaint.color = ContextCompat.getColor(context, R.color.verde)
+        linePaint.color = ContextCompat.getColor(context, R.color.verde)
+        textPaint.color = ContextCompat.getColor(context, R.color.verde)
 
         // set the paint styles
         checkpointPaint.style = Paint.Style.FILL
@@ -56,11 +57,11 @@ class CheckpointSliderView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val margin = 13f
+
 
         // draw the checkpoints at the specified positions
-        canvas.drawLine(checkpointRadius * 2, height / 2f, width - checkpointRadius * 2, height / 2f, linePaint)
-
+        //canvas.drawLine(checkpointRadius * 2, height / 2f, width - checkpointRadius * 2, height / 2f, linePaint)
+/*
         for (i in 0 until numCheckpoints) {
             var x = if (i == numCheckpoints - 1) width - checkpointRadius else checkpointPositions[i] * width
             canvas.drawCircle(x, height / 2f, checkpointRadius, checkpointPaint)
@@ -73,7 +74,16 @@ class CheckpointSliderView @JvmOverloads constructor(
             // draw the checkpoint number on top of the checkpoint
             canvas.drawText((i).toString(), x - textSize / 4, height / 2f - checkpointRadius - textSize / 2, textPaint)
         }
+*/
+        canvas.drawLine(margin, height / 2f, width - margin, height / 2f, linePaint)
 
+        val w2 = (width - (margin * 2.0)) / (numCheckpoints - 1)
+
+        for (i in 0 until numCheckpoints) {
+            canvas.drawCircle(margin + (w2 * i).toFloat(), height / 2f, checkpointRadius, checkpointPaint)
+            canvas.drawCircle(margin + (w2 * i).toFloat(), height / 2f, checkpointRadius -5f, bolaBranca)
+            canvas.drawText((i).toString(), margin +(w2 * i).toFloat() - textSize / 4, height / 2f - checkpointRadius - textSize / 2, textPaint)
+        }
 
         // draw the current position indicator
         canvas.drawCircle(currentPosition , height / 2f, checkpointRadius, checkpointPaint)
@@ -89,23 +99,17 @@ class CheckpointSliderView @JvmOverloads constructor(
                 // handle the user moving their finger along the view
                 // update the current position based on the touch event coordinates
                 currentPosition = event.x
+                val w2 = (width - (margin * 2.0)) / (numCheckpoints - 1)
 
-                if (currentPosition < checkpointPositions[0] * width) {
-                    // if the current position is less than the x position of the first checkpoint, snap the current position to the first checkpoint
-                    currentPosition = checkpointPositions[0] * width
-                } else if (currentPosition > checkpointPositions[numCheckpoints - 1] * width) {
-                    // if the current position is greater than the x position of the last checkpoint, snap the current position to the last checkpoint
-                    currentPosition = checkpointPositions[numCheckpoints - 1] * width
-                } else {
-                    for (i in 0 until numCheckpoints) {
-                        val checkpointX = checkpointPositions[i] * width
-                        if (Math.abs(checkpointX - currentPosition) < snapRadius) {
-                            // if the current position is within the snap radius of a checkpoint, snap the current position to the checkpoint
-                            currentPosition = checkpointX
-                            break
-                        }
+                for (i in 0 until numCheckpoints) {
+                    val spot = margin + (w2 * i).toFloat()
+                    if (Math.abs(spot - currentPosition) < snapRadius) {
+                        // if the current position is within the snap radius of a checkpoint, snap the current position to the checkpoint
+                        currentPosition = spot
+                        break
                     }
                 }
+
                 // redraw the view to update the current position indicator
                 invalidate()
                 return true

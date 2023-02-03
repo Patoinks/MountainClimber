@@ -21,5 +21,10 @@ data class EventoEntity(
     val dateStart: String, // ISTO PODE NAO DAR
     val dateFinish: String,
     val image: String,
-    val description: String
+    val dem: Int,
+    val elevation: Int,
+    val latitude: Float,
+    val longitude: Float,
+    val name: String,
+    val registrations: Int
 )

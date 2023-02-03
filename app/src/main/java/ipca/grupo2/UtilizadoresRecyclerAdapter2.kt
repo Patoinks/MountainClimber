@@ -11,7 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import ipca.grupo2.backend.models.Utilizador
 
-class UtilizadoresRecyclerAdapter2(val utilizadores: MutableList<Utilizador>, val context: Context) :
+class UtilizadoresRecyclerAdapter2(val utilizadores: MutableList<Utilizador>, val context: Context, val EventoID : String) :
     RecyclerView.Adapter<UtilizadoresRecyclerAdapter2.ViewHolder>() {
 
     // Define the ViewHolder class
@@ -29,7 +29,9 @@ class UtilizadoresRecyclerAdapter2(val utilizadores: MutableList<Utilizador>, va
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Retrieve the data for the current position
         val data = utilizadores[position]
-        val bundle = bundleOf("useridD" to data.getId())
+        val bundle = bundleOf("useridD" to data.getId(), "eventoid" to EventoID)
+
+
 
         holder.ButtonNome.setOnClickListener {
             var navController = Navigation.findNavController(holder.itemView)
