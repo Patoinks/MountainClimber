@@ -18,11 +18,11 @@ data class EventoEntity(
     val id: String,
     val idGuia: String,
     val location: String,
-    val dateStart: String, // ISTO PODE NAO DAR
+    val dateStart: String,
     val dateFinish: String,
     val image: String,
     val dem: Int,
-    val elevation: Int,
+    val elevation: Int?,
     val latitude: Float,
     val longitude: Float,
     val name: String,
