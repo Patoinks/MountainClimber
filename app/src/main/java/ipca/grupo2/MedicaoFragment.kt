@@ -125,11 +125,14 @@ class MedicaoFragment : Fragment() {
                     leitura.setIdUtilizador(userid!!)
                     leitura.setO2(rnds)
                     leitura.setData(currentSqlDate)
-                    leitura.setApetite(0)
                     leitura.setAltitude(altitude.toInt())
+
+                    // TODO: poe isto a mandar as cenas certas pls
+                    leitura.setApetite(0)
                     leitura.setCabeca(0)
                     leitura.setNoite(0)
                     leitura.setNausea(0)
+
                     leitura.setId((rnds2).toString())
                     leitura.setIdEvento(db?.eventoDao()?.getCurEventId()!!.id)
 
