@@ -41,7 +41,7 @@ object BackendEvento {
                         if (tempEvento.getIdGuia() == Backend.getCurrentUser()!!.uid)
                             mutableList.add(tempEvento)
                     } catch (e: Exception){
-                        // pls frontend
+                        Log.d("E", e.message!!)
                     }
                 }
             }.await()
