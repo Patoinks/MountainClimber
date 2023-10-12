@@ -1,1 +1,1 @@
-# App to manage/host guided ountaineering.
+# App to manage/host guided mountaineering.
